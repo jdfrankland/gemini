@@ -1,0 +1,223 @@
+\section{CMass Class Reference}
+\label{classCMass}\index{CMass@{CMass}}
+mass excesses, pairing energy, etc  
+
+
+{\tt \#include $<$CMass.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{$\sim$CMass} ()
+\item 
+float \bf{get\-Exp\-Mass} (int i\-Z, int i\-A)
+\item 
+float \bf{get\-Cal\-Mass} (int i\-Z, int i\-A)
+\item 
+float \bf{get\-Shell\-Correction} (int i\-Z, int i\-A)
+\item 
+float \bf{get\-Shell\-Correction2} (int i\-Z, int i\-A)
+\item 
+float \bf{get\-Finite\-Range\-Mass} (int i\-Z, int i\-A)
+\item 
+float \bf{get\-Finite\-Range\-Mass} (float f\-Z, float f\-A)
+\item 
+float \bf{get\-Liquid\-Drop\-Mass} (int i\-Z, int i\-A)
+\item 
+float \bf{get\-Pairing} (int i\-Z, int i\-A)
+\item 
+float \bf{get\-Pairing2} (int i\-Z, int i\-A)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{CMass} $\ast$ \bf{instance} ()\label{classCMass_51bdc5af6783bf9c96a9aeab104caa94}
+
+\begin{CompactList}\small\item\em instance member to make this a singleton \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\bf{CChart} $\ast$ \bf{chart}\label{classCMass_123e5bd2e0b1741449817e01c45c377b}
+
+\begin{CompactList}\small\item\em contains the considered region of the chart of nuclides \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CMass} ()
+\begin{CompactList}\small\item\em constructor \item\end{CompactList}\item 
+void \bf{Read\-FRDMFile} ()
+\item 
+void \bf{Read\-Thomas\-Fermi\-File} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+float $\ast$ \bf{f\-Exp\-Mass}\label{classCMass_94b681f2a0949f6e3abbcb1872e3569a}
+
+\begin{CompactList}\small\item\em experimental mass array \item\end{CompactList}\item 
+float $\ast$ \bf{f\-Cal\-Mass}\label{classCMass_d1d4e9cfdd75aa6a361ab4131a9e3250}
+
+\begin{CompactList}\small\item\em experimental mass array \item\end{CompactList}\item 
+float $\ast$ \bf{f\-FRM}\label{classCMass_b664f2eba3bb5973a5f3a41c5a929f94}
+
+\begin{CompactList}\small\item\em finite range mass array \item\end{CompactList}\item 
+float $\ast$ \bf{f\-Pair}\label{classCMass_74d98a8a5a4a1cbdc1532aaf5408c026}
+
+\begin{CompactList}\small\item\em pairing correction \item\end{CompactList}\item 
+float $\ast$ \bf{f\-Shell}\label{classCMass_b22cbf6a40128e4aa1460b9469e1ab8b}
+
+\begin{CompactList}\small\item\em shell correction \item\end{CompactList}\item 
+float $\ast$ \bf{f\-Shell2}\label{classCMass_32b6d3dcb143489ed987450bd243fd83}
+
+\begin{CompactList}\small\item\em shell correction \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static \bf{CMass} $\ast$ \bf{f\-Instance} = 0\label{classCMass_a92566988e892bcfc9a17bb20e55f32c}
+
+\begin{CompactList}\small\item\em instance member to make tis a singleton \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+mass excesses, pairing energy, etc 
+
+!
+
+Class associated with returning quanties associated with the mass formula 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CMass@{CMass}!CMass@{CMass}}
+\index{CMass@{CMass}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CMass::CMass ()\hspace{0.3cm}{\tt  [protected]}}\label{classCMass_2961afaaf4f193c19108d67a589072f3}
+
+
+constructor 
+
+Constructor \index{CMass@{CMass}!~CMass@{$\sim$CMass}}
+\index{~CMass@{$\sim$CMass}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CMass::$\sim$CMass ()}\label{classCMass_ea23d00a8bcab0fd04aae37739509df0}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\index{CMass@{CMass}!getCalMass@{getCalMass}}
+\index{getCalMass@{getCalMass}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CMass::get\-Cal\-Mass (int {\em i\-Z}, int {\em i\-A})}\label{classCMass_fd7aa662a139853822a373e3098bf3fa}
+
+
+Returns the calculated mass excess from Moller and Nix
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+\index{CMass@{CMass}!getExpMass@{getExpMass}}
+\index{getExpMass@{getExpMass}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CMass::get\-Exp\-Mass (int {\em i\-Z}, int {\em i\-A})}\label{classCMass_2431d9c00dc5a3835e14af2c6d61a764}
+
+
+Returns the experimental mass excess
+
+If teh experimental excess is not known, then the Moller Nix value is returned \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+\index{CMass@{CMass}!getFiniteRangeMass@{getFiniteRangeMass}}
+\index{getFiniteRangeMass@{getFiniteRangeMass}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CMass::get\-Finite\-Range\-Mass (float {\em f\-Z}, float {\em f\-A})}\label{classCMass_ded19b5cce25e6c94596b4e47dad6c84}
+
+
+Calculates macroscopic finite range model masses of spherical nucleus using formula of Krappe, Nix, and Sierk.
+
+Reference- (Phys Rev C20, 992 (1979)) modified to use the parameters of Moller + Nix Nucl. Phys. A361(1981) 117. Pairing correction term for odd-odd nuclei is included, as this is the most appropriate ground state for hot nuclei where shell and pairing effects have washed out. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em f\-Z}]is the proton number \item[{\em f\-A}]is the mass number \end{description}
+\end{Desc}
+\index{CMass@{CMass}!getFiniteRangeMass@{getFiniteRangeMass}}
+\index{getFiniteRangeMass@{getFiniteRangeMass}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CMass::get\-Finite\-Range\-Mass (int {\em i\-Z}, int {\em i\-A})}\label{classCMass_e0a6619be4dd82e97a7ba156af853c9e}
+
+
+Calculates macroscopic finite range model masses of spherical nucleus using formula of Krappe, Nix, and Sierk.
+
+Reference- (Phys Rev C20, 992 (1979)) modified to use the parameters of Moller + Nix Nucl. Phys. A361(1981) 117. Pairing correction term for odd-odd nuclei is included, as this is the most appropriate ground state for hot nuclei where shell and pairing effects have washed out. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+\index{CMass@{CMass}!getLiquidDropMass@{getLiquidDropMass}}
+\index{getLiquidDropMass@{getLiquidDropMass}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CMass::get\-Liquid\-Drop\-Mass (int {\em i\-Z}, int {\em i\-A})}\label{classCMass_360701840914ad23d7ed3c3874ce0fc1}
+
+
+Returns the liquid drop mass from moller and Nix \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the protom number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+\index{CMass@{CMass}!getPairing@{getPairing}}
+\index{getPairing@{getPairing}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CMass::get\-Pairing (int {\em i\-Z}, int {\em i\-A})}\label{classCMass_57d4167da3dd5783572dffacd3f1f644}
+
+
+Returns the pairing correction to the mass formula. From from Moller Nix is used. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+\index{CMass@{CMass}!getPairing2@{getPairing2}}
+\index{getPairing2@{getPairing2}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CMass::get\-Pairing2 (int {\em i\-Z}, int {\em i\-A})}\label{classCMass_b8836a53fe6c21535f969d1c647317d4}
+
+
+Returns the pairing correction to the mass formula. From from Moller Nix is used. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+\index{CMass@{CMass}!getShellCorrection@{getShellCorrection}}
+\index{getShellCorrection@{getShellCorrection}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CMass::get\-Shell\-Correction (int {\em i\-Z}, int {\em i\-A})}\label{classCMass_4e81cde4776e71f637ff28cb7b04f20a}
+
+
+Returns the shell correction from Moller and Nix
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+\index{CMass@{CMass}!getShellCorrection2@{getShellCorrection2}}
+\index{getShellCorrection2@{getShellCorrection2}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CMass::get\-Shell\-Correction2 (int {\em i\-Z}, int {\em i\-A})}\label{classCMass_bb1cecf8c19cba4c047d8376f0ff4895}
+
+
+Returns the shell correction from Moller and Nix
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+\index{CMass@{CMass}!ReadFRDMFile@{ReadFRDMFile}}
+\index{ReadFRDMFile@{ReadFRDMFile}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CMass::Read\-FRDMFile ()\hspace{0.3cm}{\tt  [protected]}}\label{classCMass_95df5960907d3cde94a79ba1de582681}
+
+
+Reads in the mass table from Moller and Nix \index{CMass@{CMass}!ReadThomasFermiFile@{ReadThomasFermiFile}}
+\index{ReadThomasFermiFile@{ReadThomasFermiFile}!CMass@{CMass}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CMass::Read\-Thomas\-Fermi\-File ()\hspace{0.3cm}{\tt  [protected]}}\label{classCMass_f1fa180e06c50061df38460b1116de82}
+
+
+Reads in the mass table from the Thomas Fermi Model of Myers and Swietcki 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CMass.h\item 
+Mass.cpp\end{CompactItemize}

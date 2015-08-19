@@ -1,0 +1,72 @@
+\section{CAngle Class Reference}
+\label{classCAngle}\index{CAngle@{CAngle}}
+polar angles  
+
+
+{\tt \#include $<$CAngle.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CAngle} (float, float)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{CAngle} \bf{transform} (\bf{CAngle} angle1, \bf{CAngle} angle2)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+float \bf{theta}\label{classCAngle_4ce1fc08c3bcabeb4742371708f6ce20}
+
+\begin{CompactList}\small\item\em polar angle in radians \item\end{CompactList}\item 
+float \bf{phi}\label{classCAngle_849918a2e21598520d01438d04c80527}
+
+\begin{CompactList}\small\item\em azimuth angle in radians \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+static float const \bf{pi} = acos(-1.)\label{classCAngle_a78ec96fc7fa58efaed2655d8e3f1e16}
+
+\begin{CompactList}\small\item\em 3.14159 \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+polar angles 
+
+!
+
+Class to deal with polar angles 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CAngle@{CAngle}!CAngle@{CAngle}}
+\index{CAngle@{CAngle}!CAngle@{CAngle}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CAngle::CAngle (float {\em theta0}, float {\em phi0})}\label{classCAngle_770240957a6278e10a64feac3520ad35}
+
+
+Constructor 
+
+\subsection{Member Function Documentation}
+\index{CAngle@{CAngle}!transform@{transform}}
+\index{transform@{transform}!CAngle@{CAngle}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{CAngle} CAngle::transform (\bf{CAngle} {\em angle1}, \bf{CAngle} {\em angle2})\hspace{0.3cm}{\tt  [static]}}\label{classCAngle_f3a0e3ec6de33872a9fa8e57b69bd068}
+
+
+This subroutine performs a rotational transformation.
+
+theta1,phi1 are the coordinates (spherical angles in radians)of a unit vector in the original coordinate systems. the z axis is made to rotate in the phi=phi2 plane by an angle theta2. The coordinates of the vector in the new reference frame are theta3,phi3
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em angle1}]is the initial (theta,phi) angles \item[{\em angle2}]specifies the (theta,phi) rotation \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CAngle.h\item 
+Angle.cpp\end{CompactItemize}

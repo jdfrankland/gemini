@@ -1,0 +1,137 @@
+\section{CTl\-Bar\-Dist Class Reference}
+\label{classCTlBarDist}\index{CTlBarDist@{CTlBarDist}}
+transmission coefficients with barrier distibution  
+
+
+{\tt \#include $<$CTl\-Bar\-Dist.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CTl\-Bar\-Dist} (string)
+\item 
+\bf{$\sim$CTl\-Bar\-Dist} ()
+\item 
+float \bf{get\-Tl} (int i\-L, float f\-Ek, float temp)
+\item 
+float \bf{get\-Tl\-Low} (int i\-L, float f\-Ek, float temp)
+\item 
+float \bf{get\-Tl\-High} (int i\-L, float f\-Ek, float temp)
+\item 
+float \bf{get\-Inverse\-Xsec} (float f\-Ek, float temp)
+\item 
+void \bf{prepare} (int i\-Z0)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static void \bf{set\-Bar\-Width} (float width00)
+\item 
+static float \bf{get\-Bar\-Width} ()
+\item 
+static void \bf{print\-Parameters} ()
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\bf{CTl\-Array} $\ast$ \bf{tl\-Array} [3]\label{classCTlBarDist_b1b034052d1d891b283178cab3e02199}
+
+\begin{CompactList}\small\item\em arrays for standard radii and +- width0 \item\end{CompactList}\item 
+bool \bf{one}\label{classCTlBarDist_8ea42d0d19f5d9de689b55b02cd352b5}
+
+\begin{CompactList}\small\item\em if true, no distribution, just standard radius is used \item\end{CompactList}\item 
+int \bf{i\-Z}\label{classCTlBarDist_a0d1e4422f41890e116c37ea4b60bf61}
+
+\begin{CompactList}\small\item\em calls to get\-Tl refer to this residual proton number \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Private Attributes}
+\begin{CompactItemize}
+\item 
+static float \bf{width} = 1.\label{classCTlBarDist_5c3f55537cedd466a5efc497b26f400f}
+
+\begin{CompactList}\small\item\em width paramter determines shifted radii \item\end{CompactList}\item 
+static float const \bf{width0} = 1.5\label{classCTlBarDist_9df6198d2b6b4801cba17daa1a000624}
+
+\begin{CompactList}\small\item\em results readin from file for this shift \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+transmission coefficients with barrier distibution 
+
+!
+
+calculates transmission coefficients using a simplistic barrier distribution logic. The final result is the average of three transmission coefficients. $ T_{l}(Ek) = \frac{T_{l}^{R_{0}-\Delta R}(Ek) + T_{l}^{R_{0}}(Ek) + T_{l}^{R_{0}+\Delta R}(Ek)}{3} $ where $ T_{l}^{R_{0}}$ is the standard coeff derived using the IWBC and global optical-model potential. The other two are for when the radius of the nuclear potential is shifted by $ \pm \Delta R $. where $ \Delta R = width*\sqrt{temperature} $. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CTlBarDist@{CTl\-Bar\-Dist}!CTlBarDist@{CTlBarDist}}
+\index{CTlBarDist@{CTlBarDist}!CTlBarDist@{CTl\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CTl\-Bar\-Dist::CTl\-Bar\-Dist (string {\em s\-Name0})}\label{classCTlBarDist_f7073363a1867be812439512e618440b}
+
+
+constructor /param s\-Name0 is the name of the files containing fitted coeff. \index{CTlBarDist@{CTl\-Bar\-Dist}!~CTlBarDist@{$\sim$CTlBarDist}}
+\index{~CTlBarDist@{$\sim$CTlBarDist}!CTlBarDist@{CTl\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CTl\-Bar\-Dist::$\sim$CTl\-Bar\-Dist ()}\label{classCTlBarDist_33ee7618d6bf5794654b927ec4c8df20}
+
+
+destructor 
+
+\subsection{Member Function Documentation}
+\index{CTlBarDist@{CTl\-Bar\-Dist}!getBarWidth@{getBarWidth}}
+\index{getBarWidth@{getBarWidth}!CTlBarDist@{CTl\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CTl\-Bar\-Dist::get\-Bar\-Width ()\hspace{0.3cm}{\tt  [static]}}\label{classCTlBarDist_3105dfe03e2ac426ab7b381022f6bb87}
+
+
+returns the parameter controlling the width of the barrier dist \index{CTlBarDist@{CTl\-Bar\-Dist}!getInverseXsec@{getInverseXsec}}
+\index{getInverseXsec@{getInverseXsec}!CTlBarDist@{CTl\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CTl\-Bar\-Dist::get\-Inverse\-Xsec (float {\em f\-Ek}, float {\em temp})}\label{classCTlBarDist_913e52ffd909bca82ef6c5e0f4e9a271}
+
+
+returns the quantity $S=\sum_{\ell=0}^{\infty} (2\ell+1)T_{\ell}(\varepsilon)$ which is related to the inverse cross section by $S=\frac{\sigma_{inv}}{\pi\lambda^{2}}$ \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em f\-Ek}]is the kinetic energy of the evaporated particle \item[{\em temp}]is temperature of daughter in Me\-V \end{description}
+\end{Desc}
+\index{CTlBarDist@{CTl\-Bar\-Dist}!getTl@{getTl}}
+\index{getTl@{getTl}!CTlBarDist@{CTl\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CTl\-Bar\-Dist::get\-Tl (int {\em i\-L}, float {\em f\-Ek}, float {\em temp})}\label{classCTlBarDist_d797206db604d037e74be189a14c7325}
+
+
+returns the transmission coeff, including barrier distibution /param i\-L is orbital angular momentum of evaporated particle /param f\-Ek is the kinetic energy in Me\-V of the evaporated particle /param temp is the temperature in Me\-V of daughter \index{CTlBarDist@{CTl\-Bar\-Dist}!getTlHigh@{getTlHigh}}
+\index{getTlHigh@{getTlHigh}!CTlBarDist@{CTl\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CTl\-Bar\-Dist::get\-Tl\-High (int {\em i\-L}, float {\em f\-Ek}, float {\em temp})}\label{classCTlBarDist_19c7c281fd6145952e4a8413faf32eec}
+
+
+The transmission coeff is determine from the average of three transmission coeff. This routine returns the one of these three transmission coeff. with the highest barrier
+
+/param i\-L is orbital angular momentum of evaporated particle /param f\-Ek is the kinetic energy in Me\-V of the evaporated particle /param temp is the temperature in Me\-V of daughter \index{CTlBarDist@{CTl\-Bar\-Dist}!getTlLow@{getTlLow}}
+\index{getTlLow@{getTlLow}!CTlBarDist@{CTl\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CTl\-Bar\-Dist::get\-Tl\-Low (int {\em i\-L}, float {\em f\-Ek}, float {\em temp})}\label{classCTlBarDist_738e5e7608dca02198a8af5bb3e7fed5}
+
+
+The transmission coeff is determine from the average of three transmission coeff. This routine returns the one of these three transmission coeff. with the lowest barrier /param i\-L is orbital angular momentum of evaporated particle /param f\-Ek is the kinetic energy in Me\-V of the evaporated particle /param temp is the temperature in Me\-V of daughter \index{CTlBarDist@{CTl\-Bar\-Dist}!prepare@{prepare}}
+\index{prepare@{prepare}!CTlBarDist@{CTl\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CTl\-Bar\-Dist::prepare (int {\em i\-Z0})}\label{classCTlBarDist_c79746380ee2016f3b170de827e28a9f}
+
+
+prepares for a series of opertions for a given i\-Z /param i\-Z0 is proton number of daughter \index{CTlBarDist@{CTl\-Bar\-Dist}!printParameters@{printParameters}}
+\index{printParameters@{printParameters}!CTlBarDist@{CTl\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CTl\-Bar\-Dist::print\-Parameters ()\hspace{0.3cm}{\tt  [static]}}\label{classCTlBarDist_92287b3be6a24629d8c8cd04b9c86590}
+
+
+prints out the width parameter \index{CTlBarDist@{CTl\-Bar\-Dist}!setBarWidth@{setBarWidth}}
+\index{setBarWidth@{setBarWidth}!CTlBarDist@{CTl\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CTl\-Bar\-Dist::set\-Bar\-Width (float {\em width00})\hspace{0.3cm}{\tt  [static]}}\label{classCTlBarDist_482b5e98097343b7d7f37c68091343f0}
+
+
+set the parameter controlling the width of the barrier distribution \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em width00}]- radial shift is $ \Delta R= \sqrt T* width00 $ \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CTl\-Bar\-Dist.h\item 
+Tl\-Bar\-Dist.cpp\end{CompactItemize}

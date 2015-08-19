@@ -1,0 +1,112 @@
+\section{CTl\-Array Class Reference}
+\label{classCTlArray}\index{CTlArray@{CTlArray}}
+IWBC transmission coefficients.  
+
+
+{\tt \#include $<$CTl\-Array.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CTl\-Array} (string)
+\item 
+float \bf{get\-Term\-In\-Exp} (int i\-L, float f\-Ek)
+\item 
+void \bf{prepare} (int i\-Z)
+\item 
+float \bf{get\-Tl} (int i\-L, float f\-Ek)
+\item 
+float \bf{get\-Inverse\-Xsec} (float f\-Ek)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \bf{i\-ZMin}\label{classCTlArray_e3c9a7b0480c4bcff98f10970ed99051}
+
+\begin{CompactList}\small\item\em the minimum Z-value for coefficinets are stored \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\bf{SZcoef} \bf{zcoef}\label{classCTlArray_5028ad63ebf842107ed442c414510abc}
+
+\begin{CompactList}\small\item\em structure to store coefficients parametrizating Tl's \item\end{CompactList}\item 
+string \bf{s\-Name}\label{classCTlArray_34cd39424a5bd64bd88c143d051e1ceb}
+
+\begin{CompactList}\small\item\em name of file containg Tl parameters \item\end{CompactList}\item 
+float \bf{shift}\label{classCTlArray_81585d8de22b732d853064f63d1105f2}
+
+\begin{CompactList}\small\item\em energy shift used in the parametrization \item\end{CompactList}\item 
+\bf{SAng\-Tl} $\ast$ \bf{trans}\label{classCTlArray_c052b5a65a2c6701f1bc7ad3a383a24b}
+
+\begin{CompactList}\small\item\em pointer to coefficents for a select i\-Z \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+IWBC transmission coefficients. 
+
+!
+
+Provides transmission coefficients and inverse cross sections for light-partice evaporation 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CTlArray@{CTl\-Array}!CTlArray@{CTlArray}}
+\index{CTlArray@{CTlArray}!CTlArray@{CTl\-Array}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CTl\-Array::CTl\-Array (string {\em s\-Name0})}\label{classCTlArray_2da7e96c7b1c0e751799cc2efa35440e}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em s\-Name0}]is the name of the $\ast$.tl file in directory /tl where the parameters specifying the transmission coefficents are contained \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{CTlArray@{CTl\-Array}!getInverseXsec@{getInverseXsec}}
+\index{getInverseXsec@{getInverseXsec}!CTlArray@{CTl\-Array}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CTl\-Array::get\-Inverse\-Xsec (float {\em f\-Ek})}\label{classCTlArray_b9a9ae1a39619e3a2836b2001dcb39ba}
+
+
+returns the quantity $S=\sum_{\ell=0}^{\infty} (2\ell+1)T_{\ell}(\varepsilon)$ which is related to the inverse cross section by $S=\frac{\sigma_{inv}}{\pi\lambda^{2}}$ \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em f\-Ek}]is the kinetic energy of the evaporated particle \end{description}
+\end{Desc}
+\index{CTlArray@{CTl\-Array}!getTermInExp@{getTermInExp}}
+\index{getTermInExp@{getTermInExp}!CTlArray@{CTl\-Array}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CTl\-Array::get\-Term\-In\-Exp (int {\em i\-L}, float {\em f\-Ek})}\label{classCTlArray_b3722411ddf490b7057cd8df907bf559}
+
+
+The transmission coeff are parameterized as $\frac{1}{1+exp(x)}$ this function returns the value of x \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-L}]is the orbital angular momentum of the evaporated particle \item[{\em f\-Ek}]is the kinetic energy of the evaporated particle \end{description}
+\end{Desc}
+\index{CTlArray@{CTl\-Array}!getTl@{getTl}}
+\index{getTl@{getTl}!CTlArray@{CTl\-Array}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CTl\-Array::get\-Tl (int {\em i\-L}, float {\em f\-Ek})}\label{classCTlArray_a8d48df48e1c635f88157c081500f893}
+
+
+Returns the transmission coefficient \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-L}]is the orbital angular momentum of the evaporated particle \item[{\em f\-Ek}]is the kinetic energy of the evaporated particle \end{description}
+\end{Desc}
+\index{CTlArray@{CTl\-Array}!prepare@{prepare}}
+\index{prepare@{prepare}!CTlArray@{CTl\-Array}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CTl\-Array::prepare (int {\em i\-Z})}\label{classCTlArray_714f982512481d8d188ea536235d84b6}
+
+
+prepares for a series of calls with the same Z value \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number of the daughter \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CTl\-Array.h\item 
+Tl\-Array.cpp\end{CompactItemize}

@@ -1,0 +1,114 @@
+\section{CChart Class Reference}
+\label{classCChart}\index{CChart@{CChart}}
+defines accessable region of chart of nuclides  
+
+
+{\tt \#include $<$CChart.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{$\sim$CChart} ()
+\item 
+int \bf{get\-Amax} (int i\-Z)
+\item 
+int \bf{get\-Amin} (int i\-Z)
+\item 
+int \bf{get\-Index} (int i\-Z, int i\-A)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{CChart} $\ast$ \bf{instance} ()\label{classCChart_293506d40da32820261223dceba12afc}
+
+\begin{CompactList}\small\item\em instance member to make this a singleton \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \bf{i\-Mass\-Dim}\label{classCChart_7c134e430124d634fb643fde634137e0}
+
+\begin{CompactList}\small\item\em dimension of mass array \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CChart} ()
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\bf{SIsotope} $\ast$ \bf{isotope}\label{classCChart_b078bb8c0ccd761e510a2a089d07a6b1}
+
+\begin{CompactList}\small\item\em lists max and min A for each Z \item\end{CompactList}\item 
+int $\ast$ \bf{i\-Zindex}\label{classCChart_ed688736582efc7b865923a72c02e71e}
+
+\begin{CompactList}\small\item\em list the array number of the lightest isotope of each Z \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Private Attributes}
+\begin{CompactItemize}
+\item 
+static \bf{CChart} $\ast$ \bf{f\-Instance} = 0\label{classCChart_81924abfc27faacf471a13430f0013df}
+
+\begin{CompactList}\small\item\em instance member to make this class a singleton \item\end{CompactList}\item 
+static int const \bf{i\-Zmax} = 136\label{classCChart_2ae54c9323a890abd5e496e42a1332ec}
+
+\begin{CompactList}\small\item\em max Z allowed in GEMINI \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+defines accessable region of chart of nuclides 
+
+!
+
+contains the neutron rich and proton rich limits to the chart of nuclides for which decay fragments can be chosen 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CChart@{CChart}!CChart@{CChart}}
+\index{CChart@{CChart}!CChart@{CChart}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CChart::CChart ()\hspace{0.3cm}{\tt  [private]}}\label{classCChart_5487e6755d174a556cf9705ea69ceb1d}
+
+
+Constructor reads in files with neutron and proton rick limits \index{CChart@{CChart}!~CChart@{$\sim$CChart}}
+\index{~CChart@{$\sim$CChart}!CChart@{CChart}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CChart::$\sim$CChart ()}\label{classCChart_66890c06bca14a03b2e44d312a77d86a}
+
+
+descructor 
+
+\subsection{Member Function Documentation}
+\index{CChart@{CChart}!getAmax@{getAmax}}
+\index{getAmax@{getAmax}!CChart@{CChart}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int CChart::get\-Amax (int {\em i\-Z})}\label{classCChart_e8dc2778d3aa4aced64e4f9770ecce0f}
+
+
+Returns the minimum i\-A for a given element that will be considered in the decay \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \end{description}
+\end{Desc}
+\index{CChart@{CChart}!getAmin@{getAmin}}
+\index{getAmin@{getAmin}!CChart@{CChart}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int CChart::get\-Amin (int {\em i\-Z})}\label{classCChart_e055972f3bdbd9445d9c8880cb3f8038}
+
+
+returns the maxium i\-A for a given element that will be considered in the decay \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \end{description}
+\end{Desc}
+\index{CChart@{CChart}!getIndex@{getIndex}}
+\index{getIndex@{getIndex}!CChart@{CChart}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int CChart::get\-Index (int {\em i\-Z}, int {\em i\-A})}\label{classCChart_3eec994101c137549298aa062d8a45ce}
+
+
+Returns the index number of a particular nuclide \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CChart.h\item 
+Chart.cpp\end{CompactItemize}

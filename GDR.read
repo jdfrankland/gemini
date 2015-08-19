@@ -1,0 +1,28 @@
+For users using GEMINI for GDR studies. 
+GEMINI was recently modified following the work of 
+Michal Ciemala see Acta. Phys. Pol. B44 611 (2013).
+It now calculates the full gamma decay cascade.
+For E1 decay, by default,  it uses a single Lorentzian
+Line shape for the GDR where the centroid and width come from 
+systematics. There is also the possibilty of a user defined
+line shape if CNucleus::GDRParam = true. 
+Use function CNucleus::setUserGDR() to change GDRParam. 
+
+The user-defined line-shape is made up of a sum of up to 
+5 Lorentzians. The strength, centroid and width of each of these
+should be written to the file tbl/GDR.inp. The sum of the strengths
+should add to unity. The width and centroid are in units of MeV.
+
+
+ The gamma-ray energies in units of [MeV] are stored in 
+CNucleus::GammaRayEnergy. These can be 
+accessed with the function CNucleus::getGammaRayEnergy. The gamma-ray energies
+are the energies in the frame of the decaying parent. No Dopler corrections 
+have been made and no angle information is stored.
+
+See the program testDecay.cpp for an example of the handling of the 
+gamma-ray energies. program root2/fusion.cpp also 
+makes some gamma-ray spectra. 
+
+
+ 

@@ -1,0 +1,76 @@
+\section{CGdr Class Reference}
+\label{classCGdr}\index{CGdr@{CGdr}}
+user-defined GDR line shape  
+
+
+{\tt \#include $<$CGdr.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+float \bf{get\-Line\-Shape} (float e)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{CGdr} $\ast$ \bf{instance} ()\label{classCGdr_131eef37cba9a67f5f6ccc280824c4e0}
+
+\begin{CompactList}\small\item\em instance member to make this a singleton \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CGdr} ()
+\begin{CompactList}\small\item\em constructor \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int \bf{N}\label{classCGdr_b42cca3337ea954ce7962f02594da7dc}
+
+\begin{CompactList}\small\item\em number of Lorentzians in lineshape \item\end{CompactList}\item 
+\bf{Lshape} \bf{line\-Shape} [5]\label{classCGdr_57ae6b6a88ea9ba25effa74b1cbc3c0b}
+
+\begin{CompactList}\small\item\em parameters for each Lorentzian \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static \bf{CGdr} $\ast$ \bf{f\-Instance} = 0\label{classCGdr_110074ff5463736410db73cf879a1da7}
+
+\begin{CompactList}\small\item\em instance member to make this a singleton \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+user-defined GDR line shape 
+
+!
+
+Reads in and calculates the GDR line shape in the E1 gamma-decay branch of a hot compound nucleus. It reads file tbl/GDR.inp for the parameters of up to 5 Lorentzians. The parameters are the strength, the centriod [Me\-V] and the width [Me\-V]. The sum of the stregths should add to unity 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CGdr@{CGdr}!CGdr@{CGdr}}
+\index{CGdr@{CGdr}!CGdr@{CGdr}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CGdr::CGdr ()\hspace{0.3cm}{\tt  [protected]}}\label{classCGdr_52f73d6ce2df98d16f9a967daf751e85}
+
+
+constructor 
+
+Constructor 
+
+\subsection{Member Function Documentation}
+\index{CGdr@{CGdr}!getLineShape@{getLineShape}}
+\index{getLineShape@{getLineShape}!CGdr@{CGdr}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CGdr::get\-Line\-Shape (float {\em e})}\label{classCGdr_a29daeb20eee74d9d7026d93d44bf152}
+
+
+returns the GDR line shape as a sum of up to 5 user-defined Lorentzians \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em e}]is the gamma energy in Me\-V \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CGdr.h\item 
+Gdr.cpp\end{CompactItemize}

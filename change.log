@@ -1,0 +1,319 @@
+13th May 2008 - first release 
+4th June 2008 - bug fix
+25th June 2008 - changes to aid portability, include possibility of Be evap
+	         for Hauser-Feshbach
+4th July  2008 - fixed bug for nonstatistical decay
+24th July 2008 - fixed monor bug in CTlBarDist and a more important bug in 
+	         CNucleus affecting decay of low spin systems. Also forced 
+	         decay of 8Be and other systems with unstable ground states.
+12th Aug 2008 - modified selectJ in Nucleus so it does not need so many tries.
+27th Oct 2008 - The extrapolation of asymmetric barrier for nuclei heavier than
+	        194Hg was bad- gave too many imf for heavy systems - changed
+	        Yrast.pp to give better results
+	        Changed the function describing the fadeout of shell effects
+	        from h(U) = 1.-exp(-gamma*U) given by Ignatyuk to 
+	        h(U) = tanh(gamma*U) in LevelDensity.cpp
+1st Feb 2009    Added a new function to CNucleus class which gives a point to 
+	        the parent fragment - This was requested so that one see
+	        if an imf was directly emitted or underwent sequential decay.
+	        Important for determining temperatures from isotope ratios.
+6th Feb 2009    Received complaints that GEMINI++ was crashing for events 
+	        with very high spin above the value where the fission barrier 
+	        vanishes. Although one shouldn't really run GEMINI++ for 
+	        such cases, I modified CYrast::prepareAsyBarrier to give a
+ 	        better extrapolation to high spins and stopped GEMINI++ from
+	        crashing.
+6th Feb 2009    Based on work trying to fit fission probabilities in both 
+	        fusion and spallation reactions, I have revised the default
+	        parameters.
+	
+	        Now CNucleus::fissionScaling factor =1.00
+	            CLevelDensity::af/an =1.04
+
+	        Before CNucleus::fissionScaling factor =2.46
+	               CLevelDensity::af/an =1.00
+	
+	        This set seems to work for fusion reaction with A<208 and 
+	        all spallation reactions. For Fusion with A>208 we find
+	        af/an=1.01-1.025 works better. Hopefully in the future I will
+	        find a parameter set that works for both fusion and spallation
+	        for the heavy systems
+29 th Mar 2009  CNucleus::getVelocity correct a mistype
+7th   May 2009  added an abort event option - at the moment events are only
+	        aborted if the symmetric fission and the variance of the mass 
+	        distribution from the systematics is negative. This occurs
+	        very rarely and only for the fission of a very light nucleus.
+	        The events is aborted and the decay of the compound nucleus 
+	        is started again. three aborts for the same compound nucleus
+	        terminates the program.
+11th May 2009   modification to Scission.cpp to deal with cases where 
+	        d2vdeta2 < 0 from original application of Rusanov systematics
+	        of fission mass witdths. Also some more modifications of the 
+	        abortEvent logic. Now after three tries to decay an event, 
+	        if it is not possible, gemini does not abort, but the 
+	        abortEvent is set to true. 
+10Th June 2009  The Sierk routine has given negative moments of inertia for 
+                exotic nuclei (Z=24, A=39). This messes up the getYrast 
+	        routine. I have added a test to see if the moment of inertia
+	        is negative and, if so, sets this to the spherical value
+12th Aug 2009   Whoops! seems for asymmetric fission I wasn't giving 
+	        the fragments any kinetic energy. fixed.
+19tH Aug 2009   bug in getYrast fixed. Also problem found by Zhiqiang Chen
+	        in Nucleus causing memory leaks has been corrected.
+9th Oct  2009   fixed a bug in Nucleus.cpp for asymmetric fission
+20th Oct 2009   There was a problem in TLBarDist for protons in the 
+	        extrapolation of the transmission coefficents to 
+	        high l-waves. This produced proton kinetic-energy 
+	        distributions with a second "Coulomb barrier".
+	        I have also modified the Yrast line for light systems to
+	        give the correct alpha-particle kinetic energy spectra.
+	        This modification can be turned off with CYrast::forseSierk().
+30th Oct 2009   Davide Mancusi found a minor bug which rarely caused to 
+	        progam to crash which we fixed. assocaited with geting the KE 
+	        of an asymmetric Fission fragment.  
+13th Nov 2009   added a printParameters function to CYrast	
+23rd Dec 2009   added getLightDaughter and getHeavyDaughter functions
+	        to nagivate through the binary tree structure containing
+	        the decay history.
+27Th Jan 2010   a)Davide Mancusi alerted me to the existance of negative times.
+	        These were a result that the force8Be, force5Li and force5He
+	        functions do not assign time and the notStatistical part
+	        of binaryDecay also does not. For the latter I had to add a 
+	        new column in evap.inp to read in the widths of the states
+	        to determine the time.
+	        b) Also added new default values of 
+	               CLevelDensity::Jfade
+		       CLevelDensity::aKappa
+		       CLevelDensity::cKappa
+	               CTlBarDist::width
+	       c)Also made CLevelDensity::PrintParameters()
+	       print out eFad and jFade.
+	       d) For asymmetric fission, changed from asyFissionWidthZA()
+	       to asyFissionWidth()
+7th March 2010 A number of changes which speedup the code somewhat
+	       In CMass - shell corrections are now stored, but deformations
+	         are not.
+	       In CNucleus - faster more inteligent sums over E* and J in 
+	         the hauser Feshbach - new functions  S2Loop2, EkLoop2, S1Width
+	         EkWidth
+	       In CTlArray - new function prepare.
+	       In CTlBarDist - new function prepare.
+
+23rd Sept 2010 a)got rid of original, but unused  S2loop and EkLoop routines
+	       and replaced them with S2Loop2, EkLoop2
+	       b) the scission point logic for fission mass distributions 
+	         didn't work for spalltion reactions, so I tried the 
+	         saddle-point logic which works for both fusion and spallation.
+	         You can switch bewteen them with teh bool variable
+	         fissionMassScission. The saddle-point logic is the default.
+	       c) introduced new static function setSolution. This can set
+	          either of the two fission solutions obtained in the 
+	          Mancusi,Charity,and Cugnon paper.
+	       d) Introduced variable GINPUT to point to directories 
+	          containing the directories tl and tbl with input files.
+	          If not set it looks in the current directory. 
+	          You can set it with the export command
+17th Dec 2010   a) little inconsistancy with shell and pairing correction 
+	           to fission barrier - only affected post fission part
+	        b) added function getSumGammaEnergy() to give total energy 
+	           removed by gamma rays
+	        c) added function getTime() to give the time a fragment 
+	           was created
+10th Feb 2011    Zach Kohley found a bug in the fission-fragment angular 
+	         distributions which I corrected.
+15th Feb 2011   Thomas Ullrich found a bug with CRandom.Gaus. This would 
+	        not have been a problem unless one used HF=0(not default)
+8th Mar 2011    added #include <cstdlib> to CLeveldensity.h, my compiler
+	        does it automatically, but Anne Caraley's doesn't
+14th Mar 2011   For those going to very large excitation energy, made 
+	        gemini++ swith automatically to our high-excitation 
+	        energy prescription of fission at E/A > 3 MeV.  
+	        (See PRC 82 (2010) 044610). Fission is also tuned off above 
+	        6 MeV, as we get conceptual problems, i.e., 
+	        most, or all, of the system mass is evaporated 
+	        during the saddle to scission transition.  
+	        The accuracy of the predictions at this excitation energy
+                are not known, use at you own risk.	
+	
+15th Mar 2011   I included modifications by Thomas Ullrich, this makes
+	        the class CMass a singleton. This helps the code compile
+	        without error on more machines. Most linux users will not 
+	        notice. 
+21th Mar 2011   Modifed imf emission to strictly enforce energy conservation.
+	        Added fluctuations to coulomb energy for imf emission.
+26th Mar 2011   modified getSep() in Scission.cpp to avoid an infinite loop
+2nd  Aug 2011    Big changes to evaporation options with possible big
+	        increases in speed.
+                The Default option is calculate the evapation decay width
+	        from either the Hauser-Feshbach or Weisskopf formalisms,
+                depending on ratio of rotational to thermal energy.
+	        if this ratio is > 0.25, the Hauser-Feshback formalism is 
+	        used. Otherwise the Weisskopf formalism is used to get the
+	        decay widths and choose the kinetic energy of the particle.
+	        Then for this kinetic energy, the Hauser-Feshback formalism
+ 	        is used to get the orbital angular moment and spin of the 
+	        residue. One can also use the function SetEvapMode to 
+	        ensure only Hauser_feshback(iHF=1), only Weisskopf (iHF=0).
+ 	        For the Weisskopf part, I have also added a new classes 
+	        to calculate inverse section CSigCharged and CSigBarDist.
+	        The Hauser-Feshbach part has also been changed to speed it up.
+	        The paramters of the residue nucleus are only calculated if 
+	        that channel is selected. This involves storing more 
+	        information and may be one down if the compter does have 
+	        enough memory.
+	        For 1 GeV spalation reactions, the default EvapMode
+	        increase the speed by a factor of 6 to 8. For heavy-ion induced
+	        fusion one may want to enforce the Hauser-Feshbach option.
+25th Aug 2011   Davide 	Mancusi fround a minor memory leak.        
+7th Sept 2011   The fade out of pairing was not consistent in Hauser-Feshbach
+	        and Weisskopf calculations. Allows for calls to the 
+	        leveldensity function with negative energy in the Weisskopf
+	        calculations. The level density parameter is calculated with 
+	        spin abs(fJ) and then the spin is ignored. This bug was found 
+	        by Davide Mancusi. 
+7th Nov 2011    Based on suggestion from Davide Mancusi extended isFission
+	        function to two new functions
+     	        isSymmetricFission - indicating a symmetric fission occurred
+	        isAsymmetricFission - that an asymmetric fission occurred 
+	                               in the decay
+11th Nov 2011   extended transmisson coefficents function to work
+	        for nuclei with Z up to 120.
+
+2nd April 2012  a) force9B didn't assign parentage
+	        b) light fragments call prepareAsyBarrier even when is 
+	           was not possible for an IMF emission. Eric Bonnet helf
+	           find this one
+	        c) evaporation decay of excited 5Li,6Li,7Li, 5He which are 
+	           notStatistical = false, left an excited alpha.
+	           We now let all the excitation energy go into kinetic energy
+	        These three changes were made to Nucleus.cpp
+4th April 2012 force9B didn't assign times to products. fixed.	
+5th April 2012 added the class History writtem by Davide Mancusi
+10th April 2012 Davide Mancusi modified the code to remove some compiler 
+	         warning on his computer	
+23rd April 2012 a)added a sample heavy ion fusion main code to calculate so 
+	        simple quentities. This should be easily expanded to suit
+	        the needs of most users.
+	        b)created a getZmaxEvap() function to return the max Z for 
+	        evaporation. 
+
+	        c)Fixed isSaddleToScission() function.
+
+	        d)Now have tow origin parameters
+
+	        origin = 0 then not from fission fragment or IMF
+	        origin = 1 then saddle to scission
+	        origin = 2 from light fission fragment or IMF
+	        origin = 3 from heavy fission fragment or heavy 
+	                   daughter after IMF emission
+
+	        origin2 = 0 then not from a fission fragment
+	        origin2 = 1 the saddle to scission
+	        origin2 = 2 from light fission fragment
+	        origin2 = 3 from heavy fission fragment
+
+	        note in origin, fission and IMF emission are treated the same
+	        whereas for origin2, evaporation and IMF emission are 
+	        treated the same.
+
+      	        e) introduced a EkFraction static variable in CNucleus 
+	           to allow peaople to easily extent how far out in 
+	           Ek they go, if you are trying to make EK spectra 
+	
+7th May 2012   a) the functions isResidue(), isSymmetricFission, and 
+	       isAsymmetricFission() were not 
+	       working. Needed to reset the logicals in the Reset function
+	       b)stopped multiple calls to getCompoundNucleus which 
+	       were not needed. might save a tiny little bit of time, 
+	       but probably not important.
+
+5th June 2012  modification to Run.cpp to remove uninteresting histograms 
+	       and label the axies of existing histograms.
+	       Incorporated Davide Mancusi modifications
+	       associated with choosing the spin of the residual nucleus
+	       in CNuclues:getSpin
+	      
+9th July 2012  documentation of Histrory calls added, and some other 
+	       correction to avoid divide by zeros, etc, by Davide Mancusi
+11th July 2012 Made sure there was no overlap in nuclei production 
+	       between asymmetric fission and symmertic fission. Previously
+	       for light nuclei we have both mechanisms producing the same
+	       isotopes. To do this I stored the maximum Z for asymmetric 
+	       fission (iZ1_IMF_Max). 
+26th July 2012 added functions getFissionTimeSymmetric and 
+	       getFissionTimeAsymmetric to give the saddle and scission times 
+	       assocaited with symmetric and asymmetric fission. 
+6th August 2012 The classes CEvap, CLevelDensity, CChart are now made to 
+	       be singletons.
+4th Sept 2012 The level density returned from getLogLevelDensitySpherical
+	      was missing some constants. This was found by Cheng Lei.
+	      These probably got lost in the conversion from fortran.
+	      This is generally not a big deal as the decay 
+	      widths are only sensitive to the relativel level density. 
+	      But to be consistant I included these constants.
+	      Also stopped the code crashing if k0 == kInfinity
+4th October  for the "statistical" decay of Z=2+3 fragments 
+	     if the decay did not occur, so no velocity was assigned 
+	     to the final fragments. I noticed a few 6Li and 7Li 
+	     fragments with zero velocity. Fixed this.
+	     Noticed some strange artifacts form the TlBarDist code for 
+	     protons in lighter nuclei. 
+	     These are a result of bad extrapolations of the IWBC
+	     transmission coefficents at large l when the barrier distrance 
+	     is decreased. Until I find a better extrapolation, I have turned 
+	     off barrier distributions for proton. Should not have a big 
+	     effect.
+8th Nov 2012 a)Created a CNucleus() constructor, i.e no arguements
+	     b)The J-dependent level density was still used for the 
+	     compound nucleus in the Weisskopf formalism. We now use a 
+	     J-independent value
+	     c) The code automatically switches to the high-ecitation energy
+	        form of the level density above E/A=3, but if liitle 
+	        is constant, i.e., aKappa = 0, then this level density 
+	        prescription does not work, so in such cases we now 
+	        use the low excitation-energy formalism
+26th Nov 2012 A previous modification tried to restrict negative excitation 
+	      energies, however these are possible during saddle to scission 
+	      emission. so these were allowed again.
+12th Feb 2013 Davide Mancusi made the storage arrays vectors, so we do not
+	      have to worry about them overflowing the array length now.
+	      Also made Run and RunThick a litle more elegant
+26th Feb 2013 For convience I separated the getLittleA function into two parts
+	      a) a getU() to determined the backshifted excitation energy
+	      b) an extra getLittleA fuction with fewer arguements 
+	         to determine the level density parameter. 
+	      I also included an example code for alpha-induced reactions, 
+	      where the initial compound-nucleus spin distribution comes from 
+	      an optical-model calculation with the Avigeanu global 
+	      parametrization. The OM code is included.
+27th Mar 2013 The Qvalue in RunAlpha, was set to a fixed value for test, 
+	      forget to delete this line and let the code calculate the Qvalue
+
+21st Mar 2014 a) Made CRandom an instance 
+	      b) alternatice CRandom class (in directory root2) that uses
+	       the root TRandom3 class to generate the random numbers
+	      c) Run.cpp and RunThick Z,A,N, spectra limits changed to reflect 
+	          interger values
+	      d) pairing energy redefine for N+Z old, 
+	      e) in AsyFissionDivide, better subdivison of excitaion energy,
+	         now proportional to rho1(E*)rho2(R*tot-E*)
+2nd May 2014  a) While looking at the predicted odd-even effects I found
+	         The Frinite-Range model had ood-evene effects in its 
+	         shell corrctions. I have decide to try and wash these out,
+	         at least as a function of N.
+	         
+17th June 2014 Whoops, only n and p evaporation decay modes were allowed,
+	       This was put in to debug the last version and never taken out.
+               Now its out.  Also applied EkFraction to Weisskopf formalism
+	       so the Ek distribution for evaporation can be extented to 
+	       larger values. 
+12th July 2014 Implimented the changed to GEMINI by Michal Ciemala
+	       Acta. Phys. Pol. B44 611 (2013) for gamma ray decay and a 
+	       user defined GDR line shape. 
+14th July 2014 Implimented new class CGdr to handle the Giant Dipole resonance
+	       This readin the user-defined GDR parameters from the file
+	       tbl/GDR.inp and calculated the GDR line shape from these 
+	       parameters
+15th Aug 2014  Modified Run.cpp to include some inclusive n,p,a kinetic energy
+	       spectra, also corrected some mislabelling of axies in 
+	       existing spectra. Added include <cstdlib> to CGdr.h

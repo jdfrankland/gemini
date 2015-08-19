@@ -1,0 +1,119 @@
+\section{CLight\-P Class Reference}
+\label{classCLightP}\index{CLightP@{CLightP}}
+deals with a particular evaporation channel  
+
+
+{\tt \#include $<$CLight\-P.h$>$}
+
+Inheritance diagram for CLight\-P::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classCLightP}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CLight\-P} (int \bf{i\-Z}, int \bf{i\-A}, float f\-S, string s\-Name)
+\begin{CompactList}\small\item\em constructor which creates a \doxyref{CTl\-Bar\-Dist}{p.}{classCTlBarDist} object \item\end{CompactList}\item 
+\bf{CLight\-P} (int, int, float, \bf{CTl\-Bar\-Dist} $\ast$, \bf{CSig\-Bar\-Dist} $\ast$)
+\begin{CompactList}\small\item\em constructor which uses an existing \doxyref{CTl\-Bar\-Dist}{p.}{classCTlBarDist} object \item\end{CompactList}\item 
+\bf{$\sim$CLight\-P} ()
+\begin{CompactList}\small\item\em destructor \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\bf{CTl\-Bar\-Dist} $\ast$ \bf{tl\-Array}\label{classCLightP_beeff57d9152d9d9d8fb698467cf4206}
+
+\begin{CompactList}\small\item\em gives transmission coefficients \item\end{CompactList}\item 
+\bf{CSig\-Bar\-Dist} $\ast$ \bf{sig\-Bar\-Dist}\label{classCLightP_167d46c4fa628d3ade499f23a159ab60}
+
+\begin{CompactList}\small\item\em gives inverse xsections for charged part \item\end{CompactList}\item 
+float \bf{suppress}\label{classCLightP_3a274ab06295deecc7ac6bd92057f754}
+
+\begin{CompactList}\small\item\em suppression factor to scale Hauser-Feshbach width \item\end{CompactList}\item 
+float \bf{f\-MInertia}\label{classCLightP_445e25b6dc7b76252bb89a2af68512c3}
+
+\begin{CompactList}\small\item\em moment of inertia of residue \item\end{CompactList}\item 
+float \bf{f\-MInertia\-Orbit}\label{classCLightP_86367a01c26cb399668cb6d25162374a}
+
+\begin{CompactList}\small\item\em moment of inerria for orbit of light P \item\end{CompactList}\item 
+float \bf{separation\-Energy}\label{classCLightP_2ddf1727b00b3687c10127b8ae8ffcaf}
+
+\begin{CompactList}\small\item\em separation energy in Me\-V \item\end{CompactList}\item 
+float \bf{f\-Pair}\label{classCLightP_f964da045869c05bc4913f913271b7ac}
+
+\begin{CompactList}\small\item\em pairing energy of residue \item\end{CompactList}\item 
+float \bf{f\-Shell}\label{classCLightP_3028ded896484c0e66c30ef856128b7f}
+
+\begin{CompactList}\small\item\em shell correction for residue \item\end{CompactList}\item 
+\bf{CNuclide} \bf{residue}\label{classCLightP_c36a119fe62158837f065cadc78f3e32}
+
+\begin{CompactList}\small\item\em contains info on the daughter nucleus \item\end{CompactList}\item 
+bool \bf{odd}\label{classCLightP_2517c46d90ef1e23b9ab066df10b89e5}
+
+\begin{CompactList}\small\item\em true for odd mass \item\end{CompactList}\item 
+SStore\-Evap\-Vector \bf{store\-Evap}\label{classCLightP_e65852f55d5e4aba981a4bce6e052356}
+
+\begin{CompactList}\small\item\em store evaporation info \item\end{CompactList}\item 
+float \bf{width}\label{classCLightP_7c74b8d96d95e22d6db3e9d64b2b827e}
+
+\begin{CompactList}\small\item\em decay width in Me\-V \item\end{CompactList}\item 
+float \bf{r\-Light}\label{classCLightP_b3b9c314727310211e9337f4a3dbaf4f}
+
+\begin{CompactList}\small\item\em radius of light particle in fm \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+bool \bf{must\-Delete}\label{classCLightP_ac6f7bfdf2ad97ecb568d6e9cd1e50a4}
+
+\begin{CompactList}\small\item\em bool to remember that we must delete the t\-LArray \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+deals with a particular evaporation channel 
+
+!
+
+Class \doxyref{CLight\-P}{p.}{classCLightP} contains all the important information concerning a light particle evaporation channel, it has pointers to a c\-Tl\-Array class to calculate transmission coeff. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CLightP@{CLight\-P}!CLightP@{CLightP}}
+\index{CLightP@{CLightP}!CLightP@{CLight\-P}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CLight\-P::CLight\-P (int {\em i\-Z0}, int {\em i\-A0}, float {\em f\-J0}, string {\em name0})}\label{classCLightP_daea3b7b17cf535b2e068dc91d85e2e2}
+
+
+constructor which creates a \doxyref{CTl\-Bar\-Dist}{p.}{classCTlBarDist} object 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z0}]proton number of particle \item[{\em i\-A0}]mass number of particle \item[{\em f\-J0}]spin of particle \item[{\em name0}]name of $\ast$.tl file containing transmission coefs. \end{description}
+\end{Desc}
+\index{CLightP@{CLight\-P}!CLightP@{CLightP}}
+\index{CLightP@{CLightP}!CLightP@{CLight\-P}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CLight\-P::CLight\-P (int {\em i\-Z0}, int {\em i\-A0}, float {\em f\-J0}, \bf{CTl\-Bar\-Dist} $\ast$ {\em tl\-Array0}, \bf{CSig\-Bar\-Dist} $\ast$ {\em sig\-Bar\-Dist0})}\label{classCLightP_a313a4ee8253893578eb08770e229d45}
+
+
+constructor which uses an existing \doxyref{CTl\-Bar\-Dist}{p.}{classCTlBarDist} object 
+
+Alternative constructor which uses a previously defined transmission coeff object \doxyref{CTl\-Array}{p.}{classCTlArray} \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z0}]proton number of particle \item[{\em i\-A0}]mass number of particle \item[{\em f\-J0}]spin of particle \item[{\em tl\-Array0}]is the pointer to the object for transmission coefficients \item[{\em sig\-Bar\-Dist0}]is the pointer to the object for inverse xsections \end{description}
+\end{Desc}
+\index{CLightP@{CLight\-P}!~CLightP@{$\sim$CLightP}}
+\index{~CLightP@{$\sim$CLightP}!CLightP@{CLight\-P}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CLight\-P::$\sim$CLight\-P ()}\label{classCLightP_17c53af5ce821817657330ce4bf5276e}
+
+
+destructor 
+
+Destructor 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CLight\-P.h\item 
+Light\-P.cpp\end{CompactItemize}

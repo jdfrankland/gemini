@@ -1,0 +1,237 @@
+\section{CFus Class Reference}
+\label{classCFus}\index{CFus@{CFus}}
+fusion xsection, Bass model, excitation energy in fusion  
+
+
+{\tt \#include $<$CFus.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CFus} (float plb0, float dif0)
+\item 
+\bf{CFus} (int i\-Zprojectile, int i\-Aprojectile, int i\-Ztarget, int i\-Atarget, float ELab, float dif0)
+\item 
+void \bf{init} (float plb0, float dif0)
+\item 
+float \bf{get\-L0} (float xsection)
+\item 
+float \bf{get\-Bass\-L} ()
+\item 
+float \bf{get\-Bass\-Xsec} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+float \bf{plb}\label{classCFus_d3ad1a11415b19bf5cf82d795287e7f0}
+
+\begin{CompactList}\small\item\em pi-lambdabar-squared in mb \item\end{CompactList}\item 
+float \bf{dif}\label{classCFus_f3bad4a0a91c10aa302da844d9d63fc0}
+
+\begin{CompactList}\small\item\em diffuseness \item\end{CompactList}\item 
+float \bf{Ecm}\label{classCFus_1d772db1e6fb36be44d880d131263949}
+
+\begin{CompactList}\small\item\em reaction center of mass energy in Me\-V \item\end{CompactList}\item 
+float \bf{vcm}\label{classCFus_fe1a337a3ba1218806c832a58ef0da56}
+
+\begin{CompactList}\small\item\em Compound nucleus velocity in cm/ns. \item\end{CompactList}\item 
+float \bf{vbeam}\label{classCFus_47c14cbfb1017f37288907ebe9efaf63}
+
+\begin{CompactList}\small\item\em beam velocity in cm/ns \item\end{CompactList}\item 
+float \bf{Ex}\label{classCFus_f596d04b58e81431404961bd71672942}
+
+\begin{CompactList}\small\item\em excitation energy \item\end{CompactList}\item 
+int \bf{i\-Zcn}\label{classCFus_a87046723aa4acf688cd2ba1e47fe399}
+
+\begin{CompactList}\small\item\em compound nucleus atomic number \item\end{CompactList}\item 
+int \bf{i\-Acn}\label{classCFus_53a571394258402cce8439d8e87bdecf}
+
+\begin{CompactList}\small\item\em compound nucleus mass number \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+float \bf{F} (float R, float AL)
+\item 
+float \bf{FF} (float R, float AL)
+\item 
+float \bf{FFF} (float R, float AL)
+\item 
+float \bf{FFFF} (float R, float AL)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int \bf{i\-Zp}\label{classCFus_6abbb7c5112c1b4ac959280c9a5524cc}
+
+\begin{CompactList}\small\item\em projectile proton number \item\end{CompactList}\item 
+int \bf{i\-Ap}\label{classCFus_f3c66194c6dd8e38625e9565e8e54c27}
+
+\begin{CompactList}\small\item\em projectle mass number \item\end{CompactList}\item 
+int \bf{i\-Zt}\label{classCFus_dc7e6da2c4abe89065f7d6cf8f2a5549}
+
+\begin{CompactList}\small\item\em target proton number \item\end{CompactList}\item 
+int \bf{i\-At}\label{classCFus_1107c21a62be743bd8d53eeff6846ab7}
+
+\begin{CompactList}\small\item\em target mass number \item\end{CompactList}\item 
+float \bf{f\-Elab}\label{classCFus_a7f55f2d08e5073b5d5ea3fe121f4bd6}
+
+\begin{CompactList}\small\item\em lab energy in Me\-V \item\end{CompactList}\item 
+float \bf{R12}\label{classCFus_7ca80582c5de6b4956fe7f52a1d1370a}
+
+\begin{CompactList}\small\item\em sum of radii \item\end{CompactList}\item 
+float \bf{U}\label{classCFus_a8489fe6dc98dbcdb4754ae2a068e85e}
+
+\begin{CompactList}\small\item\em reduced mass \item\end{CompactList}\item 
+float \bf{A}\label{classCFus_d09ce136c0dc5ac594d56e6e4667ce1f}
+
+\begin{CompactList}\small\item\em const for Coulomb potential \item\end{CompactList}\item 
+float \bf{B}\label{classCFus_ababfd265386064471c1acee2e7b3866}
+
+\begin{CompactList}\small\item\em const for centrifugal potential \item\end{CompactList}\item 
+float \bf{C}\label{classCFus_22f58afbb76205e58818ba8e2ca375f0}
+
+\begin{CompactList}\small\item\em nuclear potential constant \item\end{CompactList}\item 
+float \bf{E1}\label{classCFus_54b190863f0edc422597e1175ebf790f}
+
+\begin{CompactList}\small\item\em critical energy 1 in Bass Model \item\end{CompactList}\item 
+float \bf{E2}\label{classCFus_1a1d56a40bdce0409d98d9b903eb2249}
+
+\begin{CompactList}\small\item\em critical energy 2 in Bass Model \item\end{CompactList}\item 
+float \bf{MAX}\label{classCFus_2df5f8cac70125f94e4c92d2ef1b8aea}
+
+\begin{CompactList}\small\item\em maximum L for fusion barrier \item\end{CompactList}\item 
+float \bf{CL1}\label{classCFus_cbb29a3669384e5492f87f0d26e3f79a}
+
+\begin{CompactList}\small\item\em angular momentum assocaited with E1 \item\end{CompactList}\item 
+float \bf{CL2}\label{classCFus_7ea03c5268cadd99a70a0d8344cd84fa}
+
+\begin{CompactList}\small\item\em angular momentum associated with E2 \item\end{CompactList}\item 
+float \bf{W} [300]\label{classCFus_5503869eae8c9e901751cb7a16fc5e46}
+
+\begin{CompactList}\small\item\em fusion barrier for each L \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static float const \bf{D} = .03\label{classCFus_591beeea1086361d595781367644f94e}
+
+\begin{CompactList}\small\item\em Bass potential parameter. \item\end{CompactList}\item 
+static float const \bf{E} = 3.3\label{classCFus_7c9a507cbd29aee60dcaaae0b1c4bd24}
+
+\begin{CompactList}\small\item\em Bass potential parameter. \item\end{CompactList}\item 
+static float const \bf{G} = 0.0061\label{classCFus_f9a9e49c100e6c74ac99b44ec4264c0c}
+
+\begin{CompactList}\small\item\em Bass potential parameter. \item\end{CompactList}\item 
+static float const \bf{H} = 0.65\label{classCFus_08ab0f3682444529c29ec8e45c8d6cdd}
+
+\begin{CompactList}\small\item\em Bass potential parameter. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+fusion xsection, Bass model, excitation energy in fusion 
+
+!
+
+class to determine excitation energy and the critical angular momemtum in fusion. The fusion xsection $ \sigma(\ell) = \pi\lambda^2 \sum \frac{2\ell +1} {1+\exp\left(\frac{\ell-\ell_0}{\Delta_{\ell}}\right)}$ where $\lambda$ is really lambdabar $ \Delta_{\ell}$ is the diffuseness 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CFus@{CFus}!CFus@{CFus}}
+\index{CFus@{CFus}!CFus@{CFus}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CFus::CFus (float {\em plb0}, float {\em dif0})}\label{classCFus_e492c8e30d88ce0b14f313151bc28f8c}
+
+
+Constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em plb0}]is pi-lambda-squared in mb \item[{\em dif0}]is the diffuseness in hbar \end{description}
+\end{Desc}
+\index{CFus@{CFus}!CFus@{CFus}}
+\index{CFus@{CFus}!CFus@{CFus}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CFus::CFus (int {\em i\-Zprojectile}, int {\em i\-Aprojectile}, int {\em i\-Ztarget}, int {\em i\-Atarget}, float {\em Elab}, float {\em dif0})}\label{classCFus_0be33f4a10bde2e62e4521fc0b3a6ae0}
+
+
+alternative constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Zprojectile}]is the projectile atomic number \item[{\em i\-Aprojectile}]is projectile mass number \item[{\em i\-Ztarget}]is the target atomic number \item[{\em i\-Atarget}]is target mass number \item[{\em Elab}]is lab. energy of projectile in Me\-V \item[{\em dif0}]is the diffuseness in hbar \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{CFus@{CFus}!F@{F}}
+\index{F@{F}!CFus@{CFus}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CFus::F (float {\em R}, float {\em AL})\hspace{0.3cm}{\tt  [protected]}}\label{classCFus_7797d2e1278a94106f01e05283c7974a}
+
+
+returns the Bass-model potential in Me\-V \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em R}]radius in fm \item[{\em AL}]is orbital angular momentum \end{description}
+\end{Desc}
+\index{CFus@{CFus}!FF@{FF}}
+\index{FF@{FF}!CFus@{CFus}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CFus::FF (float {\em R}, float {\em AL})\hspace{0.3cm}{\tt  [protected]}}\label{classCFus_cc36f0ff2cf89c4c729664f8d9bcdcf7}
+
+
+returns the derivative Bass-model potential in Me\-V withrespect to R \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em R}]radius in fm \item[{\em AL}]is orbital angular momentum \end{description}
+\end{Desc}
+\index{CFus@{CFus}!FFF@{FFF}}
+\index{FFF@{FFF}!CFus@{CFus}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CFus::FFF (float {\em R}, float {\em AL})\hspace{0.3cm}{\tt  [protected]}}\label{classCFus_0108da710abb1a70eff8491e5ab4c216}
+
+
+returns the 2nd derivative of the Bass-model potential in Me\-V withrespect to R \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em R}]radius in fm \item[{\em AL}]is orbital angular momentum \end{description}
+\end{Desc}
+\index{CFus@{CFus}!FFFF@{FFFF}}
+\index{FFFF@{FFFF}!CFus@{CFus}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CFus::FFFF (float {\em R}, float {\em AL})\hspace{0.3cm}{\tt  [protected]}}\label{classCFus_9091a330d6bfa82f79bfb5d8cd673290}
+
+
+returns the 3nd derivative of the Bass-model potential in Me\-V withrespect to R \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em R}]radius in fm \item[{\em AL}]is orbital angular momentum \end{description}
+\end{Desc}
+\index{CFus@{CFus}!getBassL@{getBassL}}
+\index{getBassL@{getBassL}!CFus@{CFus}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CFus::get\-Bass\-L ()}\label{classCFus_278888ee021596a70ff4e10375b7adfe}
+
+
+returns the critical orbital angular momentum in the Bass model [Nucl Phys A231 (1974) 45 ] USING THE 1977 BASS NUCLEAR POTENTIAL [Phys Rev Letts 39 (1977) 265 ] \index{CFus@{CFus}!getBassXsec@{getBassXsec}}
+\index{getBassXsec@{getBassXsec}!CFus@{CFus}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CFus::get\-Bass\-Xsec ()}\label{classCFus_35f204c7a834c9fe6df3c6efad02956f}
+
+
+returns the Bass model fusion cross section in mb \index{CFus@{CFus}!getL0@{getL0}}
+\index{getL0@{getL0}!CFus@{CFus}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CFus::get\-L0 (float {\em xsection})}\label{classCFus_0b4f73b7382eb571c149b2c2915b4f60}
+
+
+returns the critical amgular momentum \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em xsection}]is the fusion cross section in mb \end{description}
+\end{Desc}
+\index{CFus@{CFus}!init@{init}}
+\index{init@{init}!CFus@{CFus}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CFus::init (float {\em plb0}, float {\em dif0})}\label{classCFus_7320d51537731782ff768a2ba540c226}
+
+
+reinitialization \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em plb0}]is pi-lambda-squared in mb \item[{\em dif0}]is the diffuseness in hbar \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CFus.h\item 
+Fus.cpp\end{CompactItemize}

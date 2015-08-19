@@ -1,0 +1,117 @@
+\section{CRandom Class Reference}
+\label{classCRandom}\index{CRandom@{CRandom}}
+Random numbers for a number of distributions.  
+
+
+{\tt \#include $<$CRandom.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+double \bf{Rndm} ()
+\item 
+float \bf{Gaus} (float mean, float sigma)
+\item 
+float \bf{exp\-Decay\-Time} (float width)
+\item 
+float \bf{Breit\-Wigner} (float mean, float width)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{CRandom} $\ast$ \bf{instance} ()
+\begin{CompactList}\small\item\em instance member to make this a singleton \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CRandom} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+bool \bf{one}\label{classCRandom_0b76896418ae75089de37a3130e731bb}
+
+\begin{CompactList}\small\item\em used for Gaus \item\end{CompactList}\item 
+float \bf{angle}\label{classCRandom_3745da4f06cb91d7f74827976d33c348}
+
+\begin{CompactList}\small\item\em used for Gaus \item\end{CompactList}\item 
+float \bf{x}\label{classCRandom_976af97ef833bf86acf403f6227aa092}
+
+\begin{CompactList}\small\item\em parameter \item\end{CompactList}\item 
+float \bf{pi}\label{classCRandom_6cbe7ee72177c6c3052fd3756beb668f}
+
+\begin{CompactList}\small\item\em 3.14159 \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static \bf{CRandom} $\ast$ \bf{f\-Instance} = 0\label{classCRandom_4f89b95eb9b92a92a03adabe5dfa9137}
+
+\begin{CompactList}\small\item\em instance member to make tis a singleton \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Random numbers for a number of distributions. 
+
+!
+
+Random number generation using the C++ random number function 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CRandom@{CRandom}!CRandom@{CRandom}}
+\index{CRandom@{CRandom}!CRandom@{CRandom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CRandom::CRandom ()\hspace{0.3cm}{\tt  [protected]}}\label{classCRandom_8d7c54478494c868271476b23bacbe2e}
+
+
+COnstructor for \doxyref{CRandom}{p.}{classCRandom} 
+
+\subsection{Member Function Documentation}
+\index{CRandom@{CRandom}!BreitWigner@{BreitWigner}}
+\index{BreitWigner@{BreitWigner}!CRandom@{CRandom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CRandom::Breit\-Wigner (float {\em mean}, float {\em width})}\label{classCRandom_884f885e1cf081106f27a8ea25f14362}
+
+
+Returns a random number with a Breit\-Wigner distribution \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mean}]is the mean value of the distribution \item[{\em width}]is the Full Width Half max of the distribution \end{description}
+\end{Desc}
+\index{CRandom@{CRandom}!expDecayTime@{expDecayTime}}
+\index{expDecayTime@{expDecayTime}!CRandom@{CRandom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CRandom::exp\-Decay\-Time (float {\em width})}\label{classCRandom_26e937ca66f6b0b9163d6c63b8c902db}
+
+
+returns a decay time in zs sampled from a exponential distribution \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em width}]is the total decay width in Me\-V \end{description}
+\end{Desc}
+\index{CRandom@{CRandom}!Gaus@{Gaus}}
+\index{Gaus@{Gaus}!CRandom@{CRandom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CRandom::Gaus (float {\em mean}, float {\em sigma})}\label{classCRandom_2ef2778f16be94f6d402949f05ee1318}
+
+
+Returns random number with Gaussian distribution \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mean}]is the mean value of the Gaussian distribution \item[{\em sigma}]is the standard deviation of the distribution \end{description}
+\end{Desc}
+\index{CRandom@{CRandom}!instance@{instance}}
+\index{instance@{instance}!CRandom@{CRandom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{CRandom} $\ast$ CRandom::instance ()\hspace{0.3cm}{\tt  [static]}}\label{classCRandom_f5d0eb4a4d10fb94151b9e6664b136f2}
+
+
+instance member to make this a singleton 
+
+Makes an instance of \doxyref{CRandom}{p.}{classCRandom} \index{CRandom@{CRandom}!Rndm@{Rndm}}
+\index{Rndm@{Rndm}!CRandom@{CRandom}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double CRandom::Rndm ()}\label{classCRandom_d076a768bd120ebd05b71afe729692b9}
+
+
+Returns a random number with uniform distribution between 0 and 1 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CRandom.h\item 
+Random.cpp\end{CompactItemize}

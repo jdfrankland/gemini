@@ -1,0 +1,130 @@
+\section{CSig\-Bar\-Dist Class Reference}
+\label{classCSigBarDist}\index{CSigBarDist@{CSigBarDist}}
+inverse cross section with barrier distributions  
+
+
+{\tt \#include $<$CSig\-Bar\-Dist.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CSig\-Bar\-Dist} (string, float Zp0, float Ap0)
+\item 
+\bf{$\sim$CSig\-Bar\-Dist} ()
+\item 
+float \bf{get\-Inverse\-Xsec} (float f\-Ek, float temp)
+\item 
+void \bf{prepare} (float \bf{Z}, float \bf{A})
+\item 
+float \bf{get\-Barrier} ()
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static void \bf{set\-Bar\-Width} (float width00)
+\item 
+static float \bf{get\-Bar\-Width} ()
+\item 
+static void \bf{print\-Parameters} ()
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\bf{CSig\-Charged} $\ast$ \bf{sig\-Charged} [3]\label{classCSigBarDist_5e86ed64783828fa440859e380b1d1da}
+
+\begin{CompactList}\small\item\em arrays for standard radii and +- width0 \item\end{CompactList}\item 
+bool \bf{one}\label{classCSigBarDist_61ce73d84bfda0b0d2d29c85fb5b20fd}
+
+\begin{CompactList}\small\item\em if true, no distribution, just standard radius is used \item\end{CompactList}\item 
+float \bf{Z}\label{classCSigBarDist_9a9699ea3c6cd8270ed564c136c5007a}
+
+\begin{CompactList}\small\item\em calls to get\-Inverse\-Xsec refer to this residual proton number \item\end{CompactList}\item 
+float \bf{A}\label{classCSigBarDist_20659289535a2d303e39aff96e957ff9}
+
+\begin{CompactList}\small\item\em calls to get\-Inverse\-Xsec refer to this residual mass number \item\end{CompactList}\item 
+float \bf{Zp}\label{classCSigBarDist_257fd637d8c84837cb7df124d26c7bc0}
+
+\begin{CompactList}\small\item\em proton number of evaporated particle \item\end{CompactList}\item 
+float \bf{Ap}\label{classCSigBarDist_901d950d11630943e11749fc21cbeeb3}
+
+\begin{CompactList}\small\item\em mass number of evaporated particle \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Private Attributes}
+\begin{CompactItemize}
+\item 
+static float \bf{width} = 1.\label{classCSigBarDist_07e67e476a5452df83f9a348ab8a23c8}
+
+\begin{CompactList}\small\item\em width paramter determines shifted radii \item\end{CompactList}\item 
+static float const \bf{width0} = 1.5\label{classCSigBarDist_9bbbb75c2633d7dbad4e5e85264636d1}
+
+\begin{CompactList}\small\item\em results readin from file for this shift \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+inverse cross section with barrier distributions 
+
+!
+
+calculates transmission coefficientinverse cross sections using a simplistic barrier distribution logic. The final result is the average of three inverse cross sections. $ T_{l}(Ek) = \frac{T_{l}^{R_{0}-\Delta R}(Ek) + T_{l}^{R_{0}}(Ek) + T_{l}^{R_{0}+\Delta R}(Ek)}{3} $ where $ T_{l}^{R_{0}}$ is the standard coeff derived using the IWBC and global optical-model potential. The other two are for when the radius of the nuclear potential is shifted by $ \pm \Delta R $. where $ \Delta R = width*\sqrt{temperature} $. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CSigBarDist@{CSig\-Bar\-Dist}!CSigBarDist@{CSigBarDist}}
+\index{CSigBarDist@{CSigBarDist}!CSigBarDist@{CSig\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CSig\-Bar\-Dist::CSig\-Bar\-Dist (string {\em s\-Name0}, float {\em Zp0}, float {\em Ap0})}\label{classCSigBarDist_5fef91947df17b399099110d91b42529}
+
+
+constructor /param s\-Name0 is the name of the files containing fitted coeff. \index{CSigBarDist@{CSig\-Bar\-Dist}!~CSigBarDist@{$\sim$CSigBarDist}}
+\index{~CSigBarDist@{$\sim$CSigBarDist}!CSigBarDist@{CSig\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CSig\-Bar\-Dist::$\sim$CSig\-Bar\-Dist ()}\label{classCSigBarDist_bf984b4157ee3f414f683e6e5187b7e9}
+
+
+destructor 
+
+\subsection{Member Function Documentation}
+\index{CSigBarDist@{CSig\-Bar\-Dist}!getBarrier@{getBarrier}}
+\index{getBarrier@{getBarrier}!CSigBarDist@{CSig\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CSig\-Bar\-Dist::get\-Barrier ()}\label{classCSigBarDist_fca88f547fd3cdd8901b6e4ad27726c3}
+
+
+returns the barrier in Me\-V \index{CSigBarDist@{CSig\-Bar\-Dist}!getBarWidth@{getBarWidth}}
+\index{getBarWidth@{getBarWidth}!CSigBarDist@{CSig\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CSig\-Bar\-Dist::get\-Bar\-Width ()\hspace{0.3cm}{\tt  [static]}}\label{classCSigBarDist_52ec33821f2367cf05eb72d052c01d88}
+
+
+returns the parameter controlling the width of the barrier dist \index{CSigBarDist@{CSig\-Bar\-Dist}!getInverseXsec@{getInverseXsec}}
+\index{getInverseXsec@{getInverseXsec}!CSigBarDist@{CSig\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CSig\-Bar\-Dist::get\-Inverse\-Xsec (float {\em f\-Ek}, float {\em temp})}\label{classCSigBarDist_208b57a94504830b93649c2927ce39f1}
+
+
+returns the quantity $S=\sum_{\ell=0}^{\infty} (2\ell+1)T_{\ell}(\varepsilon)$ which is related to the inverse cross section by $S=\frac{\sigma_{inv}}{\pi\lambda^{2}}$ \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em f\-Ek}]is the kinetic energy of the evaporated particle \item[{\em temp}]is temperature of daughter in Me\-V \end{description}
+\end{Desc}
+\index{CSigBarDist@{CSig\-Bar\-Dist}!prepare@{prepare}}
+\index{prepare@{prepare}!CSigBarDist@{CSig\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CSig\-Bar\-Dist::prepare (float {\em Z0}, float {\em A0})}\label{classCSigBarDist_d81bc66a58512cd7ab23bf10fc4ce7ca}
+
+
+prepares for a series of opertions for a given i\-Z /param i\-Z0 is proton number of daughter \index{CSigBarDist@{CSig\-Bar\-Dist}!printParameters@{printParameters}}
+\index{printParameters@{printParameters}!CSigBarDist@{CSig\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CSig\-Bar\-Dist::print\-Parameters ()\hspace{0.3cm}{\tt  [static]}}\label{classCSigBarDist_18a63652d6600aae4ede085dcaf522f9}
+
+
+prints out the width parameter \index{CSigBarDist@{CSig\-Bar\-Dist}!setBarWidth@{setBarWidth}}
+\index{setBarWidth@{setBarWidth}!CSigBarDist@{CSig\-Bar\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CSig\-Bar\-Dist::set\-Bar\-Width (float {\em width00})\hspace{0.3cm}{\tt  [static]}}\label{classCSigBarDist_c2d8d22c9bf77a1988fa934201a40fd5}
+
+
+set the parameter controlling the width of the barrier distribution \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em width00}]- radial shift is $ \Delta R= \sqrt T* width00 $ \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CSig\-Bar\-Dist.h\item 
+Sig\-Bar\-Dist.cpp\end{CompactItemize}

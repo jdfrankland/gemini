@@ -1,0 +1,910 @@
+\section{CYrast Class Reference}
+\label{classCYrast}\index{CYrast@{CYrast}}
+fission barriers, rotational energies, etc  
+
+
+{\tt \#include $<$CYrast.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+float \bf{get\-Yrast} (int, int, float)
+\item 
+float \bf{get\-Yrast\-Model} (int, int, float)
+\item 
+float \bf{get\-Yrast\-RLDM} (int, int, float)
+\item 
+float \bf{get\-Yrast\-Sierk} (float)
+\item 
+float \bf{get\-Jmax\-Sierk} (int, int)
+\item 
+float \bf{get\-Barrier\-Fission\-Sierk} (float)
+\item 
+float \bf{get\-Symmetric\-Saddle\-Energy} (int, int, float)
+\item 
+float \bf{get\-Barrier\-Fission\-RLDM} (int, int, float)
+\item 
+float \bf{get\-Bs\-Sierk} (float)
+\item 
+void \bf{prepare\-Asy\-Barrier} (int, int, float)
+\item 
+void \bf{print\-Asy\-Barrier} ()
+\item 
+float \bf{get\-Saddle\-Point\-Energy} (int, int)
+\item 
+float \bf{get\-Saddle\-Point\-Energy} (float)
+\item 
+float \bf{get\-Moment\-Of\-Inertia\-Sierk} (float)
+\item 
+float \bf{Wigner\-Energy} (int \bf{i\-Z}, int \bf{i\-A})
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{CYrast} $\ast$ \bf{instance} ()\label{classCYrast_f8bd90dce7a0e85b472f1e0620ad7de4}
+
+\begin{CompactList}\small\item\em instance member to make this class a singleton \item\end{CompactList}\item 
+static void \bf{force\-Sierk} (bool=1)
+\item 
+static void \bf{print\-Parameters} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+double \bf{Jmax}\label{classCYrast_f519cefa302fd96cc59f1e199647b7a1}
+
+\begin{CompactList}\small\item\em max spin where the fission barrier exists \item\end{CompactList}\item 
+float \bf{mom\-Inertia\-Min}\label{classCYrast_ceeac2c16a69d9b375730d71d21087f9}
+
+\begin{CompactList}\small\item\em minimum saddle-point moment of inertia \item\end{CompactList}\item 
+float \bf{mom\-Inertia\-Mid}\label{classCYrast_dbc30c7f47cac4f12af9a11bd1e43925}
+
+\begin{CompactList}\small\item\em intermediate saddle-point moment of inertia \item\end{CompactList}\item 
+float \bf{mom\-Inertia\-Max}\label{classCYrast_49fdeeb99a27ac65b453f922b70d995e}
+
+\begin{CompactList}\small\item\em maximum saddle-point moment of inertia \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CYrast} ()
+\item 
+void \bf{lpoly} (double, int, double $\ast$)
+\item 
+float \bf{cubic} (float, float, float, float, float, float)
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+double \bf{A}\label{classCYrast_b5bd91cce2e946b7c85556e079e5d660}
+
+\begin{CompactList}\small\item\em mass number \item\end{CompactList}\item 
+double \bf{Z}\label{classCYrast_4636ed540d5223b745cf1182e25589fa}
+
+\begin{CompactList}\small\item\em proton number \item\end{CompactList}\item 
+double \bf{zz}\label{classCYrast_de32dc096261e4c87d077bba15a104b2}
+
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+double \bf{amin}\label{classCYrast_28b989d08b3c8efe5173d5acc7c8ae64}
+
+\begin{CompactList}\small\item\em lower limits of application of Sierk routine \item\end{CompactList}\item 
+double \bf{amax}\label{classCYrast_d155cae6125420fb66b6a1e57bb64e76}
+
+\begin{CompactList}\small\item\em upper limits of application of Sierk routine \item\end{CompactList}\item 
+double \bf{pa} [7]\label{classCYrast_1f61886b08482ea983bbb552897e35d2}
+
+\begin{CompactList}\small\item\em used in Sierk routines \item\end{CompactList}\item 
+double \bf{pz} [7]\label{classCYrast_a0e96b3bf3446d6a291bb023c01259db}
+
+\begin{CompactList}\small\item\em used in Sierk routines \item\end{CompactList}\item 
+float \bf{c} [6][8][2][11][2]\label{classCYrast_09f29bfb774077e0d7996ccb8d7f0884}
+
+\begin{CompactList}\small\item\em coeff for sadfits \item\end{CompactList}\item 
+int \bf{Narray}\label{classCYrast_97e5bc8a53cebc53bd41f50004139a9a}
+
+\begin{CompactList}\small\item\em number of elements in array of asymmetric barriers \item\end{CompactList}\item 
+float \bf{sad\-Array} [300]\label{classCYrast_b9a730e3c26607de2675f58b9c587d6b}
+
+\begin{CompactList}\small\item\em array stores the conditional saddle energies \item\end{CompactList}\item 
+float \bf{sad\-Array\-ZA} [300]\label{classCYrast_52b607a9aaf5ce26feee1ad8fcd4a24f}
+
+\begin{CompactList}\small\item\em array stores saddle energies after correction \item\end{CompactList}\item 
+\bf{CMass} $\ast$ \bf{mass}\label{classCYrast_7228575eb0933e72dcdf6386a51f1802}
+
+\begin{CompactList}\small\item\em class for mass defects \item\end{CompactList}\item 
+int \bf{i\-Z}\label{classCYrast_748e9f8b7ea2129711755345dbbe8b1f}
+
+\begin{CompactList}\small\item\em proton number \item\end{CompactList}\item 
+int \bf{i\-A}\label{classCYrast_37e83874a21b3dea25708215649815fb}
+
+\begin{CompactList}\small\item\em mass number \item\end{CompactList}\item 
+float \bf{f\-J}\label{classCYrast_d2f214b7d12672a5f92561de9d0fdf57}
+
+\begin{CompactList}\small\item\em spin \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Private Attributes}
+\begin{CompactItemize}
+\item 
+static \bf{CYrast} $\ast$ \bf{f\-Instance} = 0\label{classCYrast_e06b12d4f459e11a7b7fe2c310d8fe7c}
+
+\begin{CompactList}\small\item\em instance member to make this class a singleton \item\end{CompactList}\item 
+static double const \bf{pi} = acos(-1.)\label{classCYrast_d4868c17ce6a605e9501bd0761a776c0}
+
+\begin{CompactList}\small\item\em 3.14159 \item\end{CompactList}\item 
+static float const \bf{x1h} [11][6]
+\begin{CompactList}\small\item\em number for RLDM \item\end{CompactList}\item 
+static float const \bf{x2h} [11][6]
+\begin{CompactList}\small\item\em numbers for RLDM \item\end{CompactList}\item 
+static float const \bf{x3h} [20][10]
+\begin{CompactList}\small\item\em number for RLDM \item\end{CompactList}\item 
+static float const \bf{x1b} [11][6]
+\begin{CompactList}\small\item\em numbers for RLDM \item\end{CompactList}\item 
+static float const \bf{x2b} [11][6]
+\begin{CompactList}\small\item\em numbers for RLDM \item\end{CompactList}\item 
+static float const \bf{x3b} [20][10]
+\begin{CompactList}\small\item\em numbers for RLDM \item\end{CompactList}\item 
+static double const \bf{emncof} [4][5]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{elmcof} [4][5]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{emxcof} [5][7]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{elzcof} [7][7]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{egscof} [5][7][5]\label{classCYrast_799a76146e8fbbf27abbb7b5f7894b6d}
+
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{aizroc} [5][6]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{ai70c} [5][6]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{ai95c} [5][6]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{aimaxc} [5][6]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{ai952c} [5][6]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{aimax2c} [5][6]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{aimax3c} [4][4]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{aimax4c} [4][4]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{bizroc} [4][6]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{bi70c} [4][6]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{bi95c} [4][6]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{bimaxc} [4][6]
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static double const \bf{b} [8][5][5]\label{classCYrast_1fbcff30f8e42d75edf43a66856cb2f1}
+
+\begin{CompactList}\small\item\em used in Sierk functions \item\end{CompactList}\item 
+static bool \bf{first} = 1\label{classCYrast_bfb8faabafae56d6e24463802b69653c}
+
+\begin{CompactList}\small\item\em only write out barrier warning once \item\end{CompactList}\item 
+static float const \bf{hbarc} = 197.32858\label{classCYrast_360ded0bfb6c3e0790f13938a07b5934}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{alfinv} = 137.035982\label{classCYrast_63e8a1078a711dcf1776154bcc19ad0a}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{srznw} = 1.16\label{classCYrast_405e9b958ae2c3a1a1b0404bb287c8ca}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{aknw} = 2.3\label{classCYrast_0360a5e0d518c01e6c83c8cee68e6246}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{bb} = 0.99\label{classCYrast_12d6e2131be8b706131c5131d393cdec}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{um} = 931.5016\label{classCYrast_1893cc9dbe12d802fbfa46b9ca410132}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{elm} = 0.51104\label{classCYrast_dd8fd2d61f6f12774b0f45219a96bd9c}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{spdlt} = 2.99792458e23\label{classCYrast_ef0c5b00001a0e5ac3595e29090666a7}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{asnw} = 21.13\label{classCYrast_d95be4ebfdd77b7a5cc099949c4c118e}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{kx} [8]
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{ky} [6] = \{0.0,0.02,0.05,0.10,0.15,0.20\}\label{classCYrast_e3ed9fa393f06f9b740a6dc4fb15084c}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{ka} [11] = \{0.0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1.\}\label{classCYrast_1fe225848928940480cc32aeae0eeeac}
+
+\begin{CompactList}\small\item\em used for asymmetric barriers \item\end{CompactList}\item 
+static float const \bf{r0} = 1.225\label{classCYrast_1624d25a5700c629cc77c7d6132bbf83}
+
+\begin{CompactList}\small\item\em radius parameter \item\end{CompactList}\item 
+static float const \bf{sep} = 2.\label{classCYrast_0d79dbacd24d2c52cdd14afb596dc4cb}
+
+\begin{CompactList}\small\item\em separation id fm between fragments \item\end{CompactList}\item 
+static bool \bf{b\-Force\-Sierk} = 0\label{classCYrast_a3121d15a3b423542d992a227143c299}
+
+\begin{CompactList}\small\item\em separation id fm between fragments \item\end{CompactList}\item 
+static double \bf{add\-Bar} = 0.\label{classCYrast_6ec4fd97f4faf45d2a751035c273c000}
+
+\begin{CompactList}\small\item\em extrapolated Sierk barrier increase by this amount \item\end{CompactList}\item 
+static float const \bf{delta\-J} = 3.\label{classCYrast_827b6f607143264fbe1a3201ad0a2a79}
+
+\begin{CompactList}\small\item\em used to extend sierk barrier to higher J \item\end{CompactList}\item 
+static float const \bf{k\-Rotate} = 41.563\label{classCYrast_0420fc3a7b42a85e2959ac5296ab5ce2}
+
+\begin{CompactList}\small\item\em constant for rotional energy \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+fission barriers, rotational energies, etc 
+
+!
+
+Class to return barriers and rotational energies. It is constructed from bits of code such as Arnie Sierk Barfit - which gives his Finite-range fission barrier, rotational energies, moments of inertia, surface areas. Also I have used code from the RLDM model. In addition I enclude a interpolation of conditional fission barriers, using barriers calculated by Sierk 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CYrast@{CYrast}!CYrast@{CYrast}}
+\index{CYrast@{CYrast}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CYrast::CYrast ()\hspace{0.3cm}{\tt  [private]}}\label{classCYrast_c921da56f10301d8a1fc46c57c0fc73f}
+
+
+Constructor 
+
+\subsection{Member Function Documentation}
+\index{CYrast@{CYrast}!cubic@{cubic}}
+\index{cubic@{cubic}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::cubic (float {\em a}, float {\em b}, float {\em c}, float {\em d}, float {\em e}, float {\em f})\hspace{0.3cm}{\tt  [private]}}\label{classCYrast_91dccad458ce86b53d4c8581138b59fd}
+
+
+Cubic polynomial used in 2D cubic spline interpolation \index{CYrast@{CYrast}!forceSierk@{forceSierk}}
+\index{forceSierk@{forceSierk}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CYrast::force\-Sierk (bool {\em b} = {\tt 1})\hspace{0.3cm}{\tt  [static]}}\label{classCYrast_faa29df45ab999a03a954c5c3fcceafc}
+
+
+Forces the use of Sierk yrast energies. As Default GEMINI++ uses a modified YRAST line for light nuclei so as to get the shape of the alpha-particle evaporation spectra correct. \index{CYrast@{CYrast}!getBarrierFissionRLDM@{getBarrierFissionRLDM}}
+\index{getBarrierFissionRLDM@{getBarrierFissionRLDM}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Barrier\-Fission\-RLDM (int {\em i\-Z}, int {\em i\-A}, float {\em f\-J})}\label{classCYrast_5a1b61afbb39ecf59a4d64fbe8a90455}
+
+
+Returns the fission barrier in Me\-V from the Rotating Liquid Drop Model. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number. \item[{\em i\-A}]is the mass number \item[{\em f\-J}]is the angular momentum \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!getBarrierFissionSierk@{getBarrierFissionSierk}}
+\index{getBarrierFissionSierk@{getBarrierFissionSierk}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Barrier\-Fission\-Sierk (float {\em J})}\label{classCYrast_f02af67414db1d93a36feac1a756828a}
+
+
+Returns the fission barrier from the model of Sierk. Units are in Me\-V. The function \doxyref{get\-Jmax\-Sierk()}{p.}{classCYrast_6cbaefdb9dd6c01be0b8efd4f7e5bc6c} must be called beforehand \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em J}]is the angular momentum in hbar \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!getBsSierk@{getBsSierk}}
+\index{getBsSierk@{getBsSierk}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Bs\-Sierk (float {\em J})}\label{classCYrast_be3a2ab5f3822f5dbe4230668be8d45d}
+
+
+Returns the relative surface area of the saddle-point shape from the model of Sierk. The surface is relative to the value for a spherical nucleus \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em J}]is the angular momentum \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!getJmaxSierk@{getJmaxSierk}}
+\index{getJmaxSierk@{getJmaxSierk}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Jmax\-Sierk (int {\em i\-Z}, int {\em i\-A})}\label{classCYrast_6cbaefdb9dd6c01be0b8efd4f7e5bc6c}
+
+
+Returns the Maximum angular momentum where the nucleus is stable against fission in the model of Sierk. ie. above this value the barrier vanishes. Units are in hbar. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is proton number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!getMomentOfInertiaSierk@{getMomentOfInertiaSierk}}
+\index{getMomentOfInertiaSierk@{getMomentOfInertiaSierk}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Moment\-Of\-Inertia\-Sierk (float {\em J})}\label{classCYrast_b6f720d2b14822a77ecb1cd0de030ea2}
+
+
+Calculates the three principle moments of inertia associated with the saddle-point configuration in the model of Sierk.The function get\-Jmax\-Sierk must be called beforehand. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em J}]is the angular momentum \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!getSaddlePointEnergy@{getSaddlePointEnergy}}
+\index{getSaddlePointEnergy@{getSaddlePointEnergy}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Saddle\-Point\-Energy (float {\em A1})}\label{classCYrast_39424851fed9d58619f4f0df060c1c5e}
+
+
+Returns the conditioanl saddle-point energy when both nascient fragments have the same Z/A as the parent nucleus /param A1 is the mass number of one of the nascient fragments \index{CYrast@{CYrast}!getSaddlePointEnergy@{getSaddlePointEnergy}}
+\index{getSaddlePointEnergy@{getSaddlePointEnergy}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Saddle\-Point\-Energy (int {\em i\-Z1}, int {\em i\-A1})}\label{classCYrast_8d4ac8b8baa0004c4f964e5a9e430418}
+
+
+Returns the constrained saddle-point energy for channel where one of the fragmenst is i\-Z1,i\-A1 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z1}]is the proton number \item[{\em i\-A1}]is the mass number \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!getSymmetricSaddleEnergy@{getSymmetricSaddleEnergy}}
+\index{getSymmetricSaddleEnergy@{getSymmetricSaddleEnergy}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Symmetric\-Saddle\-Energy (int {\em i\-Z}, int {\em i\-A}, float {\em f\-J})}\label{classCYrast_d0a0a2d6ac4db8dc618e4e880f8ccd30}
+
+
+Returns the saddle-point energy for symmetric fission in units of Me\-V \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \item[{\em f\-J}]is the angular momentum \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!getYrast@{getYrast}}
+\index{getYrast@{getYrast}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Yrast (int {\em i\-Z}, int {\em i\-A}, float {\em f\-J})}\label{classCYrast_3d52c1b86cb26e776b5df02118316ad9}
+
+
+General call to get Yrast energy, includes a fix for light nuclear so that the Yrast line does not become to steep. At a spin JChange, the Yrast line continues with a constant slope.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \item[{\em f\-J}]is the angular momentum \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!getYrastModel@{getYrastModel}}
+\index{getYrastModel@{getYrastModel}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Yrast\-Model (int {\em i\-Z}, int {\em i\-A}, float {\em f\-J})}\label{classCYrast_619515cfa0f43558880e335dd8bebb64}
+
+
+General call to get Yrast energy according to Nuclear models This handles probems if i\-A is too small or the angular momentum is too large in extrapolating the Yrast line. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \item[{\em f\-J}]is the angular momentum \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!getYrastRLDM@{getYrastRLDM}}
+\index{getYrastRLDM@{getYrastRLDM}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Yrast\-RLDM (int {\em i\-Z}, int {\em i\-A}, float {\em f\-L})}\label{classCYrast_289214476f9d672676dd81cfd4b1f966}
+
+
+Returns the yrast energy in Me\-V from the Rotating Liquid Drop Model \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \item[{\em f\-L}]is the angular momentum in hbar \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!getYrastSierk@{getYrastSierk}}
+\index{getYrastSierk@{getYrastSierk}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::get\-Yrast\-Sierk (float {\em J})}\label{classCYrast_9c54905c80cca507c85c1f092e027b01}
+
+
+Returns the yrast energy is trhe model of Sierk. Units are in Me\-V. The function get\-Jmaz\-Sierk must be called beforehand. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em J}]is the angular momentum \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!lpoly@{lpoly}}
+\index{lpoly@{lpoly}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CYrast::lpoly (double {\em x}, int {\em n}, double $\ast$ {\em pl})\hspace{0.3cm}{\tt  [private]}}\label{classCYrast_d58e02c0cbefdd045f3fc7624cf8c75f}
+
+
+calculates a array of Legendre Polynomials \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]is the independent variable \item[{\em n}]is the maximum order of the array \item[{\em pl}]is the pointer to the array \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!prepareAsyBarrier@{prepareAsyBarrier}}
+\index{prepareAsyBarrier@{prepareAsyBarrier}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CYrast::prepare\-Asy\-Barrier (int {\em i\-Z0}, int {\em i\-A0}, float {\em f\-J0})}\label{classCYrast_576979fab8d2b2ecf26d0274f4254171}
+
+
+Prepares for the calculation of conditional saddle-point energies in Me\-V \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z0}]is the proton number \item[{\em i\-A0}]is the mass number \item[{\em f\-J0}]is the angular momentum in hbar \end{description}
+\end{Desc}
+\index{CYrast@{CYrast}!printAsyBarrier@{printAsyBarrier}}
+\index{printAsyBarrier@{printAsyBarrier}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CYrast::print\-Asy\-Barrier ()}\label{classCYrast_72432ca895255edf1f5fdbaa8333d54f}
+
+
+Prints out the array of conditional barriers \index{CYrast@{CYrast}!printParameters@{printParameters}}
+\index{printParameters@{printParameters}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CYrast::print\-Parameters ()\hspace{0.3cm}{\tt  [static]}}\label{classCYrast_e7c7e015ce294a114d94523bb3888a34}
+
+
+Prints out the parameters used in the Yrast class \index{CYrast@{CYrast}!WignerEnergy@{WignerEnergy}}
+\index{WignerEnergy@{WignerEnergy}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CYrast::Wigner\-Energy (int {\em i\-Z}, int {\em i\-A})}\label{classCYrast_2e6ad60aaba3564566f0433326a33d2c}
+
+
+calculates the Wigner energy in the mass formula used by Sierk \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z}]is the proton number \item[{\em i\-A}]is the mass number \end{description}
+\end{Desc}
+
+
+\subsection{Member Data Documentation}
+\index{CYrast@{CYrast}!ai70c@{ai70c}}
+\index{ai70c@{ai70c}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::ai70c}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_c09db25ae06ba1174a6b92e06acd9f80}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{ 3.11420101e4,-7.54335155e4, 7.74456473e4,-4.79993065e4,
+ 2.23439118e4,-4.81961155e3},
+{-7.24025043e4, 1.72276697e5,-1.72027101e5, 1.03891065e5,
+-4.83180786e4, 1.08040504e4},
+{ 7.14932917e4,-1.72792523e5, 1.75814382e5,-1.07245918e5,
+ 4.86163223e4,-1.10623761e4},
+{-2.87206866e4, 6.76667976e4,-6.50167483e4, 3.67161268e4,
+-1.74755753e4, 4.67495427e3},
+{1.67914908e4,-3.97304542e4, 3.81446552e4,-2.04628156e4,
+   7.20091899e3,-1.49978283e3}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!ai952c@{ai952c}}
+\index{ai952c@{ai952c}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::ai952c}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_93ae1f8c032b456157de5c1279ced712}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+  {-7.37473153e5, 1.73682827e6,-1.75850175e6, 1.11320647e6, 
+   -4.41842735e5, 9.02463457e4},
+  { 1.49541980e6,-3.53222507e6, 3.59762757e6,-2.29652257e6,
+    9.21077757e5,-1.90079527e5},
+  {-1.80243593e6, 4.24319661e6,-4.29072662e6, 2.71416936e6,
+   -1.07624953e6, 2.20863711e5},
+  { 8.86920591e5,-2.09589683e6,2.13507675e6,-1.36546686e6,
+    5.48868536e5,-1.14532906e5},
+  {-4.62131503e5, 1.08555722e6,-1.09187524e6, 6.87308217e5,
+   -2.70986162e5, 5.61637883e4}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!ai95c@{ai95c}}
+\index{ai95c@{ai95c}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::ai95c}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_2381c41d4de825156d5828349ca301ba}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{-6.17201449e5, 1.45561724e6,-1.47514522e6, 9.37798508e5,
+-3.74435017e5, 7.81254880e4},
+{ 1.24304280e6,-2.94179116e6, 3.00170753e6,-1.92737183e6,
+ 7.79238772e5,-1.64803784e5},
+{-1.49648799e6, 3.52658199e6,-3.56784327e6, 2.26413602e6,
+-9.02243251e5, 1.88619658e5},
+{ 7.27293223e5,-1.72140677e6,1.75634889e6,-1.12885888e6,
+ 4.57150814e5,-9.74833991e4},
+{-3.75965723e5, 8.83032946e5,-8.87134867e5, 5.58350462e5,
+ -2.20433857e5, 4.62178756e4}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!aimax2c@{aimax2c}}
+\index{aimax2c@{aimax2c}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::aimax2c}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_3bc0006f8c3bf7fc99e0e5b709ebdd57}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+  {-1.16343311e6, 2.74470544e6,-2.77664273e6, 1.76933559e6,
+   -7.02900226e5, 1.49345081e5},
+  { 2.36929777e6,-5.60655122e6,5.70413177e6,-3.66528765e6,
+    1.47006527e6,-3.15794626e5},
+  {-2.82646077e6, 6.66086824e6,-6.72677653e6, 4.27484625e6,
+   -1.69427298e6, 3.58429081e5},
+  { 1.39112772e6,-3.29007553e6, 3.34544584e6,-2.14723142e6,
+    8.61118401e5,-1.84500129e5},
+  {-7.21329917e5, 1.69371794e6,-1.69979786e6, 1.07037781e6,
+   -4.20662028e5, 8.80728361e4}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!aimax3c@{aimax3c}}
+\index{aimax3c@{aimax3c}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::aimax3c}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_f2dee1bf2f45cdd156673843590eb948}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+  {-2.88270282e3, 5.30111305e3,-3.07626751e3,6.56709396e2},
+  {5.84303930e3,-1.07450449e4,6.24110631e3,-1.33480875e3},
+  {-4.20629939e3,7.74058373e3,-4.50256063e3, 9.65788439e2},
+  {1.23820134e3,-2.28228958e3, 1.33181316e3,-2.87363568e2}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!aimax4c@{aimax4c}}
+\index{aimax4c@{aimax4c}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::aimax4c}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_92f739a4d8d2e46a0479e954f80d8728}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+  {-3.34060345e3, 6.26384099e3,-3.77635848e3, 8.57180868e2},
+  { 6.76377873e3,-1.26776571e4, 7.64206952e3,-1.73406840e3},
+  {-4.74821371e3, 8.89857519e3,-5.36266252e3, 1.21614216e3},
+  { 1.46369384e3,-2.74251101e3, 1.65205435e3,-3.74262365e2}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!aimaxc@{aimaxc}}
+\index{aimaxc@{aimaxc}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::aimaxc}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_4aba17c77ac5fcad545afb57d8dc76ef}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+  {-1.07989556e6, 2.54617598e6,-2.56762409e6, 1.62814115e6,
+   -6.39575059e5, 1.34017942e5},
+  { 2.17095357e6,-5.13081589e6, 5.19610055e6,-3.31651644e6,
+    1.31229476e6,-2.77511450e5},
+  {-2.66020302e6, 6.26593165e6,-6.31060776e6, 3.99082969e6, 
+   -1.56447660e6, 3.25613262e5},
+  { 1.29464191e6,-3.05746938e6, 3.09487138e6,-1.97160118e6,
+    7.79696064e5,-1.63704652e5},
+  {-7.13073644e5, 1.67482279e6,-1.67984330e6, 1.05446783e6,
+   -4.10928559e5, 8.43774143e4}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!aizroc@{aizroc}}
+\index{aizroc@{aizroc}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::aizroc}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_1b105b6fb7940bbe943b1d890a2fe508}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{ 2.34441624e4,-5.88023986e4, 6.37939552e4,-4.79085272e4, 
+ 2.27517867e4,-5.35372280e3},
+{-4.19782127e4, 1.09187735e5,-1.24597673e5, 9.93997182e4,
+-4.95141312e4, 1.19847414e4},
+{ 4.18237803e4,-1.05557152e5, 1.16142947e5,-9.00443421e4,
+ 4.48976290e4,-1.10161792e4},
+{-8.27172333e3, 2.49194412e4,-3.39090117e4, 3.33727886e4,
+-1.98040399e4, 5.37766241e3},  
+{ 5.79695749e2,-1.61762346e3, 2.14044262e3,-3.55379785e3,
+    3.25502799e3,-1.15583400e3}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!bi70c@{bi70c}}
+\index{bi70c@{bi70c}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::bi70c}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_1e6f1afda9c5bbd8e02ac7a74c14ff21}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+  { 2.32414810e3,-5.42381778e3, 5.40202710e3,-3.26923144e3,
+    1.18318943e3,-1.93186467e2},
+  {-4.38084778e3, 1.03523570e4,-1.05573803e4, 6.59901160e3,
+   -2.47601209e3, 4.19497260e2},
+  { 4.35377377e3,-1.01728647e4, 1.01311246e4,-6.14038462e3,
+    2.21957562e3,-3.62854365e2},
+  {-1.84533539e3, 4.41613298e3,-4.59403284e3, 2.95951225e3,
+   -1.14630148e3, 2.02702459e2}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!bi95c@{bi95c}}
+\index{bi95c@{bi95c}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::bi95c}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_4c259950b31cc0004d2daef57e54268d}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+  { 1.55359266e3,-3.58209715e3, 3.50693744e3,-2.03992913e3,
+    7.05498010e2,-1.49075519e2},
+  {-2.86876240e3, 6.77107086e3,-6.90300614e3, 4.20246063e3,
+   -1.50290693e3, 3.13662258e2},
+  { 2.60138185e3,-5.95414919e3, 5.70261588e3,-3.17188958e3,
+    9.89207911e2,-1.76320647e2},
+  {-1.75198402e3, 4.16635208e3,-4.25212424e3, 2.59953301e3,
+   -9.09813362e2, 1.51070448e2}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!bimaxc@{bimaxc}}
+\index{bimaxc@{bimaxc}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::bimaxc}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_374693adf38a77051668bcd8da2b7c52}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+  { 4.17708254e3,-8.59358778e3, 6.46392215e3,-8.84972189e2,
+    -1.59735594e3, 1.39662071e3},
+  {-1.56318394e4, 3.54574417e4,-3.35945173e4, 1.65495998e4,
+   -3.32021998e3,-1.46150905e3},
+  { 1.41292811e4,-3.11818487e4, 2.77454429e4,-1.19628827e4,
+    1.28008968e3, 1.66111636e3},
+  {-1.92878152e4, 4.56505796e4,-4.66413277e4, 2.89229633e4,
+   -1.07284346e4, 1.50513815e3}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!bizroc@{bizroc}}
+\index{bizroc@{bizroc}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::bizroc}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_c307ae48629c511ca882f4c52b29764d}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+  { 5.88982505e2,-1.35630904e3, 1.32932125e3,-7.78518395e2,
+    2.73122883e2,-3.49600841e1},
+  {-9.67701343e2, 2.24594418e3,-2.24303790e3, 1.35440047e3,
+   -4.96538939e2, 6.66791793e1},
+  { 1.17090267e3,-2.71181535e3, 2.67008958e3,-1.58801770e3,
+    5.66896359e2,-8.21530057e1},
+  {-3.83031864e2, 9.05191483e2,-9.30560410e2, 5.96618532e2,
+   -2.34403480e2, 3.97909172e1}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!elmcof@{elmcof}}
+\index{elmcof@{elmcof}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::elmcof}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_d16372ac8326c42530a23758c87bb4cf}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{ 1.84542e3,-5.64002e3, 5.66730e3,-3.15150e3, 9.54160e2},
+{-2.24577e3, 8.56133e3,-9.67348e3, 5.81744e3,-1.86997e3},
+{ 2.79772e3,-8.73073e3, 9.19706e3,-4.91900e3, 1.37283e3},
+{-3.01866e1, 1.41161e3,-2.85919e3, 2.13016e3,-6.49072e2}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!elzcof@{elzcof}}
+\index{elzcof@{elzcof}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::elzcof}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_dc0179d34e5c6c19255f9ee3503216eb}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{ 5.11819909e5,-1.30303186e6, 1.90119870e6,-1.20628242e6, 5.68208488e5,
+ 5.48346483e4,-2.45883052e4},
+{-1.13269453e6,2.97764590e6,-4.54326326e6, 3.00464870e6,-1.44989274e6,
+-1.02026610e5, 6.27959815e4},
+{ 1.37543304e6,-3.65808988e6,5.47798999e6,-3.78109283e6, 1.84131765e6,
+ 1.53669695e4,-6.96817834e4},
+{-8.56559835e5, 2.48872266e6,-4.07349128e6,3.12835899e6,-1.62394090e6,
+ 1.19797378e5, 4.25737058e4},
+{3.28723311e5,-1.09892175e6, 2.03997269e6,-1.77185718e6,9.96051545e5,
+-1.53305699e5,-1.12982954e4},
+{ 4.15850238e4,7.29653408e4,-4.93776346e5, 6.01254680e5,-4.01308292e5,
+ 9.65968391e4,-3.49596027e3},
+{-1.82751044e5, 3.91386300e5,-3.03639248e5, 1.15782417e5,-4.24399280e3,
+-6.11477247e3, 3.66982647e2}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!emncof@{emncof}}
+\index{emncof@{emncof}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::emncof}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_14131b3faba927ade6b814669e148f60}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{-9.01100e2,-1.40818e3, 2.77000e3,-7.06695e2, 8.89867e2},
+{1.35355e4,-2.03847e4, 1.09384e4,-4.86297e3,-6.18603e2},
+{-3.26367e3, 1.62447e3, 1.36856e3, 1.31731e3, 1.53372e2},
+{7.48863e3,-1.21581e4, 5.50281e3,-1.33630e3, 5.05367e-2}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!emxcof@{emxcof}}
+\index{emxcof@{emxcof}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double const \bf{CYrast::emxcof}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_e612fd3c8bd8987ada489165003f29dd}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{-4.10652732e6, 1.00064947e7,-1.09533751e7, 7.84797252e6,-3.78574926e6,
+ 1.12237945e6,-1.77561170e5},
+{ 1.08763330e7,-2.63758245e7, 2.85472400e7,-2.01107467e7, 9.48373641e6,
+-2.73438528e6, 4.13247256e5},
+{-8.76530903e6, 2.14250513e7,-2.35799595e7, 1.70161347e7,-8.23738190e6,
+ 2.42447957e6,-3.65427239e5},
+{ 6.30258954e6,-1.52999004e7, 1.65640200e7,-1.16695776e7, 5.47369153e6,
+-1.54986342e6, 2.15409246e5},
+{-1.45539891e6, 3.64961835e6,-4.21267423e6, 3.24312555e6,-1.67927904e6, 
+   5.23795062e5,-7.66576599e4}}
+\end{verbatim}\end{Code}
+used in Sierk functions 
+
+\index{CYrast@{CYrast}!kx@{kx}}
+\index{kx@{kx}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float const \bf{CYrast::kx}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_b1662b233c1c1f438db44af4b3c6fbcb}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{0.0,0.08299,0.1632,0.2435,0.3217,0.402
+                            ,0.51182,0.617422}
+\end{verbatim}\end{Code}
+used for asymmetric barriers 
+
+\index{CYrast@{CYrast}!x1b@{x1b}}
+\index{x1b@{x1b}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float const \bf{CYrast::x1b}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_1303452aa691ddad130ba05960971e73}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{0.28,.243,.221,.208,.195,.18},
+{.211,.186,.17,.1506,.136,.12},
+{0.152,.131,.1155,.096,.0795,.0625},
+{.09725,.0795,.065,.0506,.0375,0.0253},
+{.05771,.0455,.03414,.0235,.014,.0065},
+{.03325,.0235,.0153,.0081,0.001,.0},
+{.01625,.009,.0032,.0,.0,.0},
+{.0071,.0,.0,.0,.0,.0},
+{.0,.0,0.0,.0,.0,.0},
+{.0,.0,.0,.0,.0,.0},
+{0.,0.,0.,0.,0.,0.}}
+\end{verbatim}\end{Code}
+numbers for RLDM 
+
+\index{CYrast@{CYrast}!x1h@{x1h}}
+\index{x1h@{x1h}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float const \bf{CYrast::x1h}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_f39260e140f033a851fd23850fbedf7c}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{0.0,0.0,0.0,0.0,0.0,0.0},
+{-0.0057,-0.0058,-0.006,-0.0061,-0.0062,-0.0063},
+{-0.0193,-0.0203,-0.0211,-0.022,-0.023,-0.0245},
+{-0.0402, -0.0427,-0.0456,-0.0497,-0.054,-0.0616},
+{-0.0755,-0.0812,-0.0899,-0.0988,-0.109,-0.12},
+{-0.1273,-0.1356,-0.147,-0.1592,-0.1745,-0.1897},
+{-0.1755,-0.1986,-0.2128,-0.2296,-0.251,-0.26},
+{-0.255,-0.271,-0.291,-0.301,-0.327,-0.335},
+{-0.354,-0.36,-0.365,-0.372, -0.403,-0.42},
+{0.0,0.0,0.0,0.0,0.0,0.0},
+{0.0,0.0,0.0,0.0,0.0,0.0}}
+\end{verbatim}\end{Code}
+number for RLDM 
+
+\index{CYrast@{CYrast}!x2b@{x2b}}
+\index{x2b@{x2b}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float const \bf{CYrast::x2b}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_5435f01d02a78e7c874a1a2801139db5}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{.18,.1695,.1515,.133,.1155,.0949},
+{.1495,.1363,.1165,.099,.0815,.0594},
+{.12,.1032,.0864,.0678,.0469,.028},
+{.09,.0725,.0556,.037,.019,.0057},
+{.0625,.045,.0304,.016,.005,0.},
+{.0406,.0264,.0151,.0052,0.,0.},
+{.0253,.0144,.0027,0.,0.,0.},
+{.0141,.006,0.,0.,0.,0.},
+{.0065,.0008, 0.,0.,0.,0.},
+{.002,0.,0.,0.,0.,0.},
+{0.,0.,0.,0.,0.,0.}}
+\end{verbatim}\end{Code}
+numbers for RLDM 
+
+\index{CYrast@{CYrast}!x2h@{x2h}}
+\index{x2h@{x2h}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float const \bf{CYrast::x2h}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_7575bf26bd980b72ab3e791cf11f2294}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{0.0,0.0,0.0,0.0,0.0,0.0},
+{-0.0018,-0.0019,-0.00215,-0.0024,-0.0025,-0.003},
+{-0.0063,-0.00705,-0.0076,-0.0083,-0.0091,-0.0095},
+{-0.015,-0.0158,-0.0166,-0.0192,-0.0217,-0.025},
+{-0.0245,-0.0254,-0.029,-0.0351,-0.0478,-0.0613},
+{-0.0387,-0.0438,-0.0532,-0.0622,-0.0845,-0.0962},
+{-0.0616,-0.0717,-0.0821,-0.0972,-0.1123,-0.1274},
+{-0.0793, -0.1014,-0.1138,-0.1262,-0.1394,-0.1526},
+{-0.12,-0.134,-0.1503,-0.1666,-0.1829,-0.1992},
+{-0.1528,-0.171,-0.1907,-0.2104,-0.2301,-0.2498}
+,{0.0,0.0,0.0,0.0,0.0,0.0}}
+\end{verbatim}\end{Code}
+numbers for RLDM 
+
+\index{CYrast@{CYrast}!x3b@{x3b}}
+\index{x3b@{x3b}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float const \bf{CYrast::x3b}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_c7245f068a0dc79f222c436372c94a9e}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{.0949,.0755,.0564,.0382,.0223,.0121,.00588,.00242,.00069,.0001},
+{.0873,.0684,.049,.0306,.0162,.0074,.00267,.00055,0.,0.},
+{.0801,.061,.0418,.0235,.0108,.00373,.00071,0.,0.,0.},
+{.073,.054,.035,.0178,.0062,.00125,0.,0.,0.,0.},
+{.0661,.047,.0284,.012,.0025,0.,0.,0., 0.,0.},
+{.0594,.0404,.022,.0065,0.,0.,0.,0.,0.,0.},
+{.0528,.034,.0159,.002,0.,0.,0.,0.,0.,0.},
+{.0465,.0277,.01,0.,0.,0.,0.,0.,0.,0.},
+{.0401,.0217,.0044,0.,0.,0.,0.,0.,0.,0.},
+{.0339,.0158,.00024,0.,0.,0.,0., 0.,0.,0.},
+{.028,.0106,0.,0.,0.,0.,0.,0.,0.,0.},
+{.0219,.0064,0.,0.,0., 0.,0.,0.,0.,0.},
+{.0164,.0025,0.,0.,0.,0.,0.,0.,0.,0.},
+{.0122,0.,0.,0., 0.,0.,0.,0.,0.,0.},
+{.0085,0.,0.,0.,0.,0.,0.,0.,0.,0.},
+{.0057,0.,0., 0.,0.,0.,0.,0.,0.,0.},
+{.0035,0.,0.,0.,0.,0.,0.,0.,0.,0.},
+{.0016,0.,0.,0.,0.,0.,0.,0.,0.,0.},
+{0.,0.,0.,0.,0.,0.,0.,0.,0.,0.},
+{0.,0.,0., 0.,0.,0.,0.,0.,0.,0.}}
+\end{verbatim}\end{Code}
+numbers for RLDM 
+
+\index{CYrast@{CYrast}!x3h@{x3h}}
+\index{x3h@{x3h}!CYrast@{CYrast}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float const \bf{CYrast::x3h}\hspace{0.3cm}{\tt  [static, private]}}\label{classCYrast_739d4e955747a9f0b8b9289e7e7ecb35}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{
+{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0},
+{-0.00012,-0.00014,-0.00016,-0.00018,-0.0002,-0.00024,-0.00029,-0.00036,
+-0.00065,-0.00089},
+{-0.00047,-0.0005,-.00058,-.00065,-.00074,-.00085,-.00101,-.00124,
+-.00138,-.00178},
+{-0.001,-0.00105,-0.00124,-0.00138,-0.00156,-0.00179,-0.00275,-0.00292,
+-0.003,-0.003},
+{-0.00176,-0.0019,-0.00211,-0.00235,-0.00263,-0.00298,-0.00449,-0.0053,
+-0.0053,-0.0053},
+{-0.003,-0.00308,-0.00318,-0.00352,-0.00392,-0.00417,-0.0062,-0.0062,
+-0.0062,-0.0062},
+{-0.00374,-0.0041,-0.00444,-0.00488,-0.00521,-0.00545,-0.0066,-0.0066,
+-0.0066,-0.0066},
+{-0.0053,-0.0055,-0.00585,-0.0064,-0.00695,-0.007,-0.007,-0.007,-0.007,-0.007},
+{-0.00632,-0.007,-0.00742,-0.00792,-0.00856,-0.009,-0.009,-0.009,
+-0.009,-0.009},
+{-0.0079,-0.0085,-0.01022,-0.0119,-0.012,-0.012,-0.012,-0.012,-0.012,-0.012},
+{-0.00944,-0.0102,-0.0142,-0.0182,-0.019,-0.019,-0.019,-0.019,-0.019,-0.019},
+{-0.0112,-0.0133,-0.0182,-0.0238,-0.024,-0.024,-0.024,-0.024,-0.024,-0.024},
+{-0.01303,-0.0178,-0.0226,-0.0274,-0.028,-0.028,-0.028,-0.028,-0.028,-0.028},
+{-0.0165,-0.0254,-0.0343,-0.0343,-0.034,-0.034,-0.034,-0.034,-0.034,-0.034},
+{-0.0203,-0.033,-0.04,-0.04,-0.04,-0.04,-0.04,-0.04,-0.04,-0.04},
+{-0.025,-0.0406,-0.046,-0.047,-0.047,-0.047,-0.047,-0.047,-0.047,-0.047},
+{-0.03036,-0.0482,-0.048,-0.048,-0.048,-0.048,-0.048,-0.048,-0.048,-0.048},
+{-0.0363,-0.0558,-0.056,-0.056,-0.056,-0.056,-0.056,-0.056,-0.056,-0.056},
+{-0.04234,-0.0634,-0.064,-0.064,-0.064,-0.064,-0.064,-0.064-0.064,-0.064},
+{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}}
+\end{verbatim}\end{Code}
+number for RLDM 
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CYrast.h\item 
+Yrast.cpp\end{CompactItemize}

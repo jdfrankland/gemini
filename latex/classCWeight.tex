@@ -1,0 +1,87 @@
+\section{CWeight Class Reference}
+\label{classCWeight}\index{CWeight@{CWeight}}
+weighted Monte Carlo  
+
+
+{\tt \#include $<$CWeight.h$>$}
+
+Inheritance diagram for CWeight::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classCWeight}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+int \bf{choose\-Channel} (float Glight, float Gimf, float Gfission, float Ggamma, float xran)
+\item 
+void \bf{set\-Weight\-IMF} ()
+\item 
+float \bf{get\-Weight\-Factor} ()
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{find\-Factor} (float Glight, float Gimf, float Gfission, float Ggamma)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+float \bf{fact}\label{classCWeight_3b15fe630120a57701652a270d40ebd6}
+
+\begin{CompactList}\small\item\em weighting factor \item\end{CompactList}\item 
+int \bf{i\-Weight}\label{classCWeight_6027a33246e698010f4fd7ef204c906b}
+
+\begin{CompactList}\small\item\em ==0, no weighting \item\end{CompactList}\item 
+float \bf{running\-Weight}\label{classCWeight_56291a1271f65a303a587de31b5705bb}
+
+\begin{CompactList}\small\item\em running weight of event \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+weighted Monte Carlo 
+
+!
+
+Class \doxyref{CWeight}{p.}{classCWeight} is a base class that deals with a weighted Monte Carlo scheme. It is used to enhance the probabilty of IMF emission. To compensate for this, each event is given a weight. This weight should be used when histogramming events. 
+
+
+
+\subsection{Member Function Documentation}
+\index{CWeight@{CWeight}!chooseChannel@{chooseChannel}}
+\index{chooseChannel@{chooseChannel}!CWeight@{CWeight}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int CWeight::choose\-Channel (float {\em gamma\-Light}, float {\em gamma\-Imf}, float {\em gamma\-Fission}, float {\em gamma\-Gamma}, float {\em xran})}\label{classCWeight_78edd0575c7fc5482866795d3052f5df}
+
+
+Chooses the decay channel given the decay widths. If IMF weighting is truned on, then IMF emission is enhanced and a running weight is calculated. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em gamma\-Light}]decay width for light-particle evaporation (Me\-V) \item[{\em gamma\-Imf}]decay width for IMF emission (Me\-V) \item[{\em gamma\-Fission}]Fission decay width (Me\-V) \item[{\em gamma\-Gamma}]Gamma-ray decay width \item[{\em xran}]Random number \end{description}
+\end{Desc}
+\index{CWeight@{CWeight}!findFactor@{findFactor}}
+\index{findFactor@{findFactor}!CWeight@{CWeight}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CWeight::find\-Factor (float {\em gamma\-Light}, float {\em gamma\-Imf}, float {\em gamma\-Fission}, float {\em gamma\-Gamma})\hspace{0.3cm}{\tt  [protected]}}\label{classCWeight_38cdf3b427d8a20178e8a9d8dfb63fb5}
+
+
+Determines the degree of weighting for enhance IMF emission \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em gamma\-Light}]decay width for light-particle evaporation (Me\-V) \item[{\em gamma\-Imf}]decay width for IMF emission (Me\-V) \item[{\em gamma\-Fission}]Fission decay width (Me\-V) \item[{\em gamma\-Gamma}]Gamma-ray decay width \end{description}
+\end{Desc}
+\index{CWeight@{CWeight}!getWeightFactor@{getWeightFactor}}
+\index{getWeightFactor@{getWeightFactor}!CWeight@{CWeight}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CWeight::get\-Weight\-Factor ()}\label{classCWeight_3c7b2f6250ecf2eedecee982a72a7b7a}
+
+
+When IMF weighting is turn on, this routine returns the weighting factor which should be used to increment all histograms. If weighting is turned off, then unity is returned \index{CWeight@{CWeight}!setWeightIMF@{setWeightIMF}}
+\index{setWeightIMF@{setWeightIMF}!CWeight@{CWeight}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CWeight::set\-Weight\-IMF ()}\label{classCWeight_e1262ad2c5320a2127a0fff5a8438771}
+
+
+turns on IMF weighting, i.e. emhanced IMF emissions 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CWeight.h\item 
+Weight.cpp\end{CompactItemize}

@@ -1,0 +1,91 @@
+\section{CAngle\-Dist Class Reference}
+\label{classCAngleDist}\index{CAngleDist@{CAngleDist}}
+angular distributions  
+
+
+{\tt \#include $<$CAngle\-Dist.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CAngle\-Dist} ()
+\item 
+\bf{$\sim$CAngle\-Dist} ()
+\item 
+float \bf{get\-Theta} (int l)
+\begin{CompactList}\small\item\em returns a random polar angle associated with a specified angular momentum \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\bf{CRandom} $\ast$ \bf{ran}\label{classCAngleDist_e02977eb97a904d56ca3b3845332300c}
+
+\begin{CompactList}\small\item\em random number generator \item\end{CompactList}\item 
+float $\ast$$\ast$ \bf{dist}\label{classCAngleDist_c77de26b9bad4663b58b4f8d1078c710}
+
+\begin{CompactList}\small\item\em array containing sampled distributions \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static int const \bf{max\-L} = 20
+\item 
+static int const \bf{n\-Angle} = 90
+\item 
+static float const \bf{pi} = acos(-1.)\label{classCAngleDist_37d74e9f70a3d094648c40d0da92b947}
+
+\begin{CompactList}\small\item\em the mathematical constant \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+angular distributions 
+
+!
+
+class to randomly selects a polar angle theta of an emitted fragment 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CAngleDist@{CAngle\-Dist}!CAngleDist@{CAngleDist}}
+\index{CAngleDist@{CAngleDist}!CAngleDist@{CAngle\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CAngle\-Dist::CAngle\-Dist ()}\label{classCAngleDist_7d0a03e324dbc057936fb8d1ca329089}
+
+
+Constructor \index{CAngleDist@{CAngle\-Dist}!~CAngleDist@{$\sim$CAngleDist}}
+\index{~CAngleDist@{$\sim$CAngleDist}!CAngleDist@{CAngle\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CAngle\-Dist::$\sim$CAngle\-Dist ()}\label{classCAngleDist_4cf4d259ad78aa8750dfaf44f6223802}
+
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\index{CAngleDist@{CAngle\-Dist}!getTheta@{getTheta}}
+\index{getTheta@{getTheta}!CAngleDist@{CAngle\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CAngle\-Dist::get\-Theta (int {\em l})}\label{classCAngleDist_4e5248b7137abe1f54bfaf507481b359}
+
+
+returns a random polar angle associated with a specified angular momentum 
+
+The angle is chosen from the distribution $P_l^l[cos(\theta)]^2 sin(\theta)$. This angle is expressed in radians. If the angular momentum is above max\-L, an angle of 90 degrees is returned \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em l}]is the orbital angular-momentum quantum number \end{description}
+\end{Desc}
+
+
+\subsection{Member Data Documentation}
+\index{CAngleDist@{CAngle\-Dist}!maxL@{maxL}}
+\index{maxL@{maxL}!CAngleDist@{CAngle\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int const \bf{CAngle\-Dist::max\-L} = 20\hspace{0.3cm}{\tt  [static, protected]}}\label{classCAngleDist_3f0aa16d55e7c170d294c19c8d144d14}
+
+
+maximum angular distribution for which distributions are made \index{CAngleDist@{CAngle\-Dist}!nAngle@{nAngle}}
+\index{nAngle@{nAngle}!CAngleDist@{CAngle\-Dist}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int const \bf{CAngle\-Dist::n\-Angle} = 90\hspace{0.3cm}{\tt  [static, protected]}}\label{classCAngleDist_781df82a35c54b698d8650d7524ccb8e}
+
+
+number of angular bins used to sample distributions 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CAngle\-Dist.h\item 
+Angle\-Dist.cpp\end{CompactItemize}

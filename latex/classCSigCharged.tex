@@ -1,0 +1,121 @@
+\section{CSig\-Charged Class Reference}
+\label{classCSigCharged}\index{CSigCharged@{CSigCharged}}
+inverse xsections  
+
+
+{\tt \#include $<$CSig\-Charged.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CSig\-Charged} (string file, float Zp0, float Ap0)\label{classCSigCharged_f1a0c7d0b39115a3da7ba80d35633461}
+
+\begin{CompactList}\small\item\em constructor \item\end{CompactList}\item 
+void \bf{prepare} (float Z, float A)\label{classCSigCharged_1ff354f15be674a0cf48be6a8c92362a}
+
+\begin{CompactList}\small\item\em prepares for calculations of inverse xsections \item\end{CompactList}\item 
+float \bf{get\-Inverse\-Xsec} (float energy)\label{classCSigCharged_481a8b2ee84c4a2394396fc1ff3830bc}
+
+\begin{CompactList}\small\item\em calculates the inverse xsection \item\end{CompactList}\item 
+float \bf{get\-Barrier} ()\label{classCSigCharged_229a7e136b539bfe31ae313497f029ac}
+
+\begin{CompactList}\small\item\em calculates the barrier \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+string \bf{s\-Name}\label{classCSigCharged_01f9a1cab2ec8b56bb0793877bd60e2f}
+
+\begin{CompactList}\small\item\em name of input file of coefficients \item\end{CompactList}\item 
+float \bf{rc0}\label{classCSigCharged_2e9ec2ff0dcb3fb2c2bc9de795cf2d9f}
+
+\begin{CompactList}\small\item\em paramter to calculate radius for Coulomb barrier \item\end{CompactList}\item 
+float \bf{rc1}\label{classCSigCharged_95be4c57efdffcc3f3226a6f05eee5ef}
+
+\begin{CompactList}\small\item\em paramter to calculate radius for Coulomb barrier \item\end{CompactList}\item 
+float \bf{rc2}\label{classCSigCharged_0dcd5b2c790d16cb61f104f65d388894}
+
+\begin{CompactList}\small\item\em paramter to calculate radius for Coulomb barrier \item\end{CompactList}\item 
+float \bf{omega0}\label{classCSigCharged_68809d69d20bb519183353c3c906d00e}
+
+\begin{CompactList}\small\item\em paramter for omega \item\end{CompactList}\item 
+float \bf{omega1}\label{classCSigCharged_3c051766a9894adcad4e44b5ca32dcbc}
+
+\begin{CompactList}\small\item\em parameter for omega \item\end{CompactList}\item 
+float \bf{omega2}\label{classCSigCharged_a6c3fc42a9234e2e3a9c86e701b47ee8}
+
+\begin{CompactList}\small\item\em parameter for omega \item\end{CompactList}\item 
+float \bf{omega3}\label{classCSigCharged_12c9f21352794c01bcc43bc2e4b5bb39}
+
+\begin{CompactList}\small\item\em parameter for omega \item\end{CompactList}\item 
+float \bf{r\-I0}\label{classCSigCharged_1d80ea773c32a209e2a59ff2127bd79e}
+
+\begin{CompactList}\small\item\em paramter for radius for rotational energy \item\end{CompactList}\item 
+float \bf{r\-I1}\label{classCSigCharged_b48b08d3862b74bfa5747269d6356a63}
+
+\begin{CompactList}\small\item\em paramter for radius for rotational energy \item\end{CompactList}\item 
+float \bf{r\-I2}\label{classCSigCharged_da18f138bed0f3c8c27f2afaa3fed991}
+
+\begin{CompactList}\small\item\em paramter for radius for rotational energy \item\end{CompactList}\item 
+float \bf{aa0}\label{classCSigCharged_6b8879bfcbd5795f59e61e6df5b5d8e6}
+
+\begin{CompactList}\small\item\em below barrier correction parameter \item\end{CompactList}\item 
+float \bf{aa1}\label{classCSigCharged_48b8b25cfb0231e40f94a00da13e3c85}
+
+\begin{CompactList}\small\item\em below barrier correction parameter \item\end{CompactList}\item 
+float \bf{a0}\label{classCSigCharged_19668087e1a2b0760639a42b9e141caf}
+
+\begin{CompactList}\small\item\em above barrier correction parameter \item\end{CompactList}\item 
+float \bf{a1}\label{classCSigCharged_0f53eb037a0604ef46b9bcd8123bc47a}
+
+\begin{CompactList}\small\item\em above barrier correction parameter \item\end{CompactList}\item 
+float \bf{Zp}\label{classCSigCharged_af05329196a8ad846c52c84f8624d05e}
+
+\begin{CompactList}\small\item\em proton number of evaporated particle \item\end{CompactList}\item 
+float \bf{Ap}\label{classCSigCharged_3dbeea3317884d86f0b33fc2a0eb403c}
+
+\begin{CompactList}\small\item\em mass number of evaporated particle \item\end{CompactList}\item 
+float \bf{barrier}\label{classCSigCharged_93315540bc38507bc5e93fb4a5e2b9e8}
+
+\begin{CompactList}\small\item\em Coulomb barrier in Me\-V. \item\end{CompactList}\item 
+float \bf{Inv\-Inertia}\label{classCSigCharged_df7bc08f4b6389120a07f4db07a4edb7}
+
+\begin{CompactList}\small\item\em inverse of the moment of inertia associated with rotateion \item\end{CompactList}\item 
+float \bf{omega}\label{classCSigCharged_0a576694df692a880cfd39b99784fa30}
+
+\begin{CompactList}\small\item\em amega parameter in Me\-V \item\end{CompactList}\item 
+float \bf{a}\label{classCSigCharged_685b5e0fbca8bfdaf3e4f7eb20ec90a4}
+
+\begin{CompactList}\small\item\em above barrier correction \item\end{CompactList}\item 
+float \bf{aa}\label{classCSigCharged_aaba6b096eabd13e2b67d3280a3b5621}
+
+\begin{CompactList}\small\item\em below barrier correction \item\end{CompactList}\item 
+float \bf{offset}\label{classCSigCharged_eebf83c2154c3cf90e4d5bc542ebec5e}
+
+\begin{CompactList}\small\item\em offset \item\end{CompactList}\item 
+bool \bf{neutron}\label{classCSigCharged_ddd3529b64f4785ebed1c1c836014040}
+
+\begin{CompactList}\small\item\em bool to signify neutron calculation \item\end{CompactList}\item 
+float \bf{n0}\label{classCSigCharged_d963202b2a1cbe5ed6b32c13633f04cb}
+
+\begin{CompactList}\small\item\em neutron parameter \item\end{CompactList}\item 
+float \bf{n1}\label{classCSigCharged_9195bf8cbeca8cd04cb40b9bb9bf2314}
+
+\begin{CompactList}\small\item\em neutron parameter \item\end{CompactList}\item 
+float \bf{n2}\label{classCSigCharged_15d00779ea82f9e4d5343faeb2d8d6d5}
+
+\begin{CompactList}\small\item\em neutron parameter \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+inverse xsections 
+
+!
+
+This class calculates $ \sum_{0}^{\infty} (2\ell+1) T_{\ell}(\varepsilon)$ which is the inverse xsection divided by $ \pi/k^2 $ 
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CSig\-Charged.h\item 
+Sig\-Charged.cpp\end{CompactItemize}

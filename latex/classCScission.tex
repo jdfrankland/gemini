@@ -1,0 +1,224 @@
+\section{CScission Class Reference}
+\label{classCScission}\index{CScission@{CScission}}
+scission energies  
+
+
+{\tt \#include $<$CScission.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CScission} (int i\-Z0, int i\-A0, float f\-J0, int i\-Chan)
+\item 
+\bf{CScission} ()
+\item 
+void \bf{init} (int i\-Z0, int i\-A0, float f\-J0, int ichan, float \bf{Z1}=0., float \bf{A1}=0.)
+\item 
+float \bf{get\-Sep} (float Ek\-Viola)
+\item 
+float \bf{get\-Scission\-Energy} ()
+\item 
+float \bf{get\-Scission\-Energy} (int i\-Z1, int i\-A1)
+\item 
+float \bf{get\-Fission\-Kinetic\-Energy} (int i\-Z1, int i\-A1)
+\item 
+float \bf{sigma\-Fission\-Systematics\-Scission} (int \bf{i\-Z}, int \bf{i\-A}, float \bf{f\-J}, float f\-Uscission)
+\item 
+float \bf{sigma\-Fission\-Systematics\-Saddle} (int \bf{i\-Z}, int \bf{i\-A}, float \bf{f\-J}, float f\-Uscission)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+float \bf{sep}\label{classCScission_7e0a0a9b1be469e17052698c3bb7e5c3}
+
+\begin{CompactList}\small\item\em separation between the surafces of the 2 spheres \item\end{CompactList}\item 
+float \bf{sep0}\label{classCScission_476acc48d1bb450aeb2277b4b19af0de}
+
+\begin{CompactList}\small\item\em separation determined in \doxyref{init()}{p.}{classCScission_0c2bd3f431a6385d8bce851f49284ae8} \item\end{CompactList}\item 
+float \bf{sep1}\label{classCScission_95ede779e290b86fe960b120001b899c}
+
+\begin{CompactList}\small\item\em separation determined in sigma\-Fission\-Systematics() \item\end{CompactList}\item 
+int \bf{i\-A}\label{classCScission_b468c2769bc37ebe21918a87057a07ff}
+
+\begin{CompactList}\small\item\em mass number of system \item\end{CompactList}\item 
+int \bf{i\-Z}\label{classCScission_1c611f244f8e8f6094570f529e3e084c}
+
+\begin{CompactList}\small\item\em proton number of system \item\end{CompactList}\item 
+float \bf{A}\label{classCScission_0120018c3a218a5615eefb199390ab31}
+
+\begin{CompactList}\small\item\em float value of i\-A \item\end{CompactList}\item 
+float \bf{Z}\label{classCScission_f817f8c63a13f4844770e3553336e56f}
+
+\begin{CompactList}\small\item\em float value of i\-Z \item\end{CompactList}\item 
+float \bf{f\-J}\label{classCScission_b10764ede0c5ee1c0269701c1a34d195}
+
+\begin{CompactList}\small\item\em spin of system \item\end{CompactList}\item 
+float \bf{Esymmetric}\label{classCScission_838a72a6358a91630362b136eff830ae}
+
+\begin{CompactList}\small\item\em energy for symmetric mass split \item\end{CompactList}\item 
+float \bf{ek\-Tot}\label{classCScission_7d2335cb14f3ab025a8899eb714f2264}
+
+\begin{CompactList}\small\item\em total fission kinetic energy from \doxyref{get\-Fission\-Kinetic\-Energy()}{p.}{classCScission_41ffe401a64b471f3f6886ae42034486} \item\end{CompactList}\item 
+float \bf{Erotate1}\label{classCScission_8ca6f7ca00675838a93349e5ebca605f}
+
+\begin{CompactList}\small\item\em rotational energy of fragment1 \item\end{CompactList}\item 
+float \bf{Erotate2}\label{classCScission_78e46526b068360b332ac6d4070dc3cc}
+
+\begin{CompactList}\small\item\em rotational energy of fragment2 \item\end{CompactList}\item 
+float \bf{Epair1}\label{classCScission_0808896a03852c1587ef84be24f704e3}
+
+\begin{CompactList}\small\item\em pairing energy of frag1 \item\end{CompactList}\item 
+float \bf{Epair2}\label{classCScission_1ff3a0893bf14ac980307b9bb3fc7c1c}
+
+\begin{CompactList}\small\item\em pairing energy of frag2 \item\end{CompactList}\item 
+float \bf{Eshell1}\label{classCScission_b95a595aebdd0686a86a1bc32a8994e8}
+
+\begin{CompactList}\small\item\em shell energy of frag1 \item\end{CompactList}\item 
+float \bf{Eshell2}\label{classCScission_50cf98780b0656cec97ec17711fe3cff}
+
+\begin{CompactList}\small\item\em shell energy of frag2 \item\end{CompactList}\item 
+float \bf{Ek\-Coul}\label{classCScission_16817cd0ceead5160405faf3fd47a774}
+
+\begin{CompactList}\small\item\em Colomb part of total fisison kinetic energy. \item\end{CompactList}\item 
+float \bf{Ek\-Rot}\label{classCScission_e26c54db91eeab7101e8b7aa409c9f22}
+
+\begin{CompactList}\small\item\em rotational part of total fission kinetic energy \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+static float const \bf{r0} = 1.2\label{classCScission_2f0ac2f074774fd8ca26c7899eb48e51}
+
+\begin{CompactList}\small\item\em constant R=r0$\ast$A$^\wedge$(1/3) \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+float \bf{mu0}\label{classCScission_1d131cea4a4271de1eb070d3c4330993}
+
+\begin{CompactList}\small\item\em reduced mass \item\end{CompactList}\item 
+float \bf{Vc0}\label{classCScission_8872d25c5becefcdf2d90e8b5681be84}
+
+\begin{CompactList}\small\item\em Coulomb self energy of a symmetric frag. \item\end{CompactList}\item 
+float \bf{R1}\label{classCScission_5b059301c628acad5705a89980ab5fa1}
+
+\begin{CompactList}\small\item\em radius of frag1 in fm \item\end{CompactList}\item 
+float \bf{mom\-Inertia1}\label{classCScission_7e00010dcc73baff0d6b5caacf2eec65}
+
+\begin{CompactList}\small\item\em moment of inertia of frgament1 \item\end{CompactList}\item 
+float \bf{R2}\label{classCScission_80f047e282b797b42216a88de9382485}
+
+\begin{CompactList}\small\item\em radius of frag1 in fm \item\end{CompactList}\item 
+float \bf{mom\-Inertia2}\label{classCScission_fcbcfbb41e547ca414b487e5b15c685d}
+
+\begin{CompactList}\small\item\em moment of inertia of frgament1 \item\end{CompactList}\item 
+float \bf{k1}\label{classCScission_762eeaf7126c455d8cf8be26f057d79f}
+
+\begin{CompactList}\small\item\em part of the rotational energy \item\end{CompactList}\item 
+bool \bf{sym}\label{classCScission_2030b52f9a5a46f4898c4cdde7949155}
+
+\begin{CompactList}\small\item\em logical symmetic of non symmetric fission \item\end{CompactList}\item 
+float \bf{Z1}\label{classCScission_c28f0da8de7c21d16c1a2a90859ee418}
+
+\begin{CompactList}\small\item\em atomic number of lighter fragment after fission \item\end{CompactList}\item 
+float \bf{Z2}\label{classCScission_f4da998a5bb98b7cdc157d26b0cb86a4}
+
+\begin{CompactList}\small\item\em atomic number of heavier fragment \item\end{CompactList}\item 
+float \bf{A1}\label{classCScission_325801d1f2d4f3cee12df6dff0c7edb7}
+
+\begin{CompactList}\small\item\em mass number of lighter fragment after fission \item\end{CompactList}\item 
+float \bf{A2}\label{classCScission_ba0abbfdc704b9d5198bb6e006383f99}
+
+\begin{CompactList}\small\item\em mass number of heavier fragment \item\end{CompactList}\item 
+\bf{CMass} $\ast$ \bf{mass}\label{classCScission_fac372a82d76862c75c3b2d5a8dc2e7f}
+
+\begin{CompactList}\small\item\em gives mass excess \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static float const \bf{e2} = 1.44\label{classCScission_a379552dc524c1769dfa4524156ac2bb}
+
+\begin{CompactList}\small\item\em $e^{2} = 1.44 MeV fm^{-1}$ \item\end{CompactList}\item 
+static float const \bf{k\-Rotate} = 41.563\label{classCScission_8306f38f83714310050a33b91acdd630}
+
+\begin{CompactList}\small\item\em constant for rotational energy \item\end{CompactList}\item 
+static float const \bf{slope\-Viola} = .1189\label{classCScission_50aab84021ddc5fdb54347e744d4bf5e}
+
+\begin{CompactList}\small\item\em for Viola systematics of fission KE \item\end{CompactList}\item 
+static float const \bf{const\-Viola} = 7.3\label{classCScission_5095de5115a5480935cb7dce78942b56}
+
+\begin{CompactList}\small\item\em for Viola systematics of fission KE \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+scission energies 
+
+!
+
+calculates information on scission point for saddle-to-scission evaporation and for fission mass distributions 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CScission@{CScission}!CScission@{CScission}}
+\index{CScission@{CScission}!CScission@{CScission}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CScission::CScission (int {\em i\-Z0}, int {\em i\-A0}, float {\em f\-J0}, int {\em i\-Chan})}\label{classCScission_538659c740716a9a6124fa331e599aaf}
+
+
+constructor /param i\-Z0 is proton number of fissioning nucleus /param i\-A0 is mass number of fission nucleus /param f\-J0 is spin of fissioning nucleus /param i\-Chan =1 for imf, =2 symmetric fission \index{CScission@{CScission}!CScission@{CScission}}
+\index{CScission@{CScission}!CScission@{CScission}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CScission::CScission ()}\label{classCScission_24857c87fd9bc9c6d1f6d075e89e4ded}
+
+
+simple constructor 
+
+\subsection{Member Function Documentation}
+\index{CScission@{CScission}!getFissionKineticEnergy@{getFissionKineticEnergy}}
+\index{getFissionKineticEnergy@{getFissionKineticEnergy}!CScission@{CScission}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CScission::get\-Fission\-Kinetic\-Energy (int {\em i\-Z1}, int {\em i\-A1})}\label{classCScission_41ffe401a64b471f3f6886ae42034486}
+
+
+returns the total fission kinetic energy from a two sphere approximation using the separation sep determined from either \doxyref{init()}{p.}{classCScission_0c2bd3f431a6385d8bce851f49284ae8} to sigma\-Fission\-Systematics(), whichever was called last /param i\-Z1 is the proton number of one of the fragments /param i\-Z2 is the mass number of one of the fragments \index{CScission@{CScission}!getScissionEnergy@{getScissionEnergy}}
+\index{getScissionEnergy@{getScissionEnergy}!CScission@{CScission}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CScission::get\-Scission\-Energy (int {\em i\-Z1}, int {\em i\-A1})}\label{classCScission_1b5c552ee7cbf5a07b8d2d4af059eaf6}
+
+
+returns the asymmetric fission scission energy from a two sphere approximation using the separation sep previously determined from \doxyref{init()}{p.}{classCScission_0c2bd3f431a6385d8bce851f49284ae8} to sigma\-Fission\-Systematics() /param i\-Z1 is the proton number of one of the fission fragments /param i\-A1 is the mass number of one of the fission fragments \index{CScission@{CScission}!getScissionEnergy@{getScissionEnergy}}
+\index{getScissionEnergy@{getScissionEnergy}!CScission@{CScission}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CScission::get\-Scission\-Energy ()}\label{classCScission_e6bcb5439e5a29fdf98819761bbddc73}
+
+
+returns the symmetric fission scission energy from a two sphere approximation using the separation sep previously determined from \doxyref{init()}{p.}{classCScission_0c2bd3f431a6385d8bce851f49284ae8} to sigma\-Fission\-Systematics \index{CScission@{CScission}!getSep@{getSep}}
+\index{getSep@{getSep}!CScission@{CScission}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CScission::get\-Sep (float {\em ek\-Viola})}\label{classCScission_bdbff203a89a1233fc8345603e5edd17}
+
+
+approximates the scission configuration by two separated spheres. returns the separation between the surface of the sphere which is consistent with input fission total kinetic energy /param ek\-Viola is the total fission kinetic energy \index{CScission@{CScission}!init@{init}}
+\index{init@{init}!CScission@{CScission}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CScission::init (int {\em i\-Z0}, int {\em i\-A0}, float {\em f\-J0}, int {\em i\-Chan}, float {\em Z10} = {\tt 0.}, float {\em A10} = {\tt 0.})}\label{classCScission_0c2bd3f431a6385d8bce851f49284ae8}
+
+
+initialized the calls for a given nucleus /param i\-Z0 is the proton number of the nucleus /param i\-A0 is the mass number of the nucleus /param f\-J0 is the spin of the nucleus /param i\-Chan =1 for imf, =2 symmetric fission \index{CScission@{CScission}!sigmaFissionSystematicsSaddle@{sigmaFissionSystematicsSaddle}}
+\index{sigmaFissionSystematicsSaddle@{sigmaFissionSystematicsSaddle}!CScission@{CScission}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CScission::sigma\-Fission\-Systematics\-Saddle (int {\em i\-Z0}, int {\em i\-A0}, float {\em f\-J}, float {\em f\-UScission})}\label{classCScission_3fae208f820a708db985e456187be82b}
+
+
+estimates the standard deviation of the fission mass distributions from the systematics of Rusanov et al. Physics of the Atomic Nucleus 60 (1997) 683 assuming a saddle-point logic. subsequentally, it approximates the scission configuration as two separated spheres, where the separation is adjusted to reproduce the mass distribution \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z0}]is the proton number \item[{\em i\-A0}]is the mass number \item[{\em f\-J}]is the angular momentum \item[{\em f\-UScission}]is the thermal excitation energy at the scission-point in Me\-V \end{description}
+\end{Desc}
+\index{CScission@{CScission}!sigmaFissionSystematicsScission@{sigmaFissionSystematicsScission}}
+\index{sigmaFissionSystematicsScission@{sigmaFissionSystematicsScission}!CScission@{CScission}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CScission::sigma\-Fission\-Systematics\-Scission (int {\em i\-Z0}, int {\em i\-A0}, float {\em f\-J}, float {\em f\-UScission})}\label{classCScission_d4d8f6ddbac1668d6849c3a0cd51840e}
+
+
+estimates the standard deviation of the fission mass distributions from the systematics of Rusanov et al. Physics of the Atomic Nucleus 60 (1997) 683 assuming a scission-point logic. subsequentally, it approximates the scission configuration as two separated spheres, where the separation is adjusted to reproduce the mass distribution \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z0}]is the proton number \item[{\em i\-A0}]is the mass number \item[{\em f\-J}]is the angular momentum \item[{\em f\-UScission}]is the thermal excitation energy at the scission-point in Me\-V \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CScission.h\item 
+Scission.cpp\end{CompactItemize}

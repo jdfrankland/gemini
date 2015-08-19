@@ -1,0 +1,157 @@
+\section{CNuclide Class Reference}
+\label{classCNuclide}\index{CNuclide@{CNuclide}}
+info on each nucleus  
+
+
+{\tt \#include $<$CNuclide.h$>$}
+
+Inheritance diagram for CNuclide::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classCNuclide}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CNuclide} (int \bf{i\-Z}, int \bf{i\-A})
+\item 
+\bf{CNuclide} (int, int, string)
+\item 
+void \bf{init} (int, int)
+\item 
+float \bf{get\-Excess\-Mass} ()
+\item 
+const char $\ast$ \bf{get\-Symbol} ()
+\item 
+string \bf{get\-Name} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\bf{CMass} $\ast$ \bf{mass}\label{classCNuclide_e020aeb91f8b7c73332082282cca3961}
+
+\begin{CompactList}\small\item\em mass excess class \item\end{CompactList}\item 
+\bf{CRandom} $\ast$ \bf{ran}\label{classCNuclide_077a728b5db1496bd6d6431b6499bbb3}
+
+\begin{CompactList}\small\item\em random number generator class \item\end{CompactList}\item 
+int \bf{i\-Z}\label{classCNuclide_9442a34164e471af32a1efe2a73068ea}
+
+\begin{CompactList}\small\item\em proton number \item\end{CompactList}\item 
+int \bf{i\-N}\label{classCNuclide_4eef1a690423544d82155b56597cd3d1}
+
+\begin{CompactList}\small\item\em neutron number \item\end{CompactList}\item 
+int \bf{i\-A}\label{classCNuclide_07b50da4719f3ab76d904561db2dca2e}
+
+\begin{CompactList}\small\item\em mass number \item\end{CompactList}\item 
+float \bf{f\-J}\label{classCNuclide_1365035203a9bc504512037f9e92efb8}
+
+\begin{CompactList}\small\item\em spin [hbar] \item\end{CompactList}\item 
+float \bf{f\-Exp\-Mass}\label{classCNuclide_7d8baf278610bc42f045b6332a394b34}
+
+\begin{CompactList}\small\item\em mass excess [Me\-V] \item\end{CompactList}\item 
+float \bf{f\-Ex}\label{classCNuclide_33f3a6977a3ac4e8451d11b2821e8c71}
+
+\begin{CompactList}\small\item\em excitation energy [Me\-V] \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+string \bf{str\-Chem\-Name}\label{classCNuclide_9edb051b9b41a65aa3aef03522886a38}
+
+\begin{CompactList}\small\item\em gives isotopes and chemical name, e.g. 208Pb \item\end{CompactList}\item 
+string \bf{str\-Name}\label{classCNuclide_9d3b5dd7382e7fb746ab7064243b3a5f}
+
+\begin{CompactList}\small\item\em identifation name \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static const char $\ast$ \bf{name} [101]
+\begin{CompactList}\small\item\em array containing name of all elements \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+info on each nucleus 
+
+!
+
+basic class \doxyref{CNuclide}{p.}{classCNuclide} - stores the basic properties of the nucleus 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CNuclide@{CNuclide}!CNuclide@{CNuclide}}
+\index{CNuclide@{CNuclide}!CNuclide@{CNuclide}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CNuclide::CNuclide (int {\em i\-Z0}, int {\em i\-A0})}\label{classCNuclide_5de0ac220b6cd6f177e9109bfac18934}
+
+
+Constructor specifies the isotope \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z0}]is the proton number \item[{\em i\-A0}]is the mass number \end{description}
+\end{Desc}
+\index{CNuclide@{CNuclide}!CNuclide@{CNuclide}}
+\index{CNuclide@{CNuclide}!CNuclide@{CNuclide}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CNuclide::CNuclide (int {\em i\-Z0}, int {\em i\-A0}, string {\em str\-Name0})}\label{classCNuclide_f89e1585817978cccb4270f51ec7fce1}
+
+
+alternative constructor 
+
+\subsection{Member Function Documentation}
+\index{CNuclide@{CNuclide}!getExcessMass@{getExcessMass}}
+\index{getExcessMass@{getExcessMass}!CNuclide@{CNuclide}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CNuclide::get\-Excess\-Mass ()}\label{classCNuclide_9fbbaca94a94a919d220997451e47032}
+
+
+Returns the excess mass of the nuclide \index{CNuclide@{CNuclide}!getName@{getName}}
+\index{getName@{getName}!CNuclide@{CNuclide}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}string CNuclide::get\-Name ()}\label{classCNuclide_a56693706f435a7bf3b45035e660d8d6}
+
+
+Returns the chemical name of the isotope as a string \index{CNuclide@{CNuclide}!getSymbol@{getSymbol}}
+\index{getSymbol@{getSymbol}!CNuclide@{CNuclide}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ CNuclide::get\-Symbol ()}\label{classCNuclide_19999965219e259f915e9d49d628560e}
+
+
+Returns the chemical name of the isotope as a character string \index{CNuclide@{CNuclide}!init@{init}}
+\index{init@{init}!CNuclide@{CNuclide}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CNuclide::init (int {\em i\-Z0}, int {\em i\-A0})}\label{classCNuclide_f0b72d479871636abab068355b6910df}
+
+
+Initializes the isotope
+
+Can be used to change the isotope \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-Z0}]is the proton number \item[{\em i\-A0}]is the mass number \end{description}
+\end{Desc}
+
+
+\subsection{Member Data Documentation}
+\index{CNuclide@{CNuclide}!name@{name}}
+\index{name@{name}!CNuclide@{CNuclide}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ \bf{CNuclide::name}\hspace{0.3cm}{\tt  [static, protected]}}\label{classCNuclide_4cf136b7c82e01e82db1073690c2d355}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}{"n","H","He","Li","Be","B",
+                              "C","N","O","F","Ne",
+                              "Na","Mg","Al","Si","P","S","Cl","Ar","K","Ca",
+                              "Sc","Ti","V","Cr","Mn","Fe","Co","Ni","Cu","Zn",
+                              "Ga","Ge","As","Se","Br","Kr","Rb","Sr","Y","Zr",
+                              "Nb","Mo","Tc","Ru","Rh","Pd","Ag","Cd","In",
+                              "Sn","Sb","Te","I","Xe","Cs","Ba","La","Ce","Pr",
+                              "Nd","Pm","Sm","Eu","Gd","Tb","Dy","Ho","Er",
+                               "Tm","Yb","Lu","Hf","Ta","W","Re","Os","Ir",
+                              "Pt","Au","Hg","Tl","Pb","Bi","Po","At","Rn",
+                              "Fr","Ra","Ac","Th","Pa","U","Np","Pu","Am",
+                              "Cm","Bk","Cf","Es","Fm"}
+\end{verbatim}\end{Code}
+array containing name of all elements 
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CNuclide.h\item 
+Nuclide.cpp\end{CompactItemize}

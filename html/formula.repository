@@ -1,0 +1,28 @@
+\form#0:$P_l^l[cos(\theta)]^2 sin(\theta)$
+\form#1:$ \sigma(\ell) = \pi\lambda^2 \sum \frac{2\ell +1} {1+\exp\left(\frac{\ell-\ell_0}{\Delta_{\ell}}\right)}$
+\form#2:$\lambda$
+\form#3:$ \Delta_{\ell}$
+\form#4:$a=\frac{A}{k_{\infty} - \left(k_{\infty} -k_{0} \right) \exp\left( \frac{\kappa}{k_{\infty}-k_{0}}\frac{U}{A}\right)}$
+\form#5:$ \kappa = a_{\kappa} \exp\left(c_{\kappa} A\right) $
+\form#6:$\pi$
+\form#7:$e^{2} = 1.44 MeV fm^{-1}$
+\form#8:$ T_{l}(Ek) = \frac{T_{l}^{R_{0}-\Delta R}(Ek) + T_{l}^{R_{0}}(Ek) + T_{l}^{R_{0}+\Delta R}(Ek)}{3} $
+\form#9:$ T_{l}^{R_{0}}$
+\form#10:$ \pm \Delta R $
+\form#11:$ \Delta R = width*\sqrt{temperature} $
+\form#12:$a=A/8$
+\form#13:$k_{0}$
+\form#14:$a_{\kappa}$
+\form#15:$c_{kappa}$
+\form#16:$k_{\infty}$
+\form#17:$a=A/adenInv$
+\form#18:$\sum_{\ell=\ell_{min}}^{\ell_{max}} T_{\ell}(\varepsilon)$
+\form#19:$\varepsilon$
+\form#20:$ \sqrt(T)* width $
+\form#21:$\frac{1}{1+exp(x)}$
+\form#22:$S=\sum_{\ell=0}^{\infty} (2\ell+1)T_{\ell}(\varepsilon)$
+\form#23:$S=\frac{\sigma_{inv}}{\pi\lambda^{2}}$
+\form#24:$ \Delta R= \sqrt T* width00 $
+\form#25:$ \sum_{0}^{\infty} (2\ell+1) T_{\ell}(\varepsilon)$
+\form#26:$ \pi^2/k $
+\form#27:$ \pi/k^2 $

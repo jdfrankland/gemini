@@ -1,0 +1,33 @@
+This directory contains examples of codes which use 
+ROOT subroutines to construct histograms. You can also run 
+directly in ROOT (see the ../root directory for details), 
+however for long 
+simulation it is often better to run in batch mode.
+
+
+You need to have the ROOT pachage installed on your computer for 
+the following to work.
+
+ The file fusion.cpp is an example of a simulation of
+ heavy-ion fusion reaction producing a compound nucleus
+ which statistically decay.
+There is a similar file fusionThick.cpp
+
+
+These programs  call either Run.cpp or RunThick.cpp which
+constructs various histograms and runs the simulations.
+Run.cpp is for a thin target - only one compound nucleus excitation energy
+RunThick.cpp is for a thicker target, but thin enough so that the energy loss
+of the projectile is approximately uniform thoughout the target thickness.
+It then calcuates the decay for a small range of excitation energies. 
+
+
+Instructions
+
+a) copy the files in this directory to the main gemini++ deirectory or better
+a copy of the main gemini++ directory
+
+b) Makefile fusion
+
+c ./fusion 
+ 

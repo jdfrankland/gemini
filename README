@@ -1,0 +1,57 @@
+This directory contains GEMINI++, a c++ version of GEMINI
+used to model the statistical decay of a compound nuclei.
+
+The main c++ class is CNucleus. An example of how to use
+this is a c++ program can be found in testDecay.cpp.
+
+Another example for the statistical decay of a compound nucleus formed
+in a heavy-ion fusion reaction can be found in testFusion.cpp
+
+For just calculating the decay width, see testWidth.f or testTheWidth.cpp
+
+The file gemini.cpp is for fortran users. An example of how to use 
+this in a fortran program can be found in testGemini.f
+
+These three example programs can be compiled with
+make testDecay
+or
+make testGemini
+or 
+Make testFusion
+or 
+make testTheWidth
+or
+make testWidth
+
+Note the directories tbl and tl contain input data which are
+read in each time one uses these classes. Use can use the variable GINPUT 
+to point to the gemini directory if you are not running the code in this
+directory. Use the export command 
+.e.q. in .bashrc I have set
+export GINPUT=/home/charity/gemini++
+
+
+
+More details can be found in the doxygen documentation
+i.e in directory html try
+firefox index.html
+
+
+GEMINI++ can be run in the root envirament. Instructions can be 
+found in root/readme.
+For long simulations is can be better to run in batch,
+ root2/readme2 give an example of a program that calls gemini++
+and histograms using ROOT classes and write out a root file of the 
+results.
+
+
+
+
+
+To reference GEMINI++
+R. J. Charity, Physics Review C 82 (2010)014610  (evaporation parameters)
+D. Mancusi, R. J. Charity, J. Cugnon, Physics Review C 82 (2010) 044610 (fission parameter)
+We are working on a manuscript for IMF emission and the best default parameters.
+ 
+
+

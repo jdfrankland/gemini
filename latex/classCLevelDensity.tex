@@ -1,0 +1,300 @@
+\section{CLevel\-Density Class Reference}
+\label{classCLevelDensity}\index{CLevelDensity@{CLevelDensity}}
+returns level density, entropy, temperature  
+
+
+{\tt \#include $<$CLevel\-Density.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+float \bf{get\-Little\-A} (int i\-A, float f\-U0, float f\-Pairing=0., float f\-Shell=0., float f\-J=0., short i\-Fission=0)
+\item 
+float \bf{get\-Little\-A} (int i\-A, short i\-Fission)
+\item 
+float \bf{get\-U} (float f\-U0, float f\-Pairing, float f\-Shell, float f\-J)
+\item 
+float \bf{get\-Aden} ()
+\item 
+float \bf{get\-Log\-Level\-Density\-Spherical} (int i\-A, float f\-U0, float f\-Pairing, float f\-Shell, float f\-J, float f\-Minertia, short i\-Fission=0)
+\item 
+float \bf{get\-Log\-Level\-Density\-Spherical} (int i\-A, float f\-U0, float f\-Pairing, float f\-Shell)
+\item 
+float \bf{get\-Temp} ()
+\item 
+float \bf{get\-Entropy} ()
+\item 
+float \bf{get\-Log\-Level\-Density\-Scission} (int i\-A, float U, float aden\-Inv=8.)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{CLevel\-Density} $\ast$ \bf{instance} ()\label{classCLevelDensity_fe25e210704d8333f87261835305e5a3}
+
+\begin{CompactList}\small\item\em instance member to make this class a singleton \item\end{CompactList}\item 
+static void \bf{set\-Little\-A} (float k00, float a\-Kappa0=0., float c\-Kappa0=0., float \bf{k\-Infinity}=12.)
+\item 
+static void \bf{set\-Af\-An} (float af\_\-an0)
+\item 
+static void \bf{set\-Aimf\-An} (float aimf\_\-an0)
+\item 
+static void \bf{set\-Ucrit} (float Ucrit00, float \bf{Jcrit})
+\item 
+static float \bf{get\-AKappa} ()
+\item 
+static float \bf{get\-CKappa} ()
+\item 
+static float \bf{get\-K0} ()
+\item 
+static float \bf{get\-KInfinity} ()
+\item 
+static float \bf{get\-Af\-An} ()
+\item 
+static float \bf{get\-Aimf\-An} ()
+\item 
+static void \bf{print\-Parameters} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+float \textbf{J}\label{classCLevelDensity_dcfcf4e3e8ba27e33089c592ef593d8a}
+
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CLevel\-Density} ()
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+float \bf{aden}\label{classCLevelDensity_1806204a907f25a442252c512adfbee8}
+
+\begin{CompactList}\small\item\em little-density parameter \item\end{CompactList}\item 
+float \bf{entropy}\label{classCLevelDensity_f678ed429f345194a54e903d1f0988dd}
+
+\begin{CompactList}\small\item\em entropy \item\end{CompactList}\item 
+float \bf{temp}\label{classCLevelDensity_4a16e3d0e061122756fd2fd08475cf71}
+
+\begin{CompactList}\small\item\em temperature \item\end{CompactList}\item 
+float \bf{f\-U}\label{classCLevelDensity_7d128ac299d6d28df0aeca5ee920756a}
+
+\begin{CompactList}\small\item\em thermal excitation energy in Me\-V \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Private Attributes}
+\begin{CompactItemize}
+\item 
+static \bf{CLevel\-Density} $\ast$ \bf{f\-Instance} = 0\label{classCLevelDensity_cd22bebf963abe34264ebd60b30f35e8}
+
+\begin{CompactList}\small\item\em instance member to make this class a singleton \item\end{CompactList}\item 
+static float \bf{k0} = 7.3\label{classCLevelDensity_2d81b36293e089d0ea9e207eb92f9839}
+
+\begin{CompactList}\small\item\em inverse level-density parameter at U=0 \item\end{CompactList}\item 
+static float \bf{k\-Infinity} = 12.\label{classCLevelDensity_7e962db0e85758cc3aa150bd33c7df56}
+
+\begin{CompactList}\small\item\em inverse level-density parameter at U=infinity \item\end{CompactList}\item 
+static float \bf{a\-Kappa} = 0.00517\label{classCLevelDensity_8aec4ef16f0210c7a75133707685b308}
+
+\begin{CompactList}\small\item\em mass dependence of kappa \item\end{CompactList}\item 
+static float \bf{c\-Kappa} = .0345\label{classCLevelDensity_dd31aa8f8f306f10f6f05e1baa4e5714}
+
+\begin{CompactList}\small\item\em mass dependence of kappa \item\end{CompactList}\item 
+static float \bf{af\_\-an} = 1.036\label{classCLevelDensity_2c9546a639a3bf40c0dbb6114bc0338b}
+
+\begin{CompactList}\small\item\em ratio of sym-fission saddle to equilibrium level-density para \item\end{CompactList}\item 
+static float \bf{aimf\_\-an} = 1.02\label{classCLevelDensity_18087f4cc08ed484bc2be0757dd56bf5}
+
+\begin{CompactList}\small\item\em ratio of asy-fission(imf) saddle to equilibrium level-density para \item\end{CompactList}\item 
+static bool \textbf{normal} = true\label{classCLevelDensity_30347a681f59c2634e83b10c01433bad}
+
+\item 
+static float \bf{Ucrit0} = 9.\label{classCLevelDensity_4c1ae144f6bd88d08984c68545417e05}
+
+\begin{CompactList}\small\item\em Ucrit for J= 0, vanishing of pairing. \item\end{CompactList}\item 
+static float \bf{Jcrit} = 14\label{classCLevelDensity_997a519ce7eeafe12d42b89a712b361a}
+
+\begin{CompactList}\small\item\em spin for the vanishing of pairing \item\end{CompactList}\item 
+static float \bf{e\-Fade} = 18.52\label{classCLevelDensity_cc813690a415d62c977ee7d6d9125f90}
+
+\begin{CompactList}\small\item\em fade out of shell effects with excitation energy \item\end{CompactList}\item 
+static float \bf{j\-Fade} = 50.\label{classCLevelDensity_9b2cb43c005e88d8fbedd5853e9960e5}
+
+\begin{CompactList}\small\item\em fade out of shell effects with spin \item\end{CompactList}\item 
+static float const \bf{pi} = acos(-1.)\label{classCLevelDensity_2a8c4bc82f1676360d9a68e33ab82067}
+
+\begin{CompactList}\small\item\em the mathematical constant $\pi$ \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+returns level density, entropy, temperature 
+
+!
+
+This class deals with level densities and related paramters. the level-density parameter is $a=\frac{A}{k_{\infty} - \left(k_{\infty} -k_{0} \right) \exp\left( \frac{\kappa}{k_{\infty}-k_{0}}\frac{U}{A}\right)}$ where $ \kappa = a_{\kappa} \exp\left(c_{\kappa} A\right) $ 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CLevelDensity@{CLevel\-Density}!CLevelDensity@{CLevelDensity}}
+\index{CLevelDensity@{CLevelDensity}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CLevel\-Density::CLevel\-Density ()\hspace{0.3cm}{\tt  [private]}}\label{classCLevelDensity_e6428caecb1135b705ac39adf873b135}
+
+
+Constructor 
+
+\subsection{Member Function Documentation}
+\index{CLevelDensity@{CLevel\-Density}!getAden@{getAden}}
+\index{getAden@{getAden}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-Aden ()}\label{classCLevelDensity_29ce0edb568e2c2e261438e99dbebb81}
+
+
+Returns the level-density parameter in Me\-V-1 \index{CLevelDensity@{CLevel\-Density}!getAfAn@{getAfAn}}
+\index{getAfAn@{getAfAn}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-Af\-An ()\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_812ad4c5a5c2c41006a513a68a274d4b}
+
+
+returns the ration of saddle-point to equilibrium level-density parameter for symmetyric fission \index{CLevelDensity@{CLevel\-Density}!getAimfAn@{getAimfAn}}
+\index{getAimfAn@{getAimfAn}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-Aimf\-An ()\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_b5ae5183066b912f311399fee5f430ac}
+
+
+returns the ration of saddle-point to equilibrium level-density parameter for asymmetric fission \index{CLevelDensity@{CLevel\-Density}!getAKappa@{getAKappa}}
+\index{getAKappa@{getAKappa}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-AKappa ()\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_d4b025eeaf50b2609a5f4a1aa2e1c695}
+
+
+returns one of the coefficients used to calculate kappa $ \kappa = a_{\kappa} \exp\left(c_{\kappa} A\right) $ \index{CLevelDensity@{CLevel\-Density}!getCKappa@{getCKappa}}
+\index{getCKappa@{getCKappa}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-CKappa ()\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_d761161ac6272d6efb58796825fa7000}
+
+
+returns the other coefficients used to calculate kappa $ \kappa = a_{\kappa} \exp\left(c_{\kappa} A\right) $ \index{CLevelDensity@{CLevel\-Density}!getEntropy@{getEntropy}}
+\index{getEntropy@{getEntropy}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-Entropy ()}\label{classCLevelDensity_f3c8dae34c2de62646d0061cbb6bbe82}
+
+
+Returns the entropy. get\-Little\-A must be called first \index{CLevelDensity@{CLevel\-Density}!getK0@{getK0}}
+\index{getK0@{getK0}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-K0 ()\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_e5bec4da4e010b19a0d092056fecaf7f}
+
+
+returns the inverse level-density parameter at zero excitation energy \index{CLevelDensity@{CLevel\-Density}!getKInfinity@{getKInfinity}}
+\index{getKInfinity@{getKInfinity}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-KInfinity ()\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_f27496e4e8611b3509a7e70efa33508b}
+
+
+returns the inverse level-density parameter at infinite excitation energy \index{CLevelDensity@{CLevel\-Density}!getLittleA@{getLittleA}}
+\index{getLittleA@{getLittleA}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-Little\-A (int {\em i\-A}, short {\em i\-Fission})}\label{classCLevelDensity_8cbed36fb5a48843a622183e803872b6}
+
+
+Returns the level-density parameter in units of Me\-V-1, the get\-U function must already have been called to use this version \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-A}]is the mass number \item[{\em f\-J}]is the angular momentum in units of hbar \item[{\em i\-Fission}]is a short indicating we are detail with a saddle-point shape \end{description}
+\end{Desc}
+\index{CLevelDensity@{CLevel\-Density}!getLittleA@{getLittleA}}
+\index{getLittleA@{getLittleA}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-Little\-A (int {\em i\-A}, float {\em f\-U0}, float {\em f\-Pairing} = {\tt 0.}, float {\em f\-Shell} = {\tt 0.}, float {\em f\-J} = {\tt 0.}, short {\em i\-Fission} = {\tt 0})}\label{classCLevelDensity_58fc95dcb009f6594ccc069026c03e9c}
+
+
+Returns the level-density parameter in units of Me\-V-1 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-A}]is the mass number \item[{\em f\-U0}]is the thermal excitation energy in Me\-V \item[{\em f\-Pairing}]is the pairing correction in Me\-V \item[{\em f\-Shell}]is the shell correction in Me\-V \item[{\em f\-J}]is the angular momentum in units of hbar \item[{\em i\-Fission}]is a short indicating we are detail with a saddle-point shape \end{description}
+\end{Desc}
+\index{CLevelDensity@{CLevel\-Density}!getLogLevelDensityScission@{getLogLevelDensityScission}}
+\index{getLogLevelDensityScission@{getLogLevelDensityScission}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-Log\-Level\-Density\-Scission (int {\em i\-A}, float {\em f\-U}, float {\em aden\-Inv} = {\tt 8.})}\label{classCLevelDensity_ad13f8bf607fc24ad3b1f3b6258a507b}
+
+
+returns the level density for a scission configuration. This is used for evaporation from saddle to scission and for determining the fission mass asymmetry \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-A}]is mass number of fissioning system \item[{\em f\-U}]is thermal excitation of fission system \item[{\em aden\-Inv}]in the inverse level-density paramter in Me\-V, is $a=A/adenInv$ \end{description}
+\end{Desc}
+\index{CLevelDensity@{CLevel\-Density}!getLogLevelDensitySpherical@{getLogLevelDensitySpherical}}
+\index{getLogLevelDensitySpherical@{getLogLevelDensitySpherical}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-Log\-Level\-Density\-Spherical (int {\em i\-A}, float {\em f\-U0}, float {\em f\-Pairing}, float {\em f\-Shell})}\label{classCLevelDensity_f91006c52fab6772f9a98868cf03425c}
+
+
+Returns the spin independent Fermi-gas level density \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-A}]is the mass number \item[{\em f\-U0}]is the thermal excitation energy in Me\-V \item[{\em f\-Pairing}]is the pairing correction in Me\-V \item[{\em f\-Shell}]is the shell correction in Me\-V \end{description}
+\end{Desc}
+\index{CLevelDensity@{CLevel\-Density}!getLogLevelDensitySpherical@{getLogLevelDensitySpherical}}
+\index{getLogLevelDensitySpherical@{getLogLevelDensitySpherical}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-Log\-Level\-Density\-Spherical (int {\em i\-A}, float {\em f\-U0}, float {\em f\-Pairing}, float {\em f\-Shell}, float {\em f\-J}, float {\em f\-Minertia}, short {\em i\-Fission} = {\tt 0})}\label{classCLevelDensity_4bac625039f18d6d02c6a72070ae3ff3}
+
+
+Returns the natural logrithm of the spin dependent level density in Me\-V-1 if f\-J $<$ 0, then little\-A is calculated taking into account the spin reduction of paring, but subsequentally the level density is calculated for zero spin. This is done when using Weisskopf formalism for evaporation. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i\-A}]is the mass number \item[{\em f\-U0}]is the thermal excitation energy in Me\-V \item[{\em f\-Pairing}]is the pairing energy in Me\-V \item[{\em f\-Shell}]is the shell correction in Me\-V \item[{\em f\-J}]is the spin in hbar \item[{\em f\-Minertia}]is the moment of inertia in nucleon mass$\ast$ fm$^\wedge$2 \item[{\em i\-Fission}]indicates its for the saddle-point configuration \end{description}
+\end{Desc}
+\index{CLevelDensity@{CLevel\-Density}!getTemp@{getTemp}}
+\index{getTemp@{getTemp}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-Temp ()}\label{classCLevelDensity_e6c46c1ad332b9588dd9bb19f3d2d4b9}
+
+
+Returns the temperature in Me\-V get\-Little\-A must be called first \index{CLevelDensity@{CLevel\-Density}!getU@{getU}}
+\index{getU@{getU}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CLevel\-Density::get\-U (float {\em f\-U0}, float {\em f\-Pairing}, float {\em f\-Shell}, float {\em f\-J})}\label{classCLevelDensity_53f60b840003657ed59e12b9f2815451}
+
+
+Returns the backshifted excitation energy energy to be used in the Fermi gas formula for the level Density \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em f\-U0}]is the thermal excitation energy in Me\-V \item[{\em f\-Pairing}]is the pairing correction in Me\-V \item[{\em f\-Shell}]is the shell correction in Me\-V \item[{\em f\-J}]is the angular momentum in units of hbar \end{description}
+\end{Desc}
+\index{CLevelDensity@{CLevel\-Density}!printParameters@{printParameters}}
+\index{printParameters@{printParameters}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CLevel\-Density::print\-Parameters ()\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_36a2a7b8bed24bcff27e47c51cc2134d}
+
+
+writes out the values of the parameters \index{CLevelDensity@{CLevel\-Density}!setAfAn@{setAfAn}}
+\index{setAfAn@{setAfAn}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CLevel\-Density::set\-Af\-An (float {\em af\_\-an0})\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_cc0135aa7baed8b5748e0bff737f9502}
+
+
+set the ration of level-density paramters at the saddle-point to equilibrium shape for symmetric fission \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em af\_\-an0}]is the level-density parameter ratio for saddle-point to equilibirum deformation \end{description}
+\end{Desc}
+\index{CLevelDensity@{CLevel\-Density}!setAimfAn@{setAimfAn}}
+\index{setAimfAn@{setAimfAn}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CLevel\-Density::set\-Aimf\-An (float {\em aimf\_\-an0})\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_038598d13bb39c8a2cec9c54549284e8}
+
+
+set the ration of level-density paramters at the saddle-point to equilibrium shape for asymmetric fisison , ie. imf emission \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em aimf\_\-an0}]is the level-density parameter ratio for saddle-point to equilibirum deformation \end{description}
+\end{Desc}
+\index{CLevelDensity@{CLevel\-Density}!setLittleA@{setLittleA}}
+\index{setLittleA@{setLittleA}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CLevel\-Density::set\-Little\-A (float {\em k00}, float {\em a\-Kappa0} = {\tt 0.}, float {\em c\-Kappa0} = {\tt 0.}, float {\em k\-Infinity0} = {\tt 12.})\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_f92ce917d4fc2c1c57bed9cf904c1da4}
+
+
+Sets the constants for level-density parameter where $a=\frac{A}{k_{\infty} - \left(k_{\infty} -k_{0} \right) \exp\left( \frac{\kappa}{k_{\infty}-k_{0}}\frac{U}{A}\right)}$ where $ \kappa = a_{\kappa} \exp\left(c_{\kappa} A\right) $. Note set\-Little\-A(8.) is equivalent to $a=A/8$ \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em k00}]is $k_{0}$ \item[{\em a\-Kappa0}]is $a_{\kappa}$ \item[{\em c\-Kappa0}]is $c_{kappa}$ \item[{\em k\-Infinity0}]is $k_{\infty}$ \end{description}
+\end{Desc}
+\index{CLevelDensity@{CLevel\-Density}!setUcrit@{setUcrit}}
+\index{setUcrit@{setUcrit}!CLevelDensity@{CLevel\-Density}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CLevel\-Density::set\-Ucrit (float {\em Ucrit00}, float {\em Jcrit0})\hspace{0.3cm}{\tt  [static]}}\label{classCLevelDensity_a4e82b07c7b1beb20fc91a4a2ebf9725}
+
+
+set the critical thermal excitation where pairing vanishes \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Ucrit0}]is critical thermal excitaion energy in Me\-V \item[{\em Jcrit}]is critical angular momentum where pairing vanishes \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CLevel\-Density.h\item 
+Level\-Density.cpp\end{CompactItemize}

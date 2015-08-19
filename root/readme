@@ -1,0 +1,42 @@
+Instructions To Run geminni++ in the ROOT envirament
+
+
+1) modify files to be compatible with root
+  a) Nucleus.cpp, Fus.cpp and Angle.cpp. In each of these three file search
+  for "ROOT" and then uncoment the following line so that ClassImp is defined
+
+  b) CNucleus.h, CNuclide.h, CFus.h and CAngle.h. In each of these files
+  search for ROOT and then uncomment the following line. There should be 
+  two changes to each file except CNucleus.h where there is only one change 
+
+
+
+
+
+2) copy the files in this directory to main GEMINI folder or 
+to a copy of the main GEMINI folder 
+
+
+3) ./autogen
+
+4) make install
+
+check to see where the libGemini.so file is written
+try instance in ~/lib, but this make vary with the linux system
+
+As an example of a script to run GEMINI++, run
+gSystem.Load("libGemini.so")
+.x testDecay.C
+
+if there is a problem finding libGemini.so, you may want to move
+it to the root libdir directory  (root-config --libdir)
+or modify the script file.
+
+
+more information on GEMINI++ can be found in the html directory
+firefox index.html
+or in gemini.pdf
+
+
+
+ 

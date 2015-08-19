@@ -1,0 +1,159 @@
+\section{CHistory Class Reference}
+\label{classCHistory}\index{CHistory@{CHistory}}
+figures out the history of a fragment  
+
+
+{\tt \#include $<$CHistory.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{$\sim$CHistory} ()
+\item 
+int32\_\-t \bf{get\-History} (\bf{CNucleus} $\ast$p)
+\item 
+std::string \bf{get\-History\-As\-String} (\bf{CNucleus} $\ast$p)
+\item 
+\bf{CHistory} (\bf{CNucleus} $\ast$np)
+\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+static const char \textbf{Evaporation} = 'e'\label{classCHistory_8526aaaf5fbd2d0bf039ad344f95754c}
+
+\item 
+static const char \textbf{Evaporation\-Residue} = 'E'\label{classCHistory_d751acb7c6a230cfcf05c4fb4e3c718f}
+
+\item 
+static const char \textbf{Multifragmentation} = 'm'\label{classCHistory_86441ff177af403bfb59ac10845a0cfd}
+
+\item 
+static const char \textbf{Asymmetric\-Fission\-Light} = 'a'\label{classCHistory_cc32a5ca99de81bb98f1b5a520d73962}
+
+\item 
+static const char \textbf{Asymmetric\-Fission\-Heavy} = 'A'\label{classCHistory_9c39f0fc63624150ec67846b0375fca3}
+
+\item 
+static const char \textbf{Symmetric\-Fission\-Light} = 'f'\label{classCHistory_44f44e412bfb8d792a57093d0f9ac394}
+
+\item 
+static const char \textbf{Symmetric\-Fission\-Heavy} = 'F'\label{classCHistory_4897e0559af8b48cbce29a5cbfbbab9a}
+
+\item 
+static const char \textbf{Saddle\-To\-Scission} = 's'\label{classCHistory_b513fa922565957423755fb0c0b1e5bb}
+
+\item 
+static const char \textbf{Non\-Statistical} = 'n'\label{classCHistory_cee98a068cf6afbd880efac676dad68d}
+
+\end{CompactItemize}
+\subsection*{Private Types}
+\begin{CompactItemize}
+\item 
+typedef std::map$<$ \bf{CNucleus} $\ast$, std::string $>$ \textbf{History\-Map}\label{classCHistory_107da4bdab724327ec359a7496bc660a}
+
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+void \textbf{tag\-Daughters} (\bf{CNucleus} $\ast$n, std::string const \&parent\-History)\label{classCHistory_7c36afd4868ea50ed5c9d2d9325d3953}
+
+\item 
+std::string \bf{add\-To\-History} (char steptype, std::string const \&prevhist)
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+History\-Map \textbf{the\-Map}\label{classCHistory_f20b6d0ffcad248e1a4a62c067da36af}
+
+\item 
+int \bf{max\-Evap\-Z}\label{classCHistory_257212bf79bffca1211cff4a274c77e3}
+
+\begin{CompactList}\small\item\em maximum Z for evaporation \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Private Attributes}
+\begin{CompactItemize}
+\item 
+static class CHistory::History\-String\-To\-Digits\-Translator \textbf{the\-Translator}\label{classCHistory_b34c112c96ad11bd2a8d537b1d5eb654}
+
+\item 
+static const int \textbf{max\-Int32Len} = numeric\_\-limits$<$int32\_\-t$>$::digits10\label{classCHistory_9de0de2ea60dca8b6efe475e407abfd5}
+
+\item 
+static \bf{CEvap} $\ast$ \textbf{evap}\label{classCHistory_c42edfe8332bfe26ade441d8f75cccf1}
+
+\end{CompactItemize}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \textbf{History\-String\-To\-Digits\-Translator}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+figures out the history of a fragment 
+
+!
+
+Figures out the de-excitation history of a fragment, and condenses this information as either a string of characters or a string of digits (i.e. an integer). Each character/digit represents one or more steps in the de-excitation process. Some of the possible processes may never be realised by a particular de-excitation model, but the encoding is meant to be allow comparisons among different de-excitation models. GEMINI++, for instance, will never produce fragments through process 3 ('m'), i.e. multifragmentation.
+
+The currently defined possible character values and their meanings are the following:
+
+digit char meaning 1 e evaporation product 2 E evaporation residue 3 m multifragmentation 4 a light partner in asymmetric fission or IMF emission 5 A heavy partner in asymmetric fission or IMF emission 6 f light partner in fission 7 F heavy partner in fission 8 s saddle-to-scission emission 9 n non-statistical emission (decay)
+
+Consecutive de-excitation steps are sometimes encoded as a single step, to save some space in the string. The rules are the following: 1. if last step == 'E' and new step == 'e', condense the two as 'e'; 2. if last step == 'E' and new step == 'E', condense the two as 'E'; 3. if last step == 's' and new step == 's', condense the two as 's'.
+
+Usage:
+
+\doxyref{CNucleus}{p.}{classCNucleus} $\ast$CN = new CNucleus(i\-Z, i\-A, f\-Ex, f\-J); CN-$>$decay(); \doxyref{CHistory}{p.}{classCHistory} the\-History\-Class(CN); int n = CN-$>$Get\-Number\-Of\-Products(); for(int i=0; i$<$n; ++i) \{ \doxyref{CNucleus}{p.}{classCNucleus} $\ast$product = CN-$>$get\-Products(i); std::string history\-String = the\-History\-Class.get\-History\-As\-String(product); // or int32\_\-t history\-Int = the\-History\-Class.get\-History(product); \} 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CHistory@{CHistory}!~CHistory@{$\sim$CHistory}}
+\index{~CHistory@{$\sim$CHistory}!CHistory@{CHistory}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CHistory::$\sim$CHistory ()\hspace{0.3cm}{\tt  [inline]}}\label{classCHistory_e985baf850fac23d61011c2c47af93ed}
+
+
+destructor \index{CHistory@{CHistory}!CHistory@{CHistory}}
+\index{CHistory@{CHistory}!CHistory@{CHistory}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CHistory::CHistory (\bf{CNucleus} $\ast$ {\em np})\hspace{0.3cm}{\tt  [inline]}}\label{classCHistory_5ac4d99b4715b67a9783b49bb232ae13}
+
+
+constructor \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em np}]pointer to compound nucleus \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{CHistory@{CHistory}!addToHistory@{addToHistory}}
+\index{addToHistory@{addToHistory}!CHistory@{CHistory}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}std::string CHistory::add\-To\-History (char {\em steptype}, std::string const \& {\em prevhist})\hspace{0.3cm}{\tt  [private]}}\label{classCHistory_46309cc034271c878f81293cfe56bbe4}
+
+
+add a step to the history variable \index{CHistory@{CHistory}!getHistory@{getHistory}}
+\index{getHistory@{getHistory}!CHistory@{CHistory}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int32\_\-t CHistory::get\-History (\bf{CNucleus} $\ast$ {\em p})\hspace{0.3cm}{\tt  [inline]}}\label{classCHistory_5d1b8f3856a4c22eb1d429d8444ba460}
+
+
+returns the history of a fragment as an integer (a sequence of digits) \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em p}]is a pointer to the fragment \end{description}
+\end{Desc}
+\index{CHistory@{CHistory}!getHistoryAsString@{getHistoryAsString}}
+\index{getHistoryAsString@{getHistoryAsString}!CHistory@{CHistory}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}std::string CHistory::get\-History\-As\-String (\bf{CNucleus} $\ast$ {\em p})\hspace{0.3cm}{\tt  [inline]}}\label{classCHistory_a804c6d35e67273aa0b5b6259ce332d4}
+
+
+returns the history of a fragment as a string (a sequence of chars) \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em p}]is a pointer to the fragment \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CHistory.h\item 
+History.cpp\end{CompactItemize}

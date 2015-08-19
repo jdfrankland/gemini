@@ -1,0 +1,87 @@
+\section{CEvap Class Reference}
+\label{classCEvap}\index{CEvap@{CEvap}}
+stores info for light particle evaporation  
+
+
+{\tt \#include $<$CEvap.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{$\sim$CEvap} ()
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{CEvap} $\ast$ \textbf{instance} ()\label{classCEvap_e449f192ce43cfd9d864628398e8d9ba}
+
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int \bf{n\-Light}\label{classCEvap_d9d4d37aa62cf72432bcf71e8f35b7c7}
+
+\begin{CompactList}\small\item\em number of light-particle evaporation channels \item\end{CompactList}\item 
+\bf{CLight\-P} $\ast$$\ast$ \bf{light\-P}\label{classCEvap_ef12731853c39ee996ed8f33aa3208ad}
+
+\begin{CompactList}\small\item\em array of evaporated particles \item\end{CompactList}\item 
+int \bf{max\-Z}\label{classCEvap_0a69feb1d6e867e57a11a8dd952fe855}
+
+\begin{CompactList}\small\item\em max Z of all fragments evaporated, IMF emission for larger Z's \item\end{CompactList}\item 
+\bf{SDecay} $\ast$ \bf{decay}\label{classCEvap_7dc33089f4a45d0fb33f53b82af1d430}
+
+\begin{CompactList}\small\item\em information on secondary decay of evaporated particles \item\end{CompactList}\item 
+float $\ast$ \bf{prob}\label{classCEvap_8d5f62d335f958c5ea80546e3c8fce77}
+
+\begin{CompactList}\small\item\em probability for decay \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{CEvap} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\bf{CTl\-Bar\-Dist} $\ast$$\ast$ \bf{tl\-Array}\label{classCEvap_cbc790b16a612d40ee0c5ef07bd6d979}
+
+\begin{CompactList}\small\item\em arrays of objects generating transmission coef. \item\end{CompactList}\item 
+\bf{CSig\-Bar\-Dist} $\ast$$\ast$ \bf{sig\-Bar\-Dist}\label{classCEvap_24f6bca6aa46e8827332806cd1f3a9e6}
+
+\begin{CompactList}\small\item\em arrays of objects generating inverse cross section \item\end{CompactList}\item 
+int \bf{n\-Tl}\label{classCEvap_eaa49009f3e2afb26b390690babc7d0f}
+
+\begin{CompactList}\small\item\em number of transmission coef generating objects \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static \bf{CEvap} $\ast$ \bf{f\-Instance} = 0\label{classCEvap_00f7ca875136d0ba0d26b6648aa4ade7}
+
+\begin{CompactList}\small\item\em instance member to make this class a singleton \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+stores info for light particle evaporation 
+
+!
+
+class to store indormation on all the light particle evaporation channels 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CEvap@{CEvap}!CEvap@{CEvap}}
+\index{CEvap@{CEvap}!CEvap@{CEvap}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CEvap::CEvap ()\hspace{0.3cm}{\tt  [protected]}}\label{classCEvap_5e9710c313ea5ce45cdc50d09ac8e947}
+
+
+Constructor \index{CEvap@{CEvap}!~CEvap@{$\sim$CEvap}}
+\index{~CEvap@{$\sim$CEvap}!CEvap@{CEvap}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CEvap::$\sim$CEvap ()}\label{classCEvap_759413aca22735496f2bb36c61c5fce4}
+
+
+Destructor 
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+CEvap.h\item 
+Evap.cpp\end{CompactItemize}
