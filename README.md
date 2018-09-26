@@ -15,18 +15,24 @@ To build and install:
 
   * clone this repository: 
   
-      git clone https://github.com/jdfrankland/gemini.git
+      - git clone https://github.com/jdfrankland/gemini.git
       
   * in the source directory, run `cmake` (version 2.8 or greater) giving the required installation directory:
   
-      cmake . -DCMAKE_INSTALL_PREFIX=[path to installation]
+      - cmake . -DCMAKE_INSTALL_PREFIX=[path to installation]
       
   * to build and install, do
   
-      make [-j x] install
+      - make [-j x] install
       
     where `x` is the optional number of CPUs to use for a parallel build, if desired.
   
+  * in order to use the library, define/modify the two following environment variables:
+  
+      - `LD_LIBRARY_PATH`: add [path to installation]/lib
+      - `GINPUT`: set to [path to installation]/share/gemini
+      
+      
 ### Gemini++ References
 R. J. Charity, "Systematic description of evaporation spectra for light and heavy compound nuclei", [[Physical Review C82, 014610 (2010)|https://doi.org/10.1103/PhysRevC.82.014610]]
 
