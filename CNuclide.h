@@ -21,7 +21,7 @@ class CNuclide //: public TObject
 protected:
     string strChemName; //!< gives isotopes and chemical name, e.g. 208Pb
     string strName; //!< identifation name 
-    static const char * name[101]; //!< array containing name of all elements
+    static const char * name[111]; //!< array containing name of all elements
 
     
     

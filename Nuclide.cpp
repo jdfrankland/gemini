@@ -2,7 +2,7 @@
 
 // mod-TU CMass CNuclide::mass;
 
-const char*  CNuclide::name[101]={"n","H","He","Li","Be","B",
+const char*  CNuclide::name[111]={"n","H","He","Li","Be","B",
                               "C","N","O","F","Ne",
 			      "Na","Mg","Al","Si","P","S","Cl","Ar","K","Ca",
 			      "Sc","Ti","V","Cr","Mn","Fe","Co","Ni","Cu","Zn",
@@ -13,7 +13,8 @@ const char*  CNuclide::name[101]={"n","H","He","Li","Be","B",
 			       "Tm","Yb","Lu","Hf","Ta","W","Re","Os","Ir",
                               "Pt","Au","Hg","Tl","Pb","Bi","Po","At","Rn",
                               "Fr","Ra","Ac","Th","Pa","U","Np","Pu","Am",
-                              "Cm","Bk","Cf","Es","Fm"};
+				  "Cm","Bk","Cf","Es","Fm","Md","No","Lr",
+                                  "Rf","Db","Sg","Bh","Hs","Mt","Ds"};
 
 //*******************************************
 /**
@@ -55,7 +56,7 @@ void CNuclide::init(int iZ0, int iA0)
   else if (iZ ==1 && iA == 1) strChemName = "p";
   else if (iZ == 1 && iA == 2) strChemName = "d";
   else if (iZ == 1 && iA == 3) strChemName = "t";
-  else if (iZ>100) {
+  else if (iZ>110) {
    ostringstream outstring;
    outstring << iA << "X-" << iZ;
    strChemName = outstring.str();

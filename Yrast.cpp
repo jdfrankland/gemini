@@ -760,8 +760,8 @@ float CYrast::getMomentOfInertiaSierk(float J)
      if (Z >= 80) fg1 = 0.0;
      if (bimax > 0.95) fg1 = 0.0;
      if (aimaxh > aimax) ff1 = 0.0;
-     double ff2 = 1.0 - ff1;
-     //double fg2 = 1.0 - fg1;
+     ff2 = 1.0 - ff1;
+     fg2 = 1.0 - fg1;
      aimax = aimax*ff1 + ff2*aimaxh;
      aimax2 = aimax2*ff1 + ff2*aimidh;
    }
