@@ -11,7 +11,7 @@ To build and install:
 
   * clone this repository: 
   
-      git clone https://github.com/jdfrankland/gemini
+      git clone https://github.com/jdfrankland/gemini.git
       
   * in the source directory, run `cmake` (version 2.8 or greater) giving the required installation directory:
   
