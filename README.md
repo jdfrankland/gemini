@@ -7,9 +7,9 @@ The modifications concern only the way the library is built and installed:
   * the original `Makefile` made a static library, but did not install it or the header files required for development;
   * we build a shared library, `libGemini.so` and install it and all required files in a standard architecture:
   
-      [path to installation]/lib/libGemini.so
-      [path to installation]/include/gemini/   *all header files*
-      [path to installation]/share/gemini/    *tbl/ and tl/ directories*
+      - [path to installation]/lib/libGemini.so
+      - [path to installation]/include/gemini/   *all header files*
+      - [path to installation]/share/gemini/    *tbl/ and tl/ directories*
   
 To build and install:
 
