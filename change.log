@@ -317,3 +317,10 @@
 15th Aug 2014  Modified Run.cpp to include some inclusive n,p,a kinetic energy
 	       spectra, also corrected some mislabelling of axies in 
 	       existing spectra. Added include <cstdlib> to CGdr.h
+12th Sept 2014 Extended the table of the chemical sysbols in Nuclide.cpp 
+	       up to Ds.  In Run.cpp - made the Hauser-Feshbach the default, 
+	       increased the range the N number histrogram for superheavy 
+	       events. Fixed the title of some histograms 
+2nd Oct 2014   Zach Kohley found a bug in the Sierk calculation of the moments 
+	       of interia. This would only matter if your were using the 
+	       Lestone option

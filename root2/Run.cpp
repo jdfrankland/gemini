@@ -49,7 +49,8 @@ CRun::CRun(int iZcn, int iAcn, float fEx, float l0, float d0, int lmax, float pl
   //crerate compound nucleus
   CNucleus CN(iZcn,iAcn);
 
-  CNucleus::setUserGDR();
+  CNucleus.SetEvapMode(1); // turn on Hauser Feshbach
+  //CNucleus::setUserGDR();
   //set GEMINI++ parameters
   //CNucleus::setSolution(1);
   //CNucleus::setFissionScaleFactor(7.38);
@@ -105,12 +106,12 @@ CRun::CRun(int iZcn, int iAcn, float fEx, float l0, float d0, int lmax, float pl
   TH1F histEgamma("Egamma","",100,0,50);
   histEgamma.GetXaxis()->SetTitle("E_{#gamma} [MeV]");
   histEgamma.GetYaxis()->SetTitle("#sigma(E_{#gamma}) [mb/MeV]");
-  histEgamma.SetTitle("distribution of total gamma energy for all events");
+  histEgamma.SetTitle("distribution of gamma energies for all events");
 
   TH1F histEgammaER("EgammaER","",100,0,50);
   histEgammaER.GetXaxis()->SetTitle("E_{#gamma} [MeV] for residues");
   histEgammaER.GetYaxis()->SetTitle("#sigma(E_{#gamma}) [mb/MeV]");
-  histEgammaER.SetTitle("distribution of total gamma energy for all events");
+  histEgammaER.SetTitle("distribution of gamma energies for evap. residues");
 
   TH1F histER("histER","",91,-0.5,90.5);
   histER.GetXaxis()->SetTitle("J_{CN} [hbar]");
@@ -153,7 +154,7 @@ CRun::CRun(int iZcn, int iAcn, float fEx, float l0, float d0, int lmax, float pl
   histZ_nofis.GetYaxis()->SetTitle("#sigma(Z) [mb]");
   histZ_nofis.SetTitle("charge distribution for non-fission events");
 
-  TH1F histN("histN","",133,-0.5,132.5);
+  TH1F histN("histN","",153,-0.5,152.5);
   histN.GetXaxis()->SetTitle("N");
   histN.GetYaxis()->SetTitle("#sigma(N) [mb]");
   histN.SetTitle(" inclusive neutron-number distribution");
