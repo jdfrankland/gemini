@@ -2278,7 +2278,7 @@ void CNucleus::asyFissionDivide()
  float deltaP2 = mass->getPairing(daughterHeavy->iZ,daughterHeavy->iA);
  float deltaW1 = mass->getShellCorrection(daughterLight->iZ,daughterLight->iA);
  float deltaW2 = mass->getShellCorrection(daughterHeavy->iZ,daughterHeavy->iA);
- const int Nuu_max = 500;
+ const int Nuu_max = 1000;
  float  uu[Nuu_max];
  float  probuu[Nuu_max];
 
