@@ -30,7 +30,7 @@ To build and install:
   * in order to use the library, define/modify the two following environment variables:
   
       - `LD_LIBRARY_PATH`: add [path to installation]/lib
-      - `GINPUT`: set to [path to installation]/share/gemini
+      - `GINPUT`: set to [path to installation]/share/gemini/
       
       
 ### Gemini++ References
