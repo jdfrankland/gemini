@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
+;
+[subrepo]
+	remote = https://gitlab.in2p3.fr/jdfcode/cmake/cmakelistsutilities.git
+	branch = main
+	commit = 865eae9299ffdcb6ba773e630a722a989477e143
+	parent = e8fbfa6f60c22414695a06ef434a88033ba1046a
+	method = merge
+	cmdver = 0.4.6
