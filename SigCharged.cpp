@@ -13,13 +13,7 @@ CSigCharged::CSigCharged(string sName0, float Zp0, float Ap0)
     }
   neutron = 0;
   sName = "tl/"+sName0+".inv";
-   string fullName;
-  if (getenv("GINPUT") == NULL) fullName = sName;
-  else
-    {
-      string dir(getenv("GINPUT"));
-     fullName = dir+sName;
-    }
+   string fullName=string(GINPUT)+sName;
   ifstream ifFile (fullName.c_str());
 
   if (ifFile.fail() )

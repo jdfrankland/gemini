@@ -1,6 +1,12 @@
-cmake_minimum_required (VERSION 2.8)
+cmake_minimum_required (VERSION 3.12)
 
-project(Gemini)
+project(gemini++)
+
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/CMakeListsUtilities)
+
+include(GNUPackageInstallDirs)
+
+include(StandardRpathHandling)
 
 set(SOURCES Angle.cpp      Fus.cpp           LightP.cpp   Random.cpp      TlArray.cpp
 AngleDist.cpp  Gdr.cpp           Mass.cpp     Scission.cpp    TlBarDist.cpp
@@ -12,12 +18,9 @@ CAngle.h      CGdr.h           CMass.h     CRun.h       CSigCharged.h  CYrast.h
 CChart.h      CHistory.h       CNucleus.h  CRunThick.h  CTlArray.h     SStoreEvap.h
 CEvap.h       CLevelDensity.h  CNuclide.h  CScission.h  CTlBarDist.h)
 
-add_library(Gemini SHARED ${SOURCES})
+add_library(gemini++ SHARED ${SOURCES})
+target_compile_definitions(gemini++ PUBLIC GINPUT="${CMAKE_INSTALL_FULL_PKGDATADIR}/")
 
-set(LIB_INSTALL ${CMAKE_INSTALL_PREFIX}/lib)
-set(HEAD_INSTALL ${CMAKE_INSTALL_PREFIX}/include/gemini)
-set(DATA_INSTALL ${CMAKE_INSTALL_PREFIX}/share/gemini)
-
-install(TARGETS Gemini DESTINATION ${LIB_INSTALL})
-install(FILES ${HEADERS} DESTINATION ${HEAD_INSTALL})
-install(DIRECTORY tbl tl DESTINATION ${DATA_INSTALL})
+install(TARGETS gemini++ DESTINATION ${CMAKE_INSTALL_PKLIBDIR})
+install(FILES ${HEADERS} DESTINATION ${CMAKE_INSTALL_PKGINCDIR})
+install(DIRECTORY tbl tl DESTINATION ${CMAKE_INSTALL_PKGDATADIR})

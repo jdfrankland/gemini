@@ -18,15 +18,10 @@ CSigBarDist::CSigBarDist(string sName0, float Zp0, float Ap0)
 
 
   sName = sName0+"P";
-  //see if second file is there 
+  //see if second file is there
 
-  string fullName;
-  if (getenv("GINPUT") == NULL) fullName = "tl/"+sName+".inv";
-  else
-    {
-      string dir(getenv("GINPUT"));
-      fullName = dir+"tl/"+sName+".inv";
-    }
+  string fullName=string(GINPUT)+"tl/"+sName+".inv";
+
   ifstream ifFile(fullName.c_str());
 
   if (ifFile.fail() || sName0 == "neutron" )

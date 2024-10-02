@@ -15,15 +15,9 @@ CTlBarDist::CTlBarDist(string sName0)
 
 
   sName = sName0+"P";
-  //see if second file is there 
+  //see if second file is there
 
-  string fullName;
-  if (getenv("GINPUT") == NULL) fullName = "tl/"+sName+".tl";
-  else
-    {
-      string dir(getenv("GINPUT"));
-      fullName = dir+"tl/"+sName+".tl";
-    }
+  string fullName=string(GINPUT)+"tl/"+sName+".tl";
   ifstream ifFile(fullName.c_str());
 
 
