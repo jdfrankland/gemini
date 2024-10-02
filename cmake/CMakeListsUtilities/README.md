@@ -3,7 +3,7 @@
 Various useful bits of code used for writing CMakeLists.txt files:
 
   - CheckProjectIsTopLevel: sets PROJECT_IS_TOP_LEVEL even if CMake version < 3.21
-  - GNUPackageInstallDirs: extension of GNUInstallDirs which adds 3 standard directories for installing project libraries, header files, and CMake package config files
+  - GNUPackageInstallDirs: extension of GNUInstallDirs which adds project-specific directories for libraries, header files, data files, and CMake package config files
   - StandardRpathHandling: make sure all libraries/executables have correct RPATH settings
   - InstallConfigPackage: installs Config files so other packages can find us (no version information)
   - InstallConfigPackageVersion: installs Config files so other packages can find us (with version information)
@@ -50,8 +50,8 @@ Some manual intervention may be required depending on the project, but it should
   + any library or executable linking to our targets gets a full RPATH to allow it to find all the required shared libs
 
 ## GNUPackageInstallDirs
-Just an extension of GNUInstallDirs which adds 3 standard directories for installing
-project libraries, header files, and CMake package config files. The result depends on
+Just an extension of GNUInstallDirs which adds project-specific directories for installing
+libraries, header files, data files and CMake package config files. The result depends on
 whether the current project is being built as a top-level project or a subproject of
 another:
 
@@ -62,14 +62,17 @@ if(PROJECT_IS_TOP_LEVEL)
    set(CMAKE_INSTALL_PKGINCDIR ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
    set(CMAKE_INSTALL_PKGLIBDIR ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME})
    set(CMAKE_INSTALL_PKGCONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
+   set(CMAKE_INSTALL_PKGDATADIR ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME})
 else()
 #-- when built as a subproject, we define our installation relative to the main project
    set(CMAKE_INSTALL_PKGINCDIR ${CMAKE_INSTALL_PKGINCDIR}/${PROJECT_NAME})
    set(CMAKE_INSTALL_PKGLIBDIR ${CMAKE_INSTALL_PKGLIBDIR}/${PROJECT_NAME})
    set(CMAKE_INSTALL_PKGCONFIGDIR ${CMAKE_INSTALL_PKGCONFIGDIR}/${PROJECT_NAME})
+   set(CMAKE_INSTALL_PKGDATADIR ${CMAKE_INSTALL_PKGDATADIR}/${PROJECT_NAME})
 endif()
 ~~~
 
-PROJECT_NAME must be set before calling
+PROJECT_NAME must be set before calling.
 
 If being used as a subproject, the master project must have defined the CMAKE_INSTALL_* variables
+(e.g. by itself calling `include(GNUPackageInstallDirs)`)
