@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://gitlab.in2p3.fr/jdfcode/cmake/cmakelistsutilities.git
 	branch = main
-	commit = 77fb1612678ca5d0141bbcad1376d6d9b919d46d
-	parent = ceeb6f43e4acc34b1db77c5226ebcac53e961173
+	commit = 1d89ba2c0b0cfe5ff97bc7fb881cdccbc65909ad
+	parent = b8954e70eab309ab625a827efde00b6127f38bf8
 	method = merge
 	cmdver = 0.4.6

@@ -1,3 +1,5 @@
+cmake_minimum_required(VERSION 3.7) # for GNUInstallDirs_get_absolute_install_dir macro
+
 # for CMake versions < 3.21
 include(CheckProjectIsTopLevel)
 
@@ -16,3 +18,17 @@ else()
    set(CMAKE_INSTALL_PKGDATADIR ${CMAKE_INSTALL_PKGDATADIR}/${PROJECT_NAME})
 endif()
 
+#-- make absolute path variables using macro from GNUInstallDirs >=3.7
+foreach(dir
+   PKGINCDIR
+   PKGLIBDIR
+   PKGCONFIGDIR
+   PKGDATADIR
+   )
+   if(CMAKE_VERSION VERSION_LESS 3.20)
+      GNUInstallDirs_get_absolute_install_dir(CMAKE_INSTALL_FULL_${dir} CMAKE_INSTALL_${dir})
+   else()
+      GNUInstallDirs_get_absolute_install_dir(CMAKE_INSTALL_FULL_${dir} CMAKE_INSTALL_${dir} ${dir})
+   endif()
+endforeach()
+ 
