@@ -1,14 +1,20 @@
 #---install cmake stuff for find_package for use by other projects
 # -- (no version information)
 
-#-- namespace by default = project name
-if(NOT PROJECT_TARGETS_NAMESPACE)
-    set(PROJECT_TARGETS_NAMESPACE ${PROJECT_NAME})
+#-- no namespace for project targets if defined
+if(NOT NO_PROJECT_TARGETS_NAMESPACE)
+
+   #-- namespace by default = project name
+   if(NOT PROJECT_TARGETS_NAMESPACE)
+      set(PROJECT_TARGETS_NAMESPACE ${PROJECT_NAME})
+   endif()
+
+   set(project_namespace_instruction NAMESPACE ${PROJECT_TARGETS_NAMESPACE}::)
 endif()
 
 install(EXPORT ${PROJECT_NAME}Exports
     DESTINATION ${CMAKE_INSTALL_PKGCONFIGDIR}
-    NAMESPACE ${PROJECT_TARGETS_NAMESPACE}::
+    ${project_namespace_instruction}
     FILE ${PROJECT_NAME}-targets.cmake
 )
 
