@@ -1,0 +1,38 @@
+#
+#---Config file for @PROJECT_NAME@ to be used with find_package()
+# Usage:
+#  find_package(@PROJECT_NAME@)
+#  if(@PROJECT_NAME@_FOUND)
+#     target_link_libraries([some target] PUBLIC [@PROJECT_NAME@ targets...])
+#  endif(@PROJECT_NAME@_FOUND)
+
+@PACKAGE_INIT@
+
+#-- handle dependencies of project on external projects
+include(CMakeFindDependencyMacro)
+@PACKAGE_DEPENDENCIES@
+
+#-- handle dependencies of project on subprojects
+@SUBPROJECT_DEPENDENCIES@
+
+include(${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@-targets.cmake)
+check_required_components(@PROJECT_NAME@)
+
+include ( FindPackageHandleStandardArgs )
+
+if( @PROJECT_NAME@_VERSION )
+    find_package_handle_standard_args (@PROJECT_NAME@
+                                   VERSION_VAR @PROJECT_NAME@_VERSION
+                                   REQUIRED_VARS PACKAGE_PREFIX_DIR
+                                   )
+else()
+    find_package_handle_standard_args (@PROJECT_NAME@
+                               REQUIRED_VARS PACKAGE_PREFIX_DIR
+                               )
+endif()
+
+# make sure that any library or executable linking to our targets gets
+# a full RPATH to allow it to find all the required shared libs
+set(CMAKE_SKIP_RPATH FALSE)
+set(CMAKE_SKIP_INSTALL_RPATH FALSE)
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)

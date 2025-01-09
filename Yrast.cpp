@@ -393,13 +393,7 @@ CYrast::CYrast()
 
   mass = CMass::instance(); // mass singleton
   string fileName("tbl/sad.tbl");
-  string fullName;
-  if (getenv("GINPUT") == NULL) fullName = fileName;
-  else
-    {
-      string dir(getenv("GINPUT"));
-     fullName = dir+fileName;
-    }
+  string fullName=string(GINPUT)+fileName;
   ifstream ifFile (fullName.c_str());
 
 

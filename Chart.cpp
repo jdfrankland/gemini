@@ -22,13 +22,7 @@ CChart* CChart::fInstance = 0;
 CChart::CChart()
 {
   string fileName("tbl/chart.tbl");
-  string fullName;
-  if (getenv("GINPUT") == NULL) fullName = fileName;
-  else
-    {
-      string dir(getenv("GINPUT"));
-      fullName = dir+fileName;
-    }
+  string fullName=string(GINPUT)+fileName;
   ifstream ifFile (fullName.c_str());
 
   if (ifFile.is_open() != 1) 

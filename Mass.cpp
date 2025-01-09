@@ -374,13 +374,7 @@ void CMass::ReadFRDMFile()
 
 
   string fileName("tbl/mass.tbl");
-  string fullName;
-  if (getenv("GINPUT") == NULL) fullName = fileName;
-  else
-    {
-      string dir(getenv("GINPUT"));
-     fullName = dir+fileName;
-    }
+  string fullName=string(GINPUT)+fileName;
   ifstream ifFile (fullName.c_str());
 
 
@@ -480,13 +474,7 @@ void CMass::ReadThomasFermiFile()
 
 
   string fileName("tbl/mass_tf.tbl");
-  string fullName;
-  if (getenv("GINPUT") == NULL) fullName = fileName;
-  else
-    {
-      string dir(getenv("GINPUT"));
-     fullName = dir+fileName;
-    }
+  string fullName=string(GINPUT)+fileName;
   ifstream ifFile (fullName.c_str());
 
   if (ifFile.fail()) 

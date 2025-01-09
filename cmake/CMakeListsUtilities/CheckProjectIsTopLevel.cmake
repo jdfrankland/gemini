@@ -1,0 +1,15 @@
+# make sure we know if we are the top level project or just a subdirectory
+if(${CMAKE_VERSION} VERSION_LESS 3.21)
+
+   if(${PROJECT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
+
+      set(PROJECT_IS_TOP_LEVEL TRUE)
+
+   else(${PROJECT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
+
+      set(PROJECT_IS_TOP_LEVEL FALSE)
+
+   endif(${PROJECT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
+
+endif(${CMAKE_VERSION} VERSION_LESS 3.21)
+

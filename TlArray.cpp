@@ -14,13 +14,7 @@ CTlArray::CTlArray(string sName0)
   sName = "tl/"+sName0+".tl";
 
 
-  string fullName;
-  if (getenv("GINPUT") == NULL) fullName = sName;
-  else
-    {
-      string dir(getenv("GINPUT"));
-     fullName = dir+sName;
-    }
+  string fullName=string(GINPUT)+sName;
   ifstream ifFile (fullName.c_str());
 
   if (ifFile.fail() )

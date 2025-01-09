@@ -1,23 +1,48 @@
-cmake_minimum_required (VERSION 2.8)
+cmake_minimum_required (VERSION 3.12)
 
-project(Gemini)
+project(Gemini++
+   VERSION 2014.10.2
+   DESCRIPTION "Gemini++ code to model the statistical decay of compound nuclei"
+   LANGUAGES CXX
+   )
 
-set(SOURCES Angle.cpp      Fus.cpp           LightP.cpp   Random.cpp      TlArray.cpp
-AngleDist.cpp  Gdr.cpp           Mass.cpp     Scission.cpp    TlBarDist.cpp
-Chart.cpp      History.cpp       Nucleus.cpp  SigBarDist.cpp  Weight.cpp
-Evap.cpp       LevelDensity.cpp  Nuclide.cpp  SigCharged.cpp  Yrast.cpp)
+list(APPEND CMAKE_MODULE_PATH
+      	       ${PROJECT_SOURCE_DIR}/cmake/CMakeListsUtilities
+	       )
 
-set(HEADERS CAngleDist.h  CFus.h           CLightP.h   CRandom.h    CSigBarDist.h  CWeight.h
-CAngle.h      CGdr.h           CMass.h     CRun.h       CSigCharged.h  CYrast.h
-CChart.h      CHistory.h       CNucleus.h  CRunThick.h  CTlArray.h     SStoreEvap.h
-CEvap.h       CLevelDensity.h  CNuclide.h  CScission.h  CTlBarDist.h)
+include(GNUPackageInstallDirs)
 
-add_library(Gemini SHARED ${SOURCES})
+include(StandardRpathHandling)
 
-set(LIB_INSTALL ${CMAKE_INSTALL_PREFIX}/lib)
-set(HEAD_INSTALL ${CMAKE_INSTALL_PREFIX}/include/gemini)
-set(DATA_INSTALL ${CMAKE_INSTALL_PREFIX}/share/gemini)
+set(SOURCES
+   Angle.cpp      Fus.cpp           LightP.cpp   Random.cpp      TlArray.cpp
+   AngleDist.cpp  Gdr.cpp           Mass.cpp     Scission.cpp    TlBarDist.cpp
+   Chart.cpp      History.cpp       Nucleus.cpp  SigBarDist.cpp  Weight.cpp
+   Evap.cpp       LevelDensity.cpp  Nuclide.cpp  SigCharged.cpp  Yrast.cpp
+   )
 
-install(TARGETS Gemini DESTINATION ${LIB_INSTALL})
-install(FILES ${HEADERS} DESTINATION ${HEAD_INSTALL})
-install(DIRECTORY tbl tl DESTINATION ${DATA_INSTALL})
+set(HEADERS
+   CAngleDist.h  CFus.h           CLightP.h   CRandom.h    CSigBarDist.h  CWeight.h
+   CAngle.h      CGdr.h           CMass.h     CRun.h       CSigCharged.h  CYrast.h
+   CChart.h      CHistory.h       CNucleus.h  CRunThick.h  CTlArray.h     SStoreEvap.h
+   CEvap.h       CLevelDensity.h  CNuclide.h  CScission.h  CTlBarDist.h
+   )
+
+add_library(Gemini++ SHARED ${SOURCES})
+
+target_compile_definitions(Gemini++
+      	             	      PUBLIC GINPUT="${CMAKE_INSTALL_FULL_PKGDATADIR}/")
+
+install(TARGETS Gemini++
+ EXPORT ${PROJECT_NAME}Exports
+ LIBRARY DESTINATION ${CMAKE_INSTALL_PKGLIBDIR}
+ INCLUDES DESTINATION ${CMAKE_INSTALL_PKGINCDIR}
+)
+install(FILES ${HEADERS} DESTINATION ${CMAKE_INSTALL_PKGINCDIR})
+install(DIRECTORY tbl tl DESTINATION ${CMAKE_INSTALL_PKGDATADIR})
+
+set(PROJECT_CONFIG_TEMPLATE_FILE
+   ${PROJECT_SOURCE_DIR}/cmake/CMakeListsUtilities/projectConfig.cmake.in
+   )
+set(NO_PROJECT_TARGETS_NAMESPACE ON)
+include(InstallConfigPackageVersion)
